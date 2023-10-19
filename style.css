@@ -1,7 +1,7 @@
 body {
     background-color: #000000;
     font-family: 'Bookman Old Style';
-    color: #000000;
+    color: #000000
 }
 
 h1 {
@@ -33,7 +33,7 @@ header {
 
 main {
     width: 80%;
-    background-color: #aeeeee;
+    background-color: #48e8ff;
     float: left;
     padding: 5px;
     margin-left: 10%;
@@ -42,14 +42,16 @@ main {
 }
 
 footer {
-    clear: both;
-    background-color: black; 
-    color: #ffffff; 
-    text-align: center; 
-    margin-left: 10%; 
-    padding: 5px; 
-    font-size: 12pt; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b4c9a;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 12pt;
     width: 80%;
+    margin: 0 auto;
 }
 
 a:visited {
@@ -58,7 +60,7 @@ a:visited {
 }
 
 nav {
-    color: #ffffff;
+    color: #aeeeee;
     padding: 5px;
     width: 80%;
     margin-left: 10%;
@@ -99,11 +101,11 @@ label {
     display: inline-block;
     text-align: right;
     font-size: 20px;
-    color: #88945f;
+    color: #bf2e2e;
 }
 
 table {
-    background-color: #aeeeee;
+    background-color: #48e8ff;
     color: #ffffff;
     width: 10%;
     border: 5px solid #ffffff;
@@ -112,12 +114,12 @@ table {
 }
 
 table tr th, table tr td {
-   border: 1px solid #aeeeee;
+   border: 1px solid #48e8ff;
    padding: 50px;
 }
 
 .row-color {
-    color: #aeeeee;
+    color: #48e8ff;
 }
 
 #current-page {
@@ -132,7 +134,7 @@ table tr th, table tr td {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #86898e;
+    background-color: #bf2e2e;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -255,3 +257,4 @@ table tr th, table tr td {
     position: relative;
     margin-top: 20px;
 }
+
