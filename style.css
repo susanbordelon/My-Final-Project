@@ -1,7 +1,7 @@
 body {
     background-color: #000000;
     font-family: 'Bookman Old Style';
-    color: #000000
+    color: #000000;
 }
 
 h1 {
@@ -42,16 +42,14 @@ main {
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0b4c9a;
-    color: white;
-    text-align: center;
-    padding: 5px;
-    font-size: 12pt;
+    clear: both;
+    background-color: black; 
+    color: #ffffff; 
+    text-align: center; 
+    margin-left: 10%; 
+    padding: 5px; 
+    font-size: 12pt; 
     width: 80%;
-    margin: 0 auto;
 }
 
 a:visited {
