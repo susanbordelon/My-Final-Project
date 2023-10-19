@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Maddie B's Kitchen</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+<style>
+    form {
+        width: 95%;
+        margin: 0 auto;
+        padding: 5px;
+        font-family: 'Bookman Old Style';
+        background-color: #aeeeee;
+    }
+
+   input, textarea {
+      color: black;
+      font-size: 20px;
+      font-family: 'Bookman Old Style';
+      border-radius: 20px;
+      display: inline-block;
+   }
+
+   input[type=number] {
+      background-color: black;
+   }
+
+   input[type=checkbox], input[type=radio] {
+       height: 15px;
+       width: 15px;
+   }
+
+   select {
+       background-color: white;
+   }
+
+   button, input[type=reset], input[type=submit] {
+       font-family:'Bookman Old Style';
+       cursor: pointer;
+       background-color: black;
+       border-radius: 10px;
+   }
+
+   label {
+       color: black;
+       display: inline-block;
+       text-align: left;
+   }
+
+   label2 {
+       color: black;
+       font-size: 20px;
+       display: inline-block;
+   }
+
+   .form-group {
+       display: flex;
+       align-items: center;
+       margin: 10px;
+   }
+
+   .form-group > input, .form-group > textarea, .form-group > select {
+       width: 80%;
+       border: none;
+       outline: none;                                                                      
+   }
+
+   .form-group > textarea {
+       height: 100px;
+       resize: none;
+   }
+
+   .form-group > input[type=submit], .form-group > input[type=reset] {
+       width: auto;
+       margin-left: auto;
+   }
+
+   .radio-group {
+       display: flex;
+       flex-direction: column;
+       margin-right: 10px;
+   }
+
+   .radio-group > div {
+       display: flex;
+       align-items: center;
+   }
+
+   .radio-group > div > label {
+       margin-right: 5px;
+   }
+
+</style>
+
+</head>
+
+<body id="container">
+
+<header>
+    <img src="images/logo.png" alt="Maddie B's logo 2023" width="150" height="150" />
+    <h1>Maddie B's Kitchen</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="hours.html">Hours and Location</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="merchandise.html">Merchandise</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="catering.html">Catering</a></li>
+    </ul>
+</nav>
+        
+        <main>
+            <h1 style="color:black">Contact Us</h1>
+            <div style="width: 100%; text-align: center; font-family:'Bookman Old Style';">
+            <label2>
+            We are always open to hearing your thoughts, feedback, or suggestions.
+            Please do not hesitate to contact us using the Contact Us page, by phone at 1-800-MaddieB,
+            by email at kitchen@maddiebs.com, or visit us at 700 Seaside Cove, Galvestan, TX 80800.
+            We look forward to hearing from you soon.
+            </label2>
+            </div>
+
+            <form id="form" autocomplete="off" onsubmit="return validateForm()">
+
+<br>
+        <fieldset>
+            <legend style="color:black;">Personal Information</legend>
+
+
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label>First Name:</label> <input type="text" id="fname" name="txt_Fname" placeholder="First Name" required>
+            </div>
+
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label>Last Name:</label> <input type="text" id="lname" name="txt_Lname" placeholder="Last Name" required>
+            </div>
+
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label>Email address:</label> <input type="email" id="email" name="email_address" autocomplete="off" placeholder="Email address" required>
+            </div>
+
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label>Phone number:</label> <input type="tel" id="phone" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" required>
+            </div>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend style="color:black;">Comments</legend>
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label for="subject">Subject:</label>
+            <select id="subject" name="subject">
+            <option value="">Please select a subject</option>
+            <option value="feedback">Feedback</option>
+            <option value="question">Question</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="other">Other</option>
+            </select>
+            </div>
+            <div class="form-group" style="display:flex; margin:10px;">
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="5" cols="50" placeholder="Comment goes here"></textarea>
+            </div>
+        </fieldset>
+<br>
+        <fieldset>
+            <legend style="color:black;">Contact Method</legend>
+            <div class="form-group" style="display: flex; margin: 10px; align-items: center;">
+            <label for="method">Please select your preferred contact method:</label>
+
+            <div class="radio-group" style="display: flex; flex-direction: column; margin-right: 10px;">
+
+            <div style="display: flex; align-items: center;">
+                <input type="radio" id="email_method" name="method" value="email_method">
+                <label for="email_method" style="margin-right: 5px;">Email</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+            <input type="radio" id="phone_method" name="method" value="phone_method">
+                <label for="phone_method" style="margin-right: 5px;">Phone</label>
+                </div>
+            </div>
+            </div>
+        </fieldset>
+<br>
+            <div class="form-group" style="display:flex; margin:10px; align-items:center;">
+            <input type="checkbox" id="offer" name="offer" value="checked"><label for="offer">Don't miss out! Check the box to receive exclusive offers, news, and updates via email.</label>
+            <br>
+
+            </div>
+            <div class="form-group">
+            <input type="reset" class="button" value="Clear">
+            <input type="submit" class="button" value="Submit">
+            </div>
+
+        </form>
+
+<script>
+    function validateForm()
+    {
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
+    var email = document.getElementById("email");
+    var phone = document.getElementById("phone");
+    var subject = document.getElementById("subject");
+    var comments = document.getElementById("comments");
+    var email_method = document.getElementById("email_method");
+    var phone_method = document.getElementById("phone_method");
+
+
+    if (fname.value == "") {
+
+        alert("Please enter your first name.");
+
+            fname.focus();
+            return false;
+        }
+
+
+        if (lname.value == "") {
+            alert("Please enter your last name.");
+                lname.focus();
+            return false;
+        }
+
+
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(email.value)) {
+        alert("Please enter a valid email address.");
+        email.focus();
+            return false;
+        }
+
+
+        if (!phone.checkValidity()) {
+        alert("Please enter a valid phone number.");
+            phone.focus();
+        return false;
+        }
+
+        if (subject.value == "") {
+            alert("Please select a subject.");
+            subject.focus();
+            return false;
+        }
+
+        var commentsRegex = /^\s*$/;
+        if (commentsRegex.test(comments.value)) {
+        alert("Please enter a comment.");
+        comments.focus();
+            return false;
+        }
+
+        if (!email_method.checked && !phone_method.checked) {
+        alert("Please select your preferred contact method.");
+        email_method.focus();
+            return false;
+        }
+
+        alert("Thank you for your feedback, question, or suggestion!");
+
+        return true;
+        }
+</script>
+
+</main>
+
+     <footer>
+         <p>
+             <a href="index.html">Home Page</a>&nbsp | <a href="about.html">About Us</a>&nbsp | <a href="hours.html">Hours and Location</a>&nbsp | <a href="cart.html">Cart Page</a>&nbsp | <a href="merchandise.html">Merchandise</a>&nbsp | <a href="contact.html">Contact Us</a>&nbsp | <a href="menu.html">Menu</a>&nbsp
+         </p>
+     </footer>
+
+</body>
+</html>
