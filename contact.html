@@ -39,7 +39,7 @@
    button, input[type=reset], input[type=submit] {
        font-family:'Bookman Old Style';
        cursor: pointer;
-       background-color: black;
+       background-color: #3498db ;
        border-radius: 10px;
    }
 
@@ -61,7 +61,19 @@
        margin: 10px;
    }
 
-   .form-group > input, .form-group > textarea, .form-group > select {
+   .form-group > input {
+      width: 80%;
+      border: none;
+      outline: none;  
+   }
+    
+   .form-group > textarea {
+       width: 80%;
+       border: none;
+       outline: none;
+   }
+       
+   .form-group > select {
        width: 80%;
        border: none;
        outline: none;                                                                      
@@ -72,7 +84,12 @@
        resize: none;
    }
 
-   .form-group > input[type=submit], .form-group > input[type=reset] {
+   .form-group > input[type=submit] {
+       width: auto;
+       margin-left: auto;
+   }
+    
+   .form-group > input[type=reset] {
        width: auto;
        margin-left: auto;
    }
