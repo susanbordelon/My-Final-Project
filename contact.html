@@ -56,33 +56,18 @@
    }
 
    .form-group {
-       display: flex;
-       align-items: center;
-       margin: 10px;
-   }
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+    margin: 10px;
+    }
 
-   .form-group > input {
-      width: 80%;
-      border: none;
-      outline: none;  
-   }
-    
-   .form-group > textarea {
-       width: 80%;
-       border: none;
-       outline: none;
-   }
-       
-   .form-group > select {
-       width: 80%;
-       border: none;
-       outline: none;                                                                      
-   }
-
-   .form-group > textarea {
-       height: 100px;
-       resize: none;
-   }
+    .form-group > label,
+    .form-group > input, 
+    .form-group > textarea, 
+    .form-group > select {
+        width: 100%;
+    }
 
    .form-group > input[type=submit] {
        width: auto;
