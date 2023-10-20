@@ -45,7 +45,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #bf2e2e;
+    background-color: lightgray;
     color: white;
     text-align: center;
     padding: 5px;
@@ -87,7 +87,7 @@ nav ul li a:link, nav ul li a:visited {
     margin-right: 4px;
     color: #000000;
     padding: 2px 4px 2px 4px;
-    background-color: #0b4c9a;
+    background-color: #808080;
     text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ label {
     display: inline-block;
     text-align: right;
     font-size: 20px;
-    color: #88945f;
+    color: #808080;
 }
 
 table {
@@ -257,5 +257,6 @@ table tr th, table tr td {
     position: relative;
     margin-top: 20px;
 }
+
 
 
