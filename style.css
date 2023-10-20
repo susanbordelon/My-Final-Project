@@ -105,7 +105,7 @@ label {
 }
 
 table {
-    background-color: #48e8ff;
+    background-color: #000080;
     color: #ffffff;
     width: 10%;
     border: 5px solid #ffffff;
@@ -114,12 +114,12 @@ table {
 }
 
 table tr th, table tr td {
-   border: 1px solid #48e8ff;
+   border: 1px solid #000080;
    padding: 50px;
 }
 
 .row-color {
-    color: #48e8ff;
+    color: #000080;
 }
 
 #current-page {
