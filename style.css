@@ -34,10 +34,9 @@ header {
 main {
     width: 80%;
     background-color: #48e8ff;
-    float: left;
+    margin: 0 auto;
     padding: 5px;
-    margin-left: 10%;
-    font-family: Calibri, Verdana, sans-serif;
+    font-family: 'Bookman Old Style';
     color: #000000;
 }
 
