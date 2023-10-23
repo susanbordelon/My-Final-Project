@@ -21,10 +21,16 @@ h3 {
 header {
     background-color: black;
     color: white;
-    text-align: center;
     padding: 5px;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 80%;
-    margin-left: 10%;
+    margin: 0 auto;
 }
 
 #container {
@@ -35,7 +41,6 @@ main {
     width: 80%;
     background-color: #ADADAD;
     margin: 0 auto;
-    padding: 5px;
     font-family: 'Bookman Old Style';
     color: #000000;
 }
@@ -72,20 +77,16 @@ nav ul {
     margin: 0;
     padding: 0;
     text-align: center;
-    display: inline-block;
 }
 
 nav ul li {
-   float: left;
-   padding: 5px;
+    display: inline;
+    margin: 0 10px;
 }
 
-nav ul li a:link, nav ul li a:visited {
-    display: block;
-    width: 150px;
-    margin-right: 4px;
+nav ul li a:link, 
+nav ul li a:visited {
     color: #000000;
-    padding: 2px 4px 2px 4px;
     background-color: #808080;
     text-decoration: none;
 }
