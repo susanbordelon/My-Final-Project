@@ -18,16 +18,18 @@ h3 {
     text-align: center;
 }
 
+/*Move the logo to the center*/
 header {
     background-color: black;
     color: white;
     padding: 5px;
+    text-align: center;
     width: 100%;
 }
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 80%;
     margin: 0 auto;
