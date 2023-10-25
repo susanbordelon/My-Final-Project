@@ -277,15 +277,22 @@ table tr th, table tr td {
 
 .btn-reservation {
     display: inline-block;
-    background-color: 0000fc;
+    background-color: #0000fc;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     border-bottom: none;
+    border: 2px solid #000000;
+    border-radius: 5px;
 }
 
 .btn-reservation:hover {
     background-color: #005a8c;
+    border: 2px solid #005a8c;
+}
+
+.btn-reservation:active {
+    transform: scale(.95);
 }
 
