@@ -25,6 +25,81 @@
         </ul>
     </nav>
 
+     <style>
+     form {
+         width: 95%;
+         margin: 0 auto;
+         padding: 5px;
+         font-family: 'Bookman Old Style';
+         background-color: #0000fc;
+     }
+
+     input, textarea {
+         color: black;
+         font-size: 20px;
+         font-family: 'Bookman Old Style';
+         border-radius: 20px;
+         display: inline-block;
+     }
+
+         input[type=number] {
+             background-color: black;
+         }
+
+         input[type=checkbox], input[type=radio] {
+             height: 15px;
+             width: 15px;
+         }
+
+     select {
+         background-color: white;
+     }
+
+     button, input[type=reset], input[type=submit] {
+         font-family: 'Bookman Old Style';
+         cursor: pointer;
+         background-color: black;
+         border-radius: 10px;
+     }
+
+     label {
+         color: white;
+         display: inline-block;
+         text-align: left;
+     }
+
+     label2 {
+         color: black;
+         font-size: 20px;
+         display: inline-block;
+     }
+
+     .form-group {
+         display: flex;
+         align-items: center;
+         margin: 10px;
+     }
+
+         .form-group > input,
+         .form-group > textarea,
+         .form-group > select {
+             width: 80%;
+             border: none;
+             outline: none;
+         }
+
+         .form-group > textarea {
+             height: 100px;
+             resize: none;
+         }
+
+         .form-group > input[type=submit], .form-group > input[type=reset] {
+             width: auto;
+             margin-left: auto;
+         }
+
+     </style>
+    
     <form method="post" action="//submit.form" onSubmit="return validateForm();">
         <div style="max-width: 400px;">
         </div>
