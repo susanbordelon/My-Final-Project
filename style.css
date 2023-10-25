@@ -275,5 +275,17 @@ table tr th, table tr td {
     max-width: 800px;
 }
 
+.btn-reservation {
+    display: inline-block;
+    background-color: #0079b6;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
+.btn-reservation:hover {
+     background-color: #005a8c;
+}
 
