@@ -2,29 +2,17 @@ body {
     background-color: #208fd6;
     font-family: 'Bookman Old Style';
     color: #000000
+	margin: 0;
+	padding: 0;
 }
 
-h1 {
-    color: white;
-}
 
-h2 {
-    font-style: italic;
-    letter-spacing: 5px;
-    text-align: center;
-}
-
-h3 {
-    text-align: center;
-}
-
-/*Move the logo to the center*/
+/*Header*/
 header {
     background-color: #208FD6;
     color: #FFF0D9;
     padding: 5px;
     text-align: center;
-    width: 100%;
 }
 
 .header-content {
@@ -35,6 +23,8 @@ header {
     margin: 0 auto;
 }
 
+
+/*Container*/
 #container {
     width: 100%;
 }
@@ -48,6 +38,14 @@ main {
     color: #000000;
 }
 
+main img {
+	width: 600px;
+	height: 600px;
+	display: block;
+	margin: 0 auto;
+}
+
+/*Footer*/
 footer {
     display: flex;
     justify-content: center;
@@ -66,20 +64,52 @@ a:visited {
     color: #ffffff;
 }
 
+
+/*Navigation*/
 nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4ce8f;
     color: white;
     padding: 5px;
-    width: 80%;
-    margin-left: 10%;
-    font-weight: bold;
     text-align: center;
+	background-color: #208fd6;
+	color: #fff0d9;
+	padding: 5px;
+	text-align: center
 }
 
 nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
-    text-align: center;
+}
+
+.nav-buttons-left,
+.nav-buttons-right {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons-left li,
+.nav-buttons-right li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-buttons-left a,
+.nav-buttons-right a {
+    display: inline-block;
+    margin-right: 4px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-buttons-left a:hover,
+.nav-buttons-right a:hover {
+    color: #0b4c9a;
 }
 
 nav ul li {
@@ -105,6 +135,24 @@ nav ul li a:hover {
     background-color: #0b4c9a;
 }
 
+.nav-buttons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-buttons li {
+    margin: 0 10px;
+}
+
+.nav-buttons a {
+    color: #fff0d9;
+    text-decoration: none;
+}
+
+/*Label*/
 label {
     width: 300px;
     display: inline-block;
@@ -113,6 +161,7 @@ label {
     color: #808080;
 }
 
+/*Table*/
 table {
     background-color: #000080;
     color: #ffffff;
@@ -140,6 +189,8 @@ table tr th, table tr td {
     text-align: center;
 }
 
+
+/*Button*/
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -157,6 +208,8 @@ table tr th, table tr td {
     transform: scale(0.95);
 }
 
+
+/*Cart*/
 .cart-button {
     text-align: right;
     padding-right: 15%;
@@ -176,16 +229,16 @@ table tr th, table tr td {
     padding: 10px;
 }
 
-    .cart-header h1 {
-        margin: 0;
-    }
+.cart-header h1 {
+    margin: 0;
+}
 
-    .cart-header button {
-        background-color: #f4ce8f;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
+.cart-header button {
+    background-color: #f4ce8f;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
 .cart-item {
     display: flex;
@@ -195,11 +248,11 @@ table tr th, table tr td {
     margin: 10px;
 }
 
-    .cart-item img {
-        width: 150px;
-        height: 150px;
-        margin-right: 20px;
-    }
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
 
 .cart-item-info {
     flex-grow: 1;
@@ -215,19 +268,19 @@ table tr th, table tr td {
     margin-top: 20px;
 }
 
-    .cart-item-quantity button {
-        width: 30px;
-        height: 30px;
-        background-color: #f4ce8f;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-    }
+.cart-item-quantity button {
+    width: 30px;
+    height: 30px;
+    background-color: #f4ce8f;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    .cart-item-quantity input {
-        width: 50px;
-        height: 30px;
-    }
+.cart-item-quantity input {
+    width: 50px;
+    height: 30px;
+}
 
 .cart-item-remove {
     width: 30px;
@@ -251,9 +304,9 @@ table tr th, table tr td {
     font-size: 30px;
 }
 
-    .cart-footer h2 {
-        margin: 0;
-    }
+.cart-footer h2 {
+    margin: 0;
+}
 
 .cart-item-subtotal {
     font-weight: bold;
@@ -266,6 +319,8 @@ table tr th, table tr td {
     margin-top: 20px;
 }
 
+
+/*Gift Card*/
 .gift-card-container {
     background-color: #f9f9f9;
     padding: 20px;
@@ -274,6 +329,9 @@ table tr th, table tr td {
     max-width: 800px;
 }
 
+
+
+/*Reservation Button*/
 .btn-reservation {
     display: inline-block;
     background-color: #f4ce8f;
@@ -295,3 +353,14 @@ table tr th, table tr td {
     transform: scale(.95);
 }
 
+/*Logo*/
+.logo img {
+    width: 200px;
+	height: 200px;
+}
+
+.logo {
+	display: flex;
+	align-items: center:
+	justify-content: center;
+}
