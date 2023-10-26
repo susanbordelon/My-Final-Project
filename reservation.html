@@ -8,7 +8,7 @@
 
     <style>
         .form-container {
-            background-color: #0000fc;
+            background-color: #4bbbd3;
             padding: 20px;
             border-radius: 5px;
             margin: 0 auto;
@@ -34,21 +34,28 @@
             }
 
         select {
-            background-color: white;
-            }
+            background-color: #FFF0D9;
+        }
 
         button, input[type=reset], input[type=submit] {
             font-family: 'Bookman Old Style';
             cursor: pointer;
-            background-color: black;
+            background-color: #FFF0D9;
             border-radius: 10px;
-            }
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: none;
+            border: 2px solid #000000;
+            border-radius: 5px;
+        }
 
-         label {
-            color: white;
+        label {
+            color: #FFF0D9;
             display: inline-block;
             text-align: left;
-            }
+        }
 
          label2 {
              color: black;
@@ -120,36 +127,35 @@
         <form method="post" action="//submit.form" onSubmit="return validateForm();">
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Name <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Name <span style="color: red;"> *</span></label><br />
                 <input type="text" id="data_3" name="data_3" style="max-width: 400px;" class="form-control" />
             </div>
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Phone <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Phone <span style="color: red;"> *</span></label><br />
                 <input type="text" id="data_4" name="data_4" style="max-width: 400px; " class="form-control" />
             </div>
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Email <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Email <span style="color: red;"> *</span></label><br />
                 <input type="text" id="data_5" name="data_5" style="max-width: 400px; " class="form-control" />
             </div>
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Date <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Date <span style="color: red;"> *</span></label><br />
                 <input type="text" id="data_6" name="data_6" style="max-width : 250px;" class="form-control" />
             </div>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
             <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
-            
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Time <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
                 <input type="text" id="data_7" name="data_7" style="max-width : 250px;" class="form-control" />
             </div>
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
                 <select id="data_8" name="data_8" style="max-width : 250px;" class="form-control">
                     <option> 1</option>
                     <option> 2</option>
@@ -166,7 +172,7 @@
             </div>
 
             <div style="padding-bottom: 18px;">
-                <label style="font-size: 20px; color: white; text-align: center;">Comments/Other Information</label><br />
+                <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Comments/Other Information</label><br />
                 <textarea id="data_9" false name="data_9" style="max-width : 400px;" rows="6" class="form-control"> </textarea>
             </div>
 
