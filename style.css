@@ -1,9 +1,8 @@
 body {
     background-color: #208fd6;
     font-family: 'Bookman Old Style';
-    color: #000000
-	margin: 0;
-	padding: 0;
+    color: #000000 margin: 0;
+    padding: 0;
 }
 
 
@@ -13,6 +12,7 @@ header {
     color: #FFF0D9;
     padding: 5px;
     text-align: center;
+    width: 100%;
 }
 
 .header-content {
@@ -36,14 +36,23 @@ main {
     text-align: center;
     font-family: 'Bookman Old Style';
     color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
 }
 
-main img {
-	width: 600px;
-	height: 600px;
-	display: block;
-	margin: 0 auto;
+.img-container {
+    max-width: 100%;
+    max-height: 100%;
 }
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /*Footer*/
 footer {
@@ -71,13 +80,13 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #f4ce8f;
-    color: white;
+    color: #fffdd9;
     padding: 5px;
     text-align: center;
-	background-color: #208fd6;
-	color: #fff0d9;
-	padding: 5px;
-	text-align: center
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    
 }
 
 nav ul {
@@ -85,31 +94,26 @@ nav ul {
     padding: 0;
 }
 
-.nav-buttons-left,
-.nav-buttons-right {
+.nav-button {
     list-style: none;
     padding: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
 }
 
-.nav-buttons-left li,
-.nav-buttons-right li {
+.nav-buttons li {
     display: inline;
     margin: 0 10px;
 }
 
-.nav-buttons-left a,
-.nav-buttons-right a {
+.nav-buttons a {
     display: inline-block;
     margin-right: 4px;
     color: white;
     text-decoration: none;
-}
-
-.nav-buttons-left a:hover,
-.nav-buttons-right a:hover {
-    color: #0b4c9a;
 }
 
 nav ul li {
@@ -117,7 +121,7 @@ nav ul li {
     margin: 0 10px;
 }
 
-nav ul li a:link, 
+nav ul li a:link,
 nav ul li a:visited {
     display: inline-block;
     width: 150px;
@@ -130,10 +134,10 @@ nav ul li a:visited {
     border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: #ffffff;
-    background-color: #0b4c9a;
-}
+ nav ul li a:hover {
+        color: #ffffff;
+        background-color: #0b4c9a;
+    }
 
 .nav-buttons {
     list-style: none;
@@ -143,15 +147,7 @@ nav ul li a:hover {
     justify-content: center;
 }
 
-.nav-buttons li {
-    margin: 0 10px;
-}
-
-.nav-buttons a {
-    color: #fff0d9;
-    text-decoration: none;
-}
-
+ 
 /*Label*/
 label {
     width: 300px;
@@ -171,10 +167,10 @@ table {
     margin: 0 auto;
 }
 
-table tr th, table tr td {
-    border: 1px solid #000080;
-    padding: 50px;
-}
+    table tr th, table tr td {
+        border: 1px solid #000080;
+        padding: 50px;
+    }
 
 .row-color {
     color: #000080;
@@ -200,13 +196,13 @@ table tr th, table tr td {
     border-radius: 5px;
 }
 
-.button:hover {
-    background-color: #0f6aa6;
-}
+    .button:hover {
+        background-color: #0f6aa6;
+    }
 
-.button:active {
-    transform: scale(0.95);
-}
+    .button:active {
+        transform: scale(0.95);
+    }
 
 
 /*Cart*/
@@ -229,16 +225,16 @@ table tr th, table tr td {
     padding: 10px;
 }
 
-.cart-header h1 {
-    margin: 0;
-}
+    .cart-header h1 {
+        margin: 0;
+    }
 
-.cart-header button {
-    background-color: #f4ce8f;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
+    .cart-header button {
+        background-color: #f4ce8f;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 
 .cart-item {
     display: flex;
@@ -248,11 +244,11 @@ table tr th, table tr td {
     margin: 10px;
 }
 
-.cart-item img {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-}
+    .cart-item img {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+    }
 
 .cart-item-info {
     flex-grow: 1;
@@ -268,19 +264,19 @@ table tr th, table tr td {
     margin-top: 20px;
 }
 
-.cart-item-quantity button {
-    width: 30px;
-    height: 30px;
-    background-color: #f4ce8f;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
+    .cart-item-quantity button {
+        width: 30px;
+        height: 30px;
+        background-color: #f4ce8f;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-.cart-item-quantity input {
-    width: 50px;
-    height: 30px;
-}
+    .cart-item-quantity input {
+        width: 50px;
+        height: 30px;
+    }
 
 .cart-item-remove {
     width: 30px;
@@ -304,9 +300,9 @@ table tr th, table tr td {
     font-size: 30px;
 }
 
-.cart-footer h2 {
-    margin: 0;
-}
+    .cart-footer h2 {
+        margin: 0;
+    }
 
 .cart-item-subtotal {
     font-weight: bold;
@@ -344,23 +340,24 @@ table tr th, table tr td {
     border-radius: 5px;
 }
 
-.btn-reservation:hover {
-    background-color: #005a8c;
-    border: 2px solid #005a8c;
-}
+    .btn-reservation:hover {
+        background-color: #005a8c;
+        border: 2px solid #005a8c;
+    }
 
-.btn-reservation:active {
-    transform: scale(.95);
-}
+    .btn-reservation:active {
+        transform: scale(.95);
+    }
 
 /*Logo*/
 .logo img {
     width: 200px;
-	height: 200px;
+    height: 200px;
 }
 
 .logo {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
