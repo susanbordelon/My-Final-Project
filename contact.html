@@ -8,91 +8,91 @@
 
     <style>
         form {
-            width: 80%;
-            margin: 0 auto;
-            padding: 5px;
-            font-family: 'Bookman Old Style';
-            background-color: #4BBBD3;
+        width: 95%;
+        margin: 0 auto;
+        padding: 5px;
+        font-family: 'Bookman Old Style';
+        background-color: #4BBBD3;
         }
 
         input, textarea {
-            color: #FFF0D9;
-            font-size: 20px;
-            font-family: 'Bookman Old Style';
-            border-radius: 20px;
-            display: inline-block;
+        color: #FFF0D9;
+        font-size: 20px;
+        font-family: 'Bookman Old Style';
+        border-radius: 20px;
+        display: inline-block;
         }
 
-            input[type=number] {
-                background-color: black;
-            }
+        input[type=number] {
+        background-color: black;
+        }
 
-            input[type=checkbox], input[type=radio] {
-                height: 15px;
-                width: 15px;
-            }
+        input[type=checkbox], input[type=radio] {
+        height: 15px;
+        width: 15px;
+        }
 
         select {
-            background-color: #FFF0D9;
+        background-color: #FFF0D9;
         }
 
         button, input[type=reset], input[type=submit] {
-            font-family: 'Bookman Old Style';
-            cursor: pointer;
-            background-color: #F4CE8F;
-            border-radius: 10px;
+        font-family: 'Bookman Old Style';
+        cursor: pointer;
+        background-color: #F4CE8F;
+        border-radius: 10px;
         }
 
         label {
-            color: #FFF0D9;
-            display: inline-block;
-            text-align: left;
+        color: #FFF0D9;
+        display: inline-block;
+        text-align: left;
         }
 
         label2 {
-            color: black;
-            font-size: 20px;
-            display: inline-block;
+        color: black;
+        font-size: 20px;
+        display: inline-block;
         }
 
         .form-group {
-            display: flex;
-            align-items: center;
-            margin: 10px;
+        display: flex;
+        align-items: center;
+        margin: 10px;
         }
 
-            .form-group > input,
-            .form-group > textarea,
-            .form-group > select {
-                width: 80%;
-                border: none;
-                outline: none;
+        .form-group > input,
+        .form-group > textarea,
+        .form-group > select {
+        width: 80%;
+        border: none;
+        outline: none;
+        }
+
+        .form-group > textarea {
+        height: 100px;
+        resize: none;
             }
 
-            .form-group > textarea {
-                height: 100px;
-                resize: none;
-            }
-
-            .form-group > input[type=submit], .form-group > input[type=reset] {
-                width: auto;
-                margin-left: auto;
-            }
+        .form-group > input[type=submit], .form-group > input[type=reset] {
+        width: auto;
+        margin-left: auto;
+        }
 
         .radio-group {
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
         }
 
-            .radio-group > div {
-                display: flex;
-                align-items: center;
-            }
+        .radio-group > div {
+        display: flex;
+        align-items: center;
+        }
 
-                .radio-group > div > label {
-                    margin-right: 5px;
-                }
+        .radio-group > div > label {
+        margin-right: 5px;
+        }
     </style>
 
 </head>
@@ -106,28 +106,27 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="giftcard.html">Gift Cards</a></li>
-            <li><a href="cart.html">Cart</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
 
-   <main>
-    <div style="width: 100%; text-align: center;">
-        <h1 style="color:black">Contact Us</h1>
-        <label2>
-            <p>We welcome your thoughts, feedback, or suggestions. Please do not hesitate to contact us. We look forward to hearing from you soon.</p>
+    <main>
+            
+            <div style="width: 100%; text-align: center; font-family: 'Bookman Old Style';">
+            <h1 style="color:black">Contact Us</h1>
+            <label2>
+                <p>We welcome your thoughts, feedback, or suggestions. Please do not hesitate to contact us. We look forward to hearing from you soon.</p>
 
-            <p>Phone: 1-800-MaddieB</p>
-            <p>Email: kitchen@maddiebs.com</p>
-            <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
-
-        </label2>
-    </div>
+                <p>Phone: 1-800-MaddieB</p>
+                <p>Email: kitchen@maddiebs.com</p>
+                <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
+            </label2>
+        </div>
 
         <form id="form" autocomplete="off" onsubmit="return validateForm()">
 
@@ -276,7 +275,7 @@
     <footer>
         <p>
             <a href="index.html">Home Page</a>&nbsp | <a href="about.html">About Us</a>&nbsp |  <a href="menu.html">Menu</a>&nbsp | <a href="giftcard.html">Gift Cards</a>&nbsp |
-            <a href="cart.html">Cart Page</a>&nbsp |  <a href="contact.html">Contact Us</a>&nbsp |
+            <a href="contact.html">Contact Us</a>&nbsp |
         </p>
     </footer>
 
