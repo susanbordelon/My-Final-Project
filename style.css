@@ -361,6 +361,6 @@ table tr th, table tr td {
 
 .logo {
 	display: flex;
-	align-items: center:
+	align-items: center;
 	justify-content: center;
 }
