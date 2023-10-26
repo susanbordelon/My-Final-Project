@@ -56,6 +56,11 @@ header {
     width: 100%;
 }
 
+#form-container {
+    text-align: center;
+    padding: 20px;
+}
+
 main {
     width: 80%;
     background-color: #fff0d9;
