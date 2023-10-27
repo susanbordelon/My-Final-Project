@@ -377,8 +377,3 @@ table tr th, table tr td {
     text-align: center; /* Center the label text */
 }
 
-#email.tab-pane.active {
-    background-color: #208fd6; /* Set the background color to #208fd6 */
-    color: #ffffff; /* Set the text color to white or any contrasting color */
-    padding: 10px; /* Add padding to the content for better visibility */
-}
