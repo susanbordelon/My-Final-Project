@@ -59,6 +59,10 @@ header {
 #form-container {
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -328,9 +332,12 @@ table tr th, table tr td {
     border-radius: 5px;
     margin: 0 auto;
     max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-
 
 /*Reservation Button*/
 .btn-reservation {
@@ -358,4 +365,5 @@ table tr th, table tr td {
 .logo {
     display: inline-block;
 }
+
 
