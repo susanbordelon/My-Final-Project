@@ -123,7 +123,6 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border-radius: 5px;
 }
 
-/*
 .btn-reservation:hover {
     background-color: #005a8c;
     border: 2px solid #005a8c;
@@ -131,7 +130,28 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-reservation:active {
     transform: scale(.95);
-}*/
+}
+
+.btn-giftcard {
+    display: inline-block;
+    background-color: #f4ce8f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: none;
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+
+.btn-giftcard {
+    background-color: #005a8c;
+    border: 2px solid #005a8c;
+}
+
+.btn-giftcard {
+    transform: scale(.95);
+}
 
 /*Gift Card*/
 .gift-card-container {
