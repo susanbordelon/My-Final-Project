@@ -1,12 +1,13 @@
-<!DOCUTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maddie B Kitchen - Gift Card</title>
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8"/>
+    <title>Maddie B's Kitchen</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
     <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var formatPrice = function (value) {
@@ -91,232 +92,124 @@
             });
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/js/pikaday.min.js"></script>
-</head>
 
-<body id="container">
-    <header>
-        <div class="header-content">
-            <img src="Maddie B Kitchen-logos_white.png" alt="Maddie B Kitchen-logo_white" width="200" height="200">
-        </div>
-    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the email and phone input fields
+            var emailInput = document.getElementById("email-input");
+            var phoneInput = document.getElementById("phone-input");
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="giftcard.html">Gift Cards</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+            // Get references to the email and phone tab links
+            var emailTab = document.querySelector('a[href="#email"]');
+            var phoneTab = document.querySelector('a[href="#phone"]');
 
-    <div class="gift-card-container">
-        <div class="row">
-            <div class="span8">
-                <form class="form-horizontal content-box" method="POST" action="/https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
-                    <input type="hidden" name="restaurant.id" value="126449000000000000" />
-                    <input type="hidden" name="giftCard.cartItemGuid" value="" />
-                    <input type="hidden" name="authenticityToken" value="dfb5ddf7d00a864902ada5f820436acdc86ecc36">
+            // Add click event listeners to the tab links
+            emailTab.addEventListener("click", function () {
+                emailInput.style.display = "block";
+                phoneInput.style.display = "none";
+            });
 
-                    <h2 class="page-title">Give a Gift</h2>
-                    <div style="height:1px"></div>
+            phoneTab.addEventListener("click", function () {
+                phoneInput.style.display = "block";
+                emailInput.style.display = "none";
+            });
+        });
+    </script>
 
-                    <h3 class="header3"><a id="section-main">Choose Amount</a></h3>
-                    <div id="amount-container">
-                        <div class="control-group  "
-                             id="control-group-giftCard_amount">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to the select element for delivery
+            var selectDelivery = document.querySelector('select[name="giftCard.delivery"]');
+            var deliveryDateInput = document.querySelector('input[name="giftCard.deliveryDate"]');
 
-                            <label for="giftCard_amount" class="control-label ">
-                                Amount *<br />
-                            </label>
+            // Add an event listener to the select element
+            selectDelivery.addEventListener('change', function () {
+                if (selectDelivery.value === 'FUTURE_DATE') {
+                    deliveryDateInput.style.display = 'block';
+                } else {
+                    deliveryDateInput.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
-                            <div class="controls">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addCardToCartButton = document.getElementById('addCardToCart');
 
-                                <div class="input-prepend ">
-                                    <span class="add-on">$</span>
-                                    <input id="giftCard_amount" type="number" value="" name="giftCard.amount"
-                                           class='input-mini '
-                                           min='5.00 $'
-                                           max='500.00 $'
-                                           data-lpignore='true' />
-                                </div>
-                                <p class="help-inline">$5.00 - $500.00</p>
-                            </div>
-                        </div>
-                    </div>
+            // Add an event listener to the button
+            addCardToCartButton.addEventListener('click', function (e) {
+                // Prevent the default form submission behavior
+                e.preventDefault();
 
-                    <h3 class="header3">Personalize</h3>
-                    <div class="control-group  "
-                         id="control-group-giftCard_to">
-                        <label for="giftCard_to" class="control-label ">
-                            To<br />
-                        </label>
-                        <div class="controls">
+                // Here, you can add your logic to handle adding the eGift to the cart
+                // This can involve making an AJAX request to a server or storing the eGift data in a local variable
 
-                            <input id="giftCard_to" type="text" value="" name="giftCard.to" class='input-large' maxlength='255' data-lpignore='true' />
-                        </div>
-                    </div>
+                // Optionally, you can clear the form or reset the fields for the next card
+                document.getElementById('giftCard_amount').value = '';
+                document.getElementById('giftCard_to').value = '';
 
-                    <div class="control-group  "
-                         id="control-group-giftCard_from">
-                        <label for="giftCard_from" class="control-label ">
-                            From<br />
-                        </label>
-                        <div class="controls">
+                // You can also display a confirmation message, if needed
+                alert('eGift added to cart');
 
-                            <input id="giftCard_from" type="text" value="" name="giftCard.from" class='input-large' maxlength='255' data-lpignore='true' />
-                        </div>
-                    </div>
+                // Clear any previous values in the form
+                document.getElementById('giftCard_amount').value = '';
+                document.getElementById('giftCard_to').value = '';
+            });
+        });
+    </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cart = []; // Initialize an empty cart array
 
-                    <div class="control-group  "
-                         id="control-group-giftCard_message">
-                        <label for="giftCard_message" class="control-label ">
-                            Message<br />
-                        </label>
-                        <div class="controls">
+            var addCardToCartButton = document.getElementById('addCardToCart');
+            addCardToCartButton.addEventListener('click', function () {
+                var giftCard = {
+                    amount: document.getElementById('giftCard_amount').value,
+                    to: document.getElementById('giftCard_to').value,
+                    // Add other details as needed
+                };
 
-                            <textarea id="giftCard_message" name="giftCard.message" rows="5" maxlength=350 class='input-large'></textarea>
-                        </div>
-                    </div>
+                // Add the gift card to the cart
+                cart.push(giftCard);
 
-                    <h3 class="header3">Schedule Delivery</h3>
-                    <div class="control-group" id="send-to">
-                        <label class="control-label">Send To *</label>
-                        <div class="controls">
-                            <input type="hidden" name="giftCard.sendTo" value="EMAIL" />
-                            <div class="tabbable" id="send-to-tabs">
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#email" data-toggle="tab" title="Email">Email</a>
-                                    </li>
-                                    <li>
-                                        <a href="#phone" data-toggle="tab" title="Phone">Phone</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="email">
-                                        <input class="input-large" type="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" /><br />
-                                    </div>
-                                    <div class="tab-pane" id="phone">
-                                        <input class="input-large" type="tel" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" /><br />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                // Display the gift card in the cart summary section
+                var cartSummary = document.getElementById('cart-summary');
+                var cardSummaryItem = document.createElement('div');
+                cardSummaryItem.textContent = "Gift Card: " + giftCard.amount;
+                cartSummary.appendChild(cardSummaryItem);
 
+                // Optionally, clear the form or reset the fields
+                document.getElementById('giftCard_amount').value = '';
+                document.getElementById('giftCard_to').value = '';
+            });
+        });
+    </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css"/>
+    
+    <script type="text/javascript">
+        new Pikaday({ field: document.querySelector('input[name="giftCard.deliveryDate"]') });
+    </script>
 
-                    <div class="control-group" id="delivery-date">
-                        <label id="selectDeliveryDate" class="control-label">Delivery Date *</label>
-                        <div class="controls">
-                            <input type="text" name="delivery-date" required>
-                            <select name="giftCard.delivery" aria-hidden="true">
-                                <option value="NOW">Now</option>
-                                <option value="FUTURE_DATE">Future</option>
-                            </select>
-                            <div id="future-date" style="padding-top:10px;display:none;">
-                                <input type="text" aria-label="Future delivery date" name="giftCard.deliveryDate" value="" placeholder="MM/dd/yyyy" />
-                                <select name="giftCard.deliveryHour" aria-hidden="true">
-                                    <option value="1">1 AM</option>
-                                    <option value="2">2 AM</option>
-                                    <option value="3">3 AM</option>
-                                    <option value="4">4 AM</option>
-                                    <option value="5">5 AM</option>
-                                    <option value="6">6 AM</option>
-                                    <option value="7">7 AM</option>
-                                    <option value="8">8 AM</option>
-                                    <option value="9">9 AM</option>
-                                    <option value="10">10 AM</option>
-                                    <option value="11">11 AM</option>
-                                    <option value="12">12 PM</option>
-                                    <option value="13">1 PM</option>
-                                    <option value="14">2 PM</option>
-                                    <option value="15">3 PM</option>
-                                    <option value="16">4 PM</option>
-                                    <option value="17">5 PM</option>
-                                    <option value="18">6 PM</option>
-                                    <option value="19">7 PM</option>
-                                    <option value="20">8 PM</option>
-                                    <option value="21">9 PM</option>
-                                    <option value="22">10 PM</option>
-                                    <option value="23">11 PM</option>
-                                    <option value="0">12 AM</option>
-                                </select>
-                                <div style="color:#555;padding-top:5px;clear:both;text-align:right;">Central Standard Time</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="header3">Preview</h3>
-                    <div id="preview-wrapper">
-                        <div style="max-width:300px;margin:0 auto;">
-
-                            <div id="preview-msg-container" style="padding:10px 0px;">
-                                <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                    <span>To: </span><span class="msg"></span>
-                                </div>
-                                <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                    <span>From: </span><span class="msg"></span>
-                                </div>
-                                <div id="preview-message" class="msg-line" style="display:none;"></div>
-                            </div>
-
-                            <div class="toast-card" style="margin:0;">
-                                <div id="toast-card-logo">
-                                    <img src="Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
-                                </div>
-                                <div id="toast-card-title">Card Balance</div>
-                                <div id="toast-card-amount">
-                                    <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span><span id="preview-amount"></span>
-                                </div>
-                                <div id="toast-card-restaurant" style="font-size:21px">Maddie B Kitchen</div>
-                            </div>
-                            <div style="height:30px;"></div>
-                        </div>
-                    </div>
-
-                    <h3 class="header3"><a id="section-captcha"></a></h3>
-                    <div class="control-group ">
-                        <label class="control-label">Hmmm...you're human, right?</label>
-
-                        <div class="controls">
-                            <div class="g-recaptcha" data-sitekey="6LdIgPMjAAAAACfuP4xEDEa_HsR_ZiQzomomTh27"></div>
-                        </div>
-                    </div>
-
-                    <h3 class="header3" aria-hidden="true"></h3>
-                    <div style="text-align:center; padding-bottom:30px;">
-                        <a class="btn btn-add-another">Add Another eGift Card</a>
-
-                        <input type="hidden" name="add" value="false" />
-                        <a href="cart.html" id="checkout-button">Checkout</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer text-center">
-
-        <p style="text-align: center;">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
-
-        <footer>
-            <p>
-                <a href="index.html">Home Page</a>&nbsp | <a href="about.html">About Us</a>&nbsp |  <a href="menu.html">Menu</a>&nbsp | <a href="giftcard.html">Gift Card</a>&nbsp |
-                <a href="cart.html">Cart Page</a>&nbsp |  <a href="contact.html">Contact Us</a>&nbsp |
-            </p>
-
-        </footer>
-    </div>
-
-    <script>(function () { var js = "window['__CF$cv$params']={r:'81acbc77da393be7',t:'MTY5ODA5MzAwOC44MTAwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
     <style>
+        #giftCard_amount {background-color: white;}
+
+        .gift-card-container {
+            background-color: #4BBBD3;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 0 auto;
+            width: 30%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .toast-card {
             margin: 10px auto;
             height: 200px;
@@ -338,9 +231,7 @@
             float: left;
         }
 
-            #toast-card-logo img {
-                height: 100%;
-            }
+         #toast-card-logo img {height: 100%;}
 
         .default-card-icon {
             background-color: #c3c9ed;
@@ -400,28 +291,16 @@
             line-height: 30px;
         }
 
-        #toast-card-loyalty-amount {
-            text-align: right;
-            padding: 3px 10px 0 0;
-        }
+        #toast-card-loyalty-amount {text-align: right; padding: 3px 10px 0 0;}
 
         #toast-card-value-transactions,
-        #toast-card-points-transactions {
-            background-color: #4BBBD3;
-        }
+        #toast-card-points-transactions {background-color: #4BBBD3;}
 
-        .msg-line {
-            padding: 8px 5px 5px;
-        }
+        .msg-line {padding: 8px 5px 5px;}
 
-            .msg-line span {
-                display: inline-block;
-                width: 50px;
-            }
+        .msg-line span {display: inline-block; width: 50px;}
 
-                .msg-line span.msg {
-                    width: auto;
-                }
+        .msg-line span.msg {width: auto;}
 
         .num-line span {
             display: inline-block;
@@ -429,32 +308,290 @@
             width: 110px;
         }
 
-        span.card-number {
+        span.card-number {width: auto; font-size: 16px;}
+
+        #qrcode {width: 140px; margin: 10px auto 5px;}
+
+        .notice-text {font-size: 0.9em; color: #767676;}
+
+        #transactions {color: #1977d7;}
+
+        .card-balance {color: #131313;}
+
+        .form-container {background-color: #4bbbd3; width: 60%;}
+
+        input, textarea {
+            color: black;
+            font-size: 20px;
+            font-family: 'Bookman Old Style';
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        input[type=number] {background-color: black;}
+        
+        input[type=checkbox], input[type=radio] {height: 15px; width: 15px;}
+
+        select {background-color: #FFF0D9;}
+
+        button, input[type=reset], input[type=submit] {
+            font-family: 'Bookman Old Style';
+            cursor: pointer;
+            background-color: #FFF0D9;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: none;
+            border: 2px solid #000000;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+         .form-group > input,
+         .form-group > textarea,
+         .form-group > select {
+            width: 80%;
+            border: none;
+            outline: none;
+         }
+
+         .form-group > textarea {
+            height: 100px;
+            resize: none;
+         }
+
+         .form-group > input[type=submit], .form-group > input[type=reset] {
             width: auto;
-            font-size: 16px;
-        }
-
-        #qrcode {
-            width: 140px;
-            margin: 10px auto 5px;
-        }
-
-        .notice-text {
-            font-size: 0.9em;
-            color: #767676;
-        }
-
-        #transactions {
-            color: #1977d7;
-        }
-
-        .card-balance {
-            color: #131313;
-        }
+            margin-left: auto;
+         }
     </style>
+</head>
+
+ <body id="container">
+    <header>
+        <div class="header-content">
+            <img src="Maddie B Kitchen-logos_white.png" alt="Maddie B Kitchen-logo_white" width="250" height="250"/>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="giftcard.html">Gift Cards</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
+
+        <h1 style="color:black">Gift Cards</h1>
+        <label2>
+            <p>Give a Gift</p>
+        </label2>
+
+        <div class="gift-card-container">
+
+        <form class="form-horizontal content-box" method="POST" action="/https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
+        <input type="hidden" name="restaurant.id" value="126449000000000000"/>
+        <input type="hidden" name="giftCard.cartItemGuid" value=""/>
+        <input type="hidden" name="authenticityToken" value="dfb5ddf7d00a864902ada5f820436acdc86ecc36">
+
+        <h3 class="header3">Choose Amount</h3>
+        <div class="control-group"
+            id="control-group-giftCard_amount">
+            <label for="giftCard_amount" class="control-label">Amount *<br/></label>
+
+                    <div class="controls">
+
+                        <div class="input-prepend">
+                            <span class="add-on" > $</span>
+                                <input id="giftCard_amount" type="number" value="" name="giftCard.amount"
+                                    class='input-mini'
+                                    min='5.00 $'
+                                    max='500.00 $'
+                                    data-lpignore='true'/>
+                        </div>
+             
+                        <p class="help-inline"> $5.00 - $500.00</p>
+                    </div>
+                </div>
+            
+
+        <h3 class="header3">Personalize</h3>
+        <div class="control-group"
+            id="control-group-giftCard_to">
+            <label for="giftCard_to" class="control-label">To<br/></label>
+
+                <div class="controls">
+                    <input id="giftCard_to" type="text" value="" name="giftCard.to" class='input-large' maxlength='255' data-lpignore='true' />
+                </div>
+        </div>
+
+        <div class="control-group"
+            id="control-group-giftCard_from">
+                <label for="giftCard_from" class="control-label"> From<br/></label>
+
+            <div class="controls">
+                <input id="giftCard_from" type="text" value="" name="giftCard.from" class='input-large' maxlength='255' data-lpignore='true'/>
+            </div>
+        </div>
+
+        <div class="control-group"
+            id="control-group-giftCard_message">
+                <label for="giftCard_message" class="control-label">Message<br/></label>
+
+            <div class="controls">
+                <textarea id="giftCard_message" name="giftCard.message" rows="5" maxlength=350 class='input-large'></textarea>
+            </div>
+        </div>
+
+        <h3 class="header3">Schedule Delivery</h3>
+            <div class="control-group" id="send-to">
+                <label class="control-label">Send To *</label>
+                    <div class="controls" style="text-align: center;">
+                        <input type="hidden" name="giftCard.sendTo" value="EMAIL"/>
+                        <div class="tabbable" id="send-to-tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#email" data-toggle="tab" title="Email"> Email</a>
+                                </li>
+
+                                <li>
+                                    <a href="#phone" data-toggle="tab" title="Phone"> Phone</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="email">
+                                    <input class="input-large" type="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" id="email-input" /> <br />
+                                </div>
+
+                                <div class="tab-pane" id="phone">
+                                    <input class="input-large" type="tel" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" id="phone-input" /> <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        <div class="control-group" id="delivery-date">
+            <label id="selectDeliveryDate" class="control-label">Delivery Date *</label>
+                <div class="controls" style="text-align: center">
+                    <input type="text" name="giftCard.deliveryDate" required>
+                        <select name="giftCard.delivery" aria-hidden="true">
+                            <option value="NOW">Now</option>
+                            <option value="FUTURE_DATE">Future</option>
+                        </select>
+                    <div id="future-date" style="padding-top:10px;display:none;">
+                        <select name="giftCard.deliveryHour" aria-hidden="true">
+                                <option value="1"> 1 AM</option>
+                                <option value="2"> 2 AM</option>
+                                <option value="3"> 3 AM</option>
+                                <option value="4"> 4 AM</option>
+                                <option value="5"> 5 AM</option>
+                                <option value="6"> 6 AM</option>
+                                <option value="7"> 7 AM</option>
+                                <option value="8"> 8 AM</option>
+                                <option value="9"> 9 AM</option>
+                                <option value="10"> 10 AM</option>
+                                <option value="11"> 11 AM</option>
+                                <option value="12"> 12 PM</option>
+                                <option value="13"> 1 PM</option>
+                                <option value="14"> 2 PM</option>
+                                <option value="15"> 3 PM</option>
+                                <option value="16"> 4 PM</option>
+                                <option value="17"> 5 PM</option>
+                                <option value="18"> 6 PM</option>
+                                <option value="19"> 7 PM</option>
+                                <option value="20"> 8 PM</option>
+                                <option value="21"> 9 PM</option>
+                                <option value="22"> 10 PM</option>
+                                <option value="23"> 11 PM</option>
+                                <option value="0"> 12 AM</option>
+                            </select>
+                        <div style="color:#555;padding-top:5px;clear:both;text-align:center;"> Central Standard Time</div>
+                    </div>
+                </div>
+        </div>
+
+        <h3 class="header3">Preview</h3>
+            <div id="preview-wrapper">
+                <div style="max-width:300px;margin:0 auto;">
+
+                    <div id="preview-msg-container" style="padding:10px 0px;">
+                        <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                            <span>To:</span><span class="msg"></span>
+                        </div>
+        
+                        <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                            <span>From:</span><span class="msg"></span>
+                        </div>
+       
+                        <div id="preview-message" class="msg-line" style="display:none;"></div>
+                    </div>
+
+                    <div class="toast-card" style="margin:0;">
+                        <div id="toast-card-logo">
+                            <img src="Maddie B Kitchen-logos.jpeg" alt="Card Logo"/>
+                        </div>
+                    <div id="toast-card-title">Card Balance</div>
+                        <div id="toast-card-amount">
+                            <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span><span id="preview-amount" ></span>
+                        </div>
+                            <div id="toast-card-restaurant" style="font-size:21px">Maddie B Kitchen</div>
+                    </div>
+                        <div style="height:30px;"></div>
+                </div>
+            </div>
+
+        <h3 class="header3"><a id="section-captcha"></a></h3>
+            <div class="control-group">
+                <label class="control-label">Hmmm...you're human, right?</label>
+
+                <div class="controls">
+                    <div class="g-recaptcha" data-sitekey="6LdIgPMjAAAAACfuP4xEDEa_HsR_ZiQzomomTh27"></div>
+                </div>
+            </div>
+
+        <h4 class="header3" aria-hidden="true"></h4>
+            <div style="text-align:center; padding-bottom:30px;">
+                <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
+
+                <input type="hidden" name="add" value="false"/>
+                    <a href="cart.html" id="checkout-button">Checkout</a>
+            </div>
+        </form>
+        </div>
+
+        <div class="footer text-center">
+
+            <p style="text-align: center;">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
+
+        <footer>
+            <p>
+                <a href="index.html">Home</a>&nbsp | <a href="about.html">About</a>&nbsp | <a href="menu.html">Menu</a>&nbsp | <a href="giftcard.html">Gift Card</a>&nbsp |
+                <a href="contact.html">Contact Us</a>&nbsp
+            </p>
+
+        </footer>
+
+        </div>
+
+    </main>
+    <script>(function () { var js = "window['__CF$cv$params']={r:'81acbc77da393be7',t:'MTY5ODA5MzAwOC44MTAwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
 
 </body>
 </html>
+
 
 
     
