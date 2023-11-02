@@ -12,86 +12,37 @@
             padding: 20px;
             border-radius: 5px;
             margin: 0 auto;
-            width: 60%;
+            width: 30%;
             text-align: center;
         }
 
         input, textarea {
             color: black;
-            font-size: 20px;
+            font-size: 16px;
             font-family: 'Bookman Old Style';
             border-radius: 20px;
             display: inline-block;
         }
 
-            input[type=number] {
-                background-color: black;
-            }
+        input[type=number] {background-color: black;}
+    
+        select {background-color: #FFF0D9;}
 
-            input[type=checkbox], input[type=radio] {
-                height: 15px;
-                width: 15px;
-            }
+        label {color: #FFF0D9; display: inline-block; text-align: left;}
 
-        select {
-            background-color: #FFF0D9;
-        }
+        label2 {color: black; font-size: 20px; display: inline-block;}
 
-        button, input[type=reset], input[type=submit] {
-            font-family: 'Bookman Old Style';
-            cursor: pointer;
-            background-color: #FFF0D9;
-            border-radius: 10px;
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: none;
-            border: 2px solid #000000;
-            border-radius: 5px;
-        }
+        .form-group {display: flex; align-items: center; margin: 10px;}
 
-        label {
-            color: #FFF0D9;
-            display: inline-block;
-            text-align: left;
-        }
+        .form-group > input, .form-group > textarea, .form-group > select {width: 80%; border: none; outline: none;}
 
-        label2 {
-            color: black;
-            font-size: 20px;
-            display: inline-block;
-        }
-
-        .form-group {
-            display: flex;
-            align-items: center;
-            margin: 10px;
-        }
-
-            .form-group > input,
-            .form-group > textarea,
-            .form-group > select {
-                width: 80%;
-                border: none;
-                outline: none;
-            }
-
-            .form-group > textarea {
-                height: 100px;
-                resize: none;
-            }
-
-            .form-group > input[type=submit], .form-group > input[type=reset] {
-                width: auto;
-                margin-left: auto;
-            }
+        .form-group > textarea {height: 100px; resize: none;}
     </style>
 </head>
 
 <body id="container">
     <header>
-        <img src="Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="250" />
+        <img src="Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
 
         <h1>Maddie B Kitchen</h1>
     </header>
@@ -102,22 +53,22 @@
             <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="giftcard.html">Gift Cards</a></li>
+            <li><a href="cart.html">Cart</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
     <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
 
-            <h1 style="color:black">Table Reservations</h1>
-            <label2>
-                <p>We would be glad to reserve a table for you at Maddie B Kitchen!</p>
+        <h1 style="color:black">Table Reservations</h1>
+        <label2>
+            <p>We would be glad to reserve a table for you at Maddie B Kitchen!</p>
 
-                <p>Phone: 1-800-MaddieB</p>
-                <p>Email: kitchen@maddiebs.com</p>
-                <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
+            <p>Phone: 1-800-MaddieB</p>
+            <p>Email: kitchen@maddiebs.com</p>
+            <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
+        </label2>
 
-            </label2>
-       
         <div class="form-container">
 
             <form method="post" action="//submit.form" onSubmit="return handleFormSubmit();">
@@ -172,10 +123,14 @@
                     <textarea id="data_9" false name="data_9" style="max-width : 400px;" rows="6" class="form-control"> </textarea>
                 </div>
 
-                <div style="padding-bottom: 18px;"> <input name="skip_Submit" value="Submit" type="submit" /> </div>
+                <button id="submit" class="btn btn-submit">Submit</button>
 
-              </form>
-        </div>
+            </form>
+            </div>
+
+            <div id="confirmation-message" style="display: none;">
+                Reservation has been confirmed!
+            </div>
 
         <script>
 
@@ -183,55 +138,52 @@
                 const confirmationMessage = document.getElementById("confirmation-message");
                 confirmationMessage.style.display = "block";
 
-            function validateForm() {
-                if (isEmpty(document.getElementById('data_3').value.trim())) {
-                    alert('Name is required!');
-                    return false;
+                function validateForm() {
+                    if (isEmpty(document.getElementById('data_3').value.trim())) {
+                        alert('Name is required!');
+                        return false;
                     }
 
-                if (!validateEmail(document.getElementById('data_5').value.trim())) {
-                    alert('Email must be a valid email address!');
-                    return false;
+                    if (!validateEmail(document.getElementById('data_5').value.trim())) {
+                        alert('Email must be a valid email address!');
+                        return false;
                     }
 
-                if (isEmpty(document.getElementById('data_6').value.trim())) {
-                    alert('Date is required!');
-                    return false;
+                    if (isEmpty(document.getElementById('data_6').value.trim())) {
+                        alert('Date is required!');
+                        return false;
                     }
 
-                if (isEmpty(document.getElementById('data_7').value.trim())) {
-                    alert('Time is required!');
-                    return false;
+                    if (isEmpty(document.getElementById('data_7').value.trim())) {
+                        alert('Time is required!');
+                        return false;
                     }
 
                     return true;
-                    }
+                }
 
-            function isEmpty(str) {
+                function isEmpty(str) {
                     return (str.length === 0 || !str.trim());
-                    }
+                }
 
-            function validateEmail(email) {
+                function validateEmail(email) {
                     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
                     return isEmpty(email) || re.test(email);
-                    }
+                }
 
-            return false;
+                return false;
             }
 
         </script>
 
-        <div id="confirmation-message" style="display: none;">
-            Reservation has been confirmed!
-        </div>
-
     </main>
-        <footer>
-            <p>
-                <a href="index.html">Home Page</a>&nbsp | <a href="about.html">About Us</a>&nbsp |  <a href="menu.html">Menu</a>&nbsp | <a href="giftcard.html">Gift Cards</a>&nbsp |
-                <a href="contact.html">Contact Us</a>&nbsp |
-            </p>
-        </footer>
-</body >
-        </html >
+    
+    <footer>
+        <p>
+            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
+            <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+        </p>
+    </footer>
 
+</body>
+</html>
