@@ -76,13 +76,14 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .img-wrapper {display: inline-block; text-align: center;}
 
-/*Cart Page Buttons*/
+/*Buttons*/
 .button {
     display: inline-block;
-    padding: 10px 20px;
     background-color: #f4ce8f;
-    color: white;
+    color: #fff;
+    padding: 10px 20px;
     text-decoration: none;
+    font-weight: bold;
     border-radius: 5px;
 }
 
@@ -138,7 +139,8 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-reservation:active {transform: scale(.95);}
 
-.btn-giftcard {
+/*Delivery Button on Index Page*/
+.btn-delivery {
     display: inline-block;
     background-color: #f4ce8f;
     color: #fff;
@@ -148,9 +150,9 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border-radius: 5px;
 }
 
-.btn-giftcard {background-color: #4BBBD3;}
+.btn-delivery {background-color: #4BBBD3;}
 
-.btn-giftcard {transform: scale(.95);}
+.btn-delivery {transform: scale(.95);}
 
 /*Gift Card*/
 .gift-card-container {
