@@ -124,13 +124,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var addCardToCartButton = document.getElementById('addCardToCart');
-            var addGiftCardsContainer = document.getElementById('addedGiftCardsContainer');
-            var totalAmountContainer = document.getElementById('totalAmountContainer');
+            var giftCardsSummary = document.querySelector('.gift-cards-summary');
 
             var addedGiftCards = [];
 
             addCardToCartButton.addEventListener('click', function (e) {
-                // Prevent the default form submission behavior
                 e.preventDefault();
 
                 var amount = parseFloat(document.getElementById('giftCard_amount').value);
@@ -163,6 +161,11 @@
                 // You can also display a confirmation message, if needed
                 alert('eGift added to cart');
 
+            });
+
+            var closeSummaryButton = document.getElementById('closeSummaryButton');
+            closeSummaryButton.addEventListener('click', function () {
+                giftCardsSummary.style.display = 'none';
             });
 
             function updateAddedGiftCardsDisplay(container, giftCards) {
@@ -199,12 +202,14 @@
     <style>
         #giftCard_amount {background-color: white;}
 
+        .gift-card-wrapper {position: relative;}
+
         .gift-card-container {
             background-color: #4BBBD3;
             padding: 20px;
             border-radius: 5px;
             margin: 0 auto;
-            width: 30%;
+            width: 100%;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -303,11 +308,7 @@
 
         .msg-line span.msg {width: auto;}
 
-        .num-line span {
-            display: inline-block;
-            text-align: left;
-            width: 110px;
-        }
+        .num-line span {display: inline-block; text-align: left; width: 110px;}
 
         span.card-number {width: auto; font-size: 16px;}
 
@@ -350,9 +351,7 @@
             margin-left: auto;
         }
 
-        .control-label {
-            text-align: center;
-        }
+        .control-label {text-align: center;}
 
         .added-gift-card {
             background-color: #FFF0D9;
@@ -363,19 +362,17 @@
         }
 
         .gift-cards-summary {
-            background-color: #f0f0f0;
-            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            background-color: #FFF0D9;
+            box-shadow: 0 2px 6px #000;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 0 auto;
-            max-width: 300px;
-            display: none; /* Initially hide the .gift-cards-summary */
+            display: none;
         }
 
-        #preview-wrapper {
-            max-width: 300px;
-            margin: 0 auto;
-        }      
+        #preview-wrapper {max-width: 300px; margin: 0 auto;}      
     </style>
 </head>
 
@@ -400,190 +397,189 @@
     <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
 
         <h1 style="color:black">Gift Cards</h1>
-        <div class="gift-card-container">
+        <div class="gift-card-wrapper">
+            <div class="gift-card-container">
 
-            <form class="form-horizontal content-box" method="POST" action="https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
-                <input type="hidden" name="restaurant.id" value="126449000000000000" />
-                <input type="hidden" name="giftCard.cartItemGuid" value="" />
-                <input type="hidden" name="authenticityToken" value="dfb5ddf7d00a864902ada5f820436acdc86ecc36">
+                <form class="form-horizontal content-box" method="POST" action="https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
+                    <input type="hidden" name="restaurant.id" value="126449000000000000" />
+                    <input type="hidden" name="giftCard.cartItemGuid" value="" />
+                    <input type="hidden" name="authenticityToken" value="dfb5ddf7d00a864902ada5f820436acdc86ecc36">
 
-                <h3 class="header3">Choose Amount</h3>
-                <div class="control-group"
-                     id="control-group-giftCard_amount">
-                    <label for="giftCard_amount" class="control-label">Amount <span style="color: red;">*</span><br /></label>
+                    <h3 class="header3">Choose Amount</h3>
+                    <div class="control-group"
+                         id="control-group-giftCard_amount">
+                        <label for="giftCard_amount" class="control-label">Amount <span style="color: red;">*</span><br /></label>
 
-                    <div class="controls">
+                        <div class="controls">
 
-                        <div class="input-prepend">
-                            <span class="add-on"> $</span>
-                            <input id="giftCard_amount" type="number" value="" name="giftCard.amount"
-                                   class='input-mini'
-                                   min='5.00 $'
-                                   max='500.00 $'
-                                   data-lpignore='true' />
+                            <div class="input-prepend">
+                                <span class="add-on"> $</span>
+                                <input id="giftCard_amount" type="number" value="" name="giftCard.amount"
+                                       class='input-mini'
+                                       min='5.00 $'
+                                       max='500.00 $'
+                                       data-lpignore='true' />
+                            </div>
+
+                            <p class="help-inline"> $5.00 - $500.00</p>
                         </div>
-
-                        <p class="help-inline"> $5.00 - $500.00</p>
                     </div>
-                </div>
 
-                <h3 class="header3">Personalize</h3>
-                <div class="control-group"
-                     id="control-group-giftCard_to">
-                    <label for="giftCard_to" class="control-label">To<br /></label>
+                    <h3 class="header3">Personalize</h3>
+                    <div class="control-group"
+                         id="control-group-giftCard_to">
+                        <label for="giftCard_to" class="control-label">To<br /></label>
 
-                    <div class="controls">
-                        <input id="giftCard_to" type="text" value="" name="giftCard.to" class='input-large' maxlength='255' data-lpignore='true' />
+                        <div class="controls">
+                            <input id="giftCard_to" type="text" value="" name="giftCard.to" class='input-large' maxlength='255' data-lpignore='true' />
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group"
-                     id="control-group-giftCard_from">
-                    <label for="giftCard_from" class="control-label"> From<br /></label>
+                    <div class="control-group"
+                         id="control-group-giftCard_from">
+                        <label for="giftCard_from" class="control-label"> From<br /></label>
 
-                    <div class="controls">
-                        <input id="giftCard_from" type="text" value="" name="giftCard.from" class='input-large' maxlength='255' data-lpignore='true' />
+                        <div class="controls">
+                            <input id="giftCard_from" type="text" value="" name="giftCard.from" class='input-large' maxlength='255' data-lpignore='true' />
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group"
-                     id="control-group-giftCard_message">
-                    <label for="giftCard_message" class="control-label">Message<br /></label>
+                    <div class="control-group"
+                         id="control-group-giftCard_message">
+                        <label for="giftCard_message" class="control-label">Message<br /></label>
 
-                    <div class="controls">
-                        <textarea id="giftCard_message" name="giftCard.message" rows="5" maxlength=350 class='input-large'></textarea>
+                        <div class="controls">
+                            <textarea id="giftCard_message" name="giftCard.message" rows="5" maxlength=350 class='input-large'></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <h3 class="header3">Schedule Delivery</h3>
-                <div class="control-group" id="send-to">
-                    <label class="control-label">Send To <span style="color: red;">*</span></label>
-                    <div class="controls" style="text-align: center;">
-                        <input type="hidden" name="giftCard.sendTo" value="EMAIL" />
-                        <div class="tabbable" id="send-to-tabs">
-                            <ul class="nav nav-tabs" style="list-style-type: none; padding: 0;">
-                                <li class="active">
-                                    <a href="#email" data-toggle="tab" title="Email"> Email</a>
-                                </li>
+                    <h3 class="header3">Schedule Delivery</h3>
+                    <div class="control-group" id="send-to">
+                        <label class="control-label">Send To <span style="color: red;">*</span></label>
+                        <div class="controls" style="text-align: center;">
+                            <input type="hidden" name="giftCard.sendTo" value="EMAIL" />
+                            <div class="tabbable" id="send-to-tabs">
+                                <ul class="nav nav-tabs" style="list-style-type: none; padding: 0;">
+                                    <li class="active">
+                                        <a href="#email" data-toggle="tab" title="Email"> Email</a>
+                                    </li>
 
-                                <li>
-                                    <a href="#phone" data-toggle="tab" title="Phone"> Phone</a>
-                                </li>
-                            </ul>
+                                    <li>
+                                        <a href="#phone" data-toggle="tab" title="Phone"> Phone</a>
+                                    </li>
+                                </ul>
 
-                            <div class="tab-content" style="text-align: center;">
-                                <div class="tab-pane active" id="email">
-                                    <input class="input-large" type="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" id="email-input" />
-                                </div>
+                                <div class="tab-content" style="text-align: center;">
+                                    <div class="tab-pane active" id="email">
+                                        <input class="input-large" type="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" id="email-input" />
+                                    </div>
 
-                                <div class="tab-pane" id="phone">
-                                    <input class="input-large" type="tel" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" id="phone-input" /><br>
+                                    <div class="tab-pane" id="phone">
+                                        <input class="input-large" type="tel" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" id="phone-input" /><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="control-group" id="delivery-date">
-                    <label id="selectDeliveryDate" class="control-label">Delivery Date <span style="color: red;">*</span></label>
-                    <div class="controls" style="text-align: center">
-                        <input type="text" name="giftCard.deliveryDate" required>
-                        <select name="giftCard.delivery" aria-hidden="true">
-                            <option value="NOW">Now</option>
-                            <option value="FUTURE_DATE">Future</option>
-                        </select>
-
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-                        <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-                        <script type="text/javascript">new Pikaday({ field: document.getElementById('delivery-date') });</script>
-
-                        <div id="future-date" style="padding-top:10px;display:none;">
-                            <select name="giftCard.deliveryHour" aria-hidden="true">
-                                <option value="1"> 1 AM</option>
-                                <option value="2"> 2 AM</option>
-                                <option value="3"> 3 AM</option>
-                                <option value="4"> 4 AM</option>
-                                <option value="5"> 5 AM</option>
-                                <option value="6"> 6 AM</option>
-                                <option value="7"> 7 AM</option>
-                                <option value="8"> 8 AM</option>
-                                <option value="9"> 9 AM</option>
-                                <option value="10"> 10 AM</option>
-                                <option value="11"> 11 AM</option>
-                                <option value="12"> 12 PM</option>
-                                <option value="13"> 1 PM</option>
-                                <option value="14"> 2 PM</option>
-                                <option value="15"> 3 PM</option>
-                                <option value="16"> 4 PM</option>
-                                <option value="17"> 5 PM</option>
-                                <option value="18"> 6 PM</option>
-                                <option value="19"> 7 PM</option>
-                                <option value="20"> 8 PM</option>
-                                <option value="21"> 9 PM</option>
-                                <option value="22"> 10 PM</option>
-                                <option value="23"> 11 PM</option>
-                                <option value="0"> 12 AM</option>
+                    <div class="control-group" id="delivery-date">
+                        <label id="selectDeliveryDate" class="control-label">Delivery Date<span style="color: red;">*</span></label>
+                        <div class="controls" style="text-align: center">
+                            <input type="text" name="giftCard.deliveryDate" required>
+                            <select name="giftCard.delivery" aria-hidden="true">
+                                <option value="NOW">Now</option>
+                                <option value="FUTURE_DATE">Future</option>
                             </select>
-                            <div style="color:#555;padding-top:5px;clear:both;text-align:center;"> Central Standard Time</div>
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+                            <script type="text/javascript">new Pikaday({ field: document.getElementById('delivery-date') });</script>
+
+                            <div id="future-date" style="padding-top:10px;display:none;">
+                                <select name="giftCard.deliveryHour" aria-hidden="true">
+                                    <option value="1"> 1 AM</option>
+                                    <option value="2"> 2 AM</option>
+                                    <option value="3"> 3 AM</option>
+                                    <option value="4"> 4 AM</option>
+                                    <option value="5"> 5 AM</option>
+                                    <option value="6"> 6 AM</option>
+                                    <option value="7"> 7 AM</option>
+                                    <option value="8"> 8 AM</option>
+                                    <option value="9"> 9 AM</option>
+                                    <option value="10"> 10 AM</option>
+                                    <option value="11"> 11 AM</option>
+                                    <option value="12"> 12 PM</option>
+                                    <option value="13"> 1 PM</option>
+                                    <option value="14"> 2 PM</option>
+                                    <option value="15"> 3 PM</option>
+                                    <option value="16"> 4 PM</option>
+                                    <option value="17"> 5 PM</option>
+                                    <option value="18"> 6 PM</option>
+                                    <option value="19"> 7 PM</option>
+                                    <option value="20"> 8 PM</option>
+                                    <option value="21"> 9 PM</option>
+                                    <option value="22"> 10 PM</option>
+                                    <option value="23"> 11 PM</option>
+                                    <option value="0"> 12 AM</option>
+                                </select>
+                                <div style="color:#555;padding-top:5px;clear:both;text-align:center;"> Central Standard Time</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <h3 class="header3">Preview</h3>
-                <div id="preview-wrapper">
-                    <div style="max-width:300px;margin:0 auto;">
-                        <div id="preview-msg-container" style="padding:10px 0px;">
-                            <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                <span>To:</span><span class="msg"></span>
-                            </div>
-
-                            <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                <span>From:</span><span class="msg"></span>
-                            </div>
-
-                            <div id="preview-message" class="msg-line" style="display:none;"></div>
-                        </div>
-
-                        <div id="cart-summary">
-                            <div class="toast-card" style="margin:0;">
-                                <div id="toast-card-logo">
-                                    <img src="Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
+                    <h3 class="header3">Preview</h3>
+                    <div id="preview-wrapper">
+                        <div style="max-width:300px;margin:0 auto;">
+                            <div id="preview-msg-container" style="padding:10px 0px;">
+                                <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                                    <span>To:</span><span class="msg"></span>
                                 </div>
-                                <div id="toast-card-title">Card Balance</div>
-                                <div id="toast-card-amount">
-                                    <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span><span id="preview-amount"></span>
+
+                                <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                                    <span>From:</span><span class="msg"></span>
                                 </div>
-                                <div id="toast-card-restaurant" style="font-size:21px">Maddie B Kitchen</div>
+
+                                <div id="preview-message" class="msg-line" style="display:none;"></div>
                             </div>
-                            <div style="height:30px;"></div>
+
+                            <div id="cart-summary">
+                                <div class="toast-card" style="margin:0;">
+                                    <div id="toast-card-logo">
+                                        <img src="Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
+                                    </div>
+                                    <div id="toast-card-title">Card Balance</div>
+                                    <div id="toast-card-amount">
+                                        <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span><span id="preview-amount"></span>
+                                    </div>
+                                    <div id="toast-card-restaurant" style="font-size:21px">Maddie B Kitchen</div>
+                                </div>
+                                <div style="height:30px;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="btn-container">
-                    <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
-                    <button id="reset" class="btn btn-reset">Clear</button>
-                </div>
-
-                <div>
-                    <label class="control-label">Hmmm...you're human, right?</label>
-                    <div class="g-recaptcha"
-                         data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                         data-callback="onRecaptchaSuccess"
-                         data-expired-callback="onRecaptchaResponseExpiry"
-                         data-error-callback="onRecaptchaError">
+                    <div class="btn-container">
+                        <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
+                        <button id="reset" class="btn btn-reset">Clear</button>
                     </div>
-                </div>
 
-                <div class="gift-cards-summary">
-                    <!-- Wrap the containers in a box -->
-                    <div id="addedGiftCardsContainer"></div>
-                    <div id="totalAmountContainer">Total Amount: $0.00</div>
+                    <div>
+                        <label class="control-label">Hmmm...you're human, right?</label>
+                        <div class="g-recaptcha"
+                             data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                             data-callback="onRecaptchaSuccess"
+                             data-expired-callback="onRecaptchaResponseExpiry"
+                             data-error-callback="onRecaptchaError">
+                        </div>
+                    </div>
+                    <div class="gift-cards-summary">
+                        <div id="addedGiftCardsContainer"></div>
+                        <div id="totalAmountContainer">Total Amount: $0.00</div>
 
-                    <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
-                </div>
-            </form>
-                        
+                        <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
+                    </div>
+                </form>
+         </div>               
         </div>
     </main>
 
