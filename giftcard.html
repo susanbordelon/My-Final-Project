@@ -125,6 +125,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             var addCardToCartButton = document.getElementById('addCardToCart');
             var addGiftCardsContainer = document.getElementById('addedGiftCardsContainer');
+            var totalAmountContainer = document.getElementById('totalAmountContainer');
 
             var addedGiftCards = [];
 
@@ -132,7 +133,7 @@
                 // Prevent the default form submission behavior
                 e.preventDefault();
 
-                var amount = document.getElementById('giftCard_amount').value;
+                var amount = parseFloat(document.getElementById('giftCard_amount').value);
                 var to = document.getElementById('giftCard_to').value;
                 var from = document.getElementById('giftCard_from').value;
                 var message = document.getElementById('giftCard_message').value;
@@ -144,8 +145,14 @@
                     message: message,
                 }
 
+                var giftCardsSummary = document.querySelector('.gift-cards-summary');
+                giftCardsSummary.style.display = 'block';
+
                 //Add the gift card to the list
                 addedGiftCards.push(giftCard);
+
+                // Update the total amount
+                updateTotalAmount(totalAmountContainer, addedGiftCards);
 
                 //Update the display of added gift cards
                 updateAddedGiftCardsDisplay(addedGiftCardsContainer, addedGiftCards);
@@ -174,6 +181,17 @@
                     `;
                     container.appendChild(cardElement);
                 });
+            }
+
+            // Function to update the total amount
+            function updateTotalAmount(container, giftCards) {
+                // Calculate the total amount from the added gift cards
+                var totalAmount = giftCards.reduce(function (total, giftCard) {
+                    return total + giftCard.amount;
+                }, 0);
+
+                // Update the display of the total amount
+                container.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
             }
         });
     </script>
@@ -343,6 +361,21 @@
             margin: 10px 0;
             border-radius: 5px;
         }
+
+        .gift-cards-summary {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 auto;
+            max-width: 300px;
+            display: none; /* Initially hide the .gift-cards-summary */
+        }
+
+        #preview-wrapper {
+            max-width: 300px;
+            margin: 0 auto;
+        }      
     </style>
 </head>
 
@@ -499,7 +532,6 @@
                 <h3 class="header3">Preview</h3>
                 <div id="preview-wrapper">
                     <div style="max-width:300px;margin:0 auto;">
-
                         <div id="preview-msg-container" style="padding:10px 0px;">
                             <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
                                 <span>To:</span><span class="msg"></span>
@@ -528,6 +560,11 @@
                     </div>
                 </div>
 
+                <div class="btn-container">
+                    <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
+                    <button id="reset" class="btn btn-reset">Clear</button>
+                </div>
+
                 <div>
                     <label class="control-label">Hmmm...you're human, right?</label>
                     <div class="g-recaptcha"
@@ -538,16 +575,15 @@
                     </div>
                 </div>
 
-                <div class="btn-container">
-                    <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
-                    <button id="reset" class="btn btn-reset">Clear</button>
+                <div class="gift-cards-summary">
+                    <!-- Wrap the containers in a box -->
+                    <div id="addedGiftCardsContainer"></div>
+                    <div id="totalAmountContainer">Total Amount: $0.00</div>
+
                     <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
                 </div>
-            
             </form>
-
-            <div id="addedGiftCardsContainer"></div>
-            
+                        
         </div>
     </main>
 
@@ -564,7 +600,6 @@
 
 </body>
 </html>
-
 
 
 
