@@ -124,26 +124,57 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var addCardToCartButton = document.getElementById('addCardToCart');
+            var addGiftCardsContainer = document.getElementById('addedGiftCardsContainer');
 
-            // Add an event listener to the button
+            var addedGiftCards = [];
+
             addCardToCartButton.addEventListener('click', function (e) {
                 // Prevent the default form submission behavior
                 e.preventDefault();
 
-                // Here, you can add your logic to handle adding the eGift to the cart
-                // This can involve making an AJAX request to a server or storing the eGift data in a local variable
+                var amount = document.getElementById('giftCard_amount').value;
+                var to = document.getElementById('giftCard_to').value;
+                var from = document.getElementById('giftCard_from').value;
+                var message = document.getElementById('giftCard_message').value;
 
-                // Optionally, you can clear the form or reset the fields for the next card
+                var giftCard = {
+                    amount: amount,
+                    to: to,
+                    from: from,
+                    message: message,
+                }
+
+                //Add the gift card to the list
+                addedGiftCards.push(giftCard);
+
+                //Update the display of added gift cards
+                updateAddedGiftCardsDisplay(addedGiftCardsContainer, addedGiftCards);
+
                 document.getElementById('giftCard_amount').value = '';
                 document.getElementById('giftCard_to').value = '';
 
                 // You can also display a confirmation message, if needed
                 alert('eGift added to cart');
 
-                // Clear any previous values in the form
-                document.getElementById('giftCard_amount').value = '';
-                document.getElementById('giftCard_to').value = '';
             });
+
+            function updateAddedGiftCardsDisplay(container, giftCards) {
+
+                container.innerHTML = '';
+
+                giftCards.forEach(function (giftCard, index) {
+                    var cardElement = document.createElement('div');
+                    cardElement.className = 'added-gift-card';
+                    cardElement.innerHTML = `
+                        <strong>Gift Card ${index + 1}:</strong><br>
+                        Amount: ${giftCard.amount}<br>
+                        To: ${giftCard.to}<br>
+                        From: ${giftCard.from}<br>
+                        Message: ${giftCard.message}
+                    `;
+                    container.appendChild(cardElement);
+                });
+            }
         });
     </script>
 
@@ -303,6 +334,14 @@
 
         .control-label {
             text-align: center;
+        }
+
+        .added-gift-card {
+            background-color: #FFF0D9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -505,6 +544,8 @@
                     <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
                 </div>
 
+                <div id="addedGiftCardsContainer"></div>
+
             </form>
         </div>
     </main>
@@ -522,6 +563,7 @@
 
 </body>
 </html>
+
 
 
 
