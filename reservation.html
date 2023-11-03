@@ -7,36 +7,15 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <style>
-        .form-container {
-            background-color: #4bbbd3;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 0 auto;
-            width: 30%;
-            text-align: center;
-        }
+        .form-container {background-color: #4bbbd3; padding: 20px; border-radius: 5px; margin: 0 auto; width: 30%; text-align: center;}
 
-        input, textarea {
-            color: black;
-            font-size: 16px;
-            font-family: 'Bookman Old Style';
-            border-radius: 20px;
-            display: inline-block;
-        }
+        input, textarea {color: black; font-size: 16px; font-family: 'Bookman Old Style'; border-radius: 20px; display: inline-block;}
 
         input[type=number] {background-color: black;}
     
         select {background-color: #FFF0D9;}
 
-        button, input[type=reset], input[type=submit] {
-            display: inline-block;
-            background-color: #f4ce8f;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+        button, input[type=reset], input[type=submit] {display: inline-block; background-color: #f4ce8f; color: #fff; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px;}
 
         button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
 
@@ -113,7 +92,30 @@
                     <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
                     <div style="padding-bottom: 18px;">
                         <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
-                        <input type="text" id="data_7" name="data_7" style="max-width : 250px;" class="form-control" />
+                        <select id="data_7" name="data_7" style="max-width: 250px;" class="form-control">
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="11:30 AM">11:30 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="12:30 PM">12:30 PM</option>
+                            <option value="1:00 PM">1:00 PM</option>
+                            <option value="1:30 PM">1:30 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="2:30 PM">2:30 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="3:30 PM">3:30 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="4:30 PM">4:30 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                            <option value="5:30 PM">5:30 PM</option>
+                            <option value="6:00 PM">6:00 PM</option>
+                            <option value="6:30 PM">6:30 PM</option>
+                            <option value="7:00 PM">7:00 PM</option>
+                            <option value="7:30 PM">7:30 PM</option>
+                            <option value="8:00 PM">8:00 PM</option>
+                            <option value="8:30 PM">8:30 PM</option>
+                            <option value="9:00 PM">9:00 PM</option>
+                            <option value="9:30 PM">9:30 PM</option>
+                        </select>                                                                                                                   
                     </div>
 
                     <div style="padding-bottom: 18px;">
@@ -218,3 +220,4 @@
 
 </body>
 </html>
+
