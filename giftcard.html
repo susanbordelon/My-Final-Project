@@ -314,6 +314,10 @@
             width: auto;
             margin-left: auto;
         }
+
+        .control-label {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -430,11 +434,11 @@
                             <option value="NOW">Now</option>
                             <option value="FUTURE_DATE">Future</option>
                         </select>
-                        
+
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
                         <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
                         <script type="text/javascript">new Pikaday({ field: document.getElementById('giftCard.delivery') });</script>
-                        
+
                         <div id="future-date" style="padding-top:10px;display:none;">
                             <select name="giftCard.deliveryHour" aria-hidden="true">
                                 <option value="1"> 1 AM</option>
@@ -501,7 +505,7 @@
 
                 <div>
                     <label class="control-label">Hmmm...you're human, right?</label>
-                    <div class="g-recaptcha" 
+                    <div class="g-recaptcha"
                          data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                          data-callback="onRecaptchaSuccess"
                          data-expired-callback="onRecaptchaResponseExpiry"
@@ -517,17 +521,17 @@
 
             </form>
         </div>
- 
-        <footer>
-            <p style="text-align: center;">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p><br />
-
-            <p>
-                <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
-                <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
-            </p>
-        </footer>
-
     </main>
+
+    <footer>
+        <p style="text-align: center; color: #F4cE8F">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
+
+        <p>
+            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
+            <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+        </p>
+    </footer>
+
     <script>(function () { var js = "window['__CF$cv$params']={r:'81acbc77da393be7',t:'MTY5ODA5MzAwOC44MTAwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
 
 </body>
