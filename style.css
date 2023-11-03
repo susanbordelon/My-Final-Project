@@ -147,13 +147,9 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border-radius: 5px;
 }
 
-.btn-reservation:hover {
-    background-color: #4BBBD3;
-}
+.btn-reservation:hover {background-color: #4BBBD3;}
 
-.btn-reservation:active {
-    transform: scale(.95);
-}
+.btn-reservation:active {transform: scale(.95);}
 
 /*Delivery Button on Index Page*/
 .btn-delivery {
@@ -185,7 +181,7 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-submit:active {transform: scale(.95);}
 
-/*Cart Button on Gift Card Page*/
+/*Buttons (Cart, Reset, Add Another) on Gift Card Page*/
 .btn-cart {
     display: inline-block;
     background-color: #f4ce8f;
@@ -200,13 +196,41 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-cart:active {transform: scale(.95);}
 
-.header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin: 0 auto;
+.btn-add-another {
+    display: inline-block;
+    background-color: #f4ce8f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
 }
+
+.btn-add-another:hover {background-color: #B1E3E4;}
+
+.btn-add-another:active {transform: scale(.95);}
+
+.btn-reset {
+    display: inline-block;
+    background-color: #f4ce8f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-reset:hover {background-color: #B1E3E4;}
+
+.btn-reset:active {transform: scale(.95);}
+
+.header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+    }
 
 #form-container {
     text-align: center;
@@ -230,4 +254,5 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 /*Logo*/
 .logo {display: inline-block;}
+
 
