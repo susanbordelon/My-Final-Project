@@ -6,7 +6,7 @@
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -286,7 +286,7 @@
 
         select {background-color: #FFF0D9;}
 
-        button, input[type=reset], input[type=submit] {
+        button, input[type=add-another], input[type=cart] {
             display: inline-block;
             background-color: #f4ce8f;
             color: #fff;
@@ -296,11 +296,11 @@
             border-radius: 5px;
         }
 
-        .form-group {
-            display: flex;
-            align-items: center;
-            margin: 10px;
-        }
+        button, input[type=add-another]:hover, input[type=cart]:hover {background-color: #4BBBD3;}
+
+        button, input[type=add-another]:active, input[type=cart]:active {transform: scale(0.95);}
+
+        .form-group {display: flex; align-items: center; margin: 10px;}
 
         .form-group > input, .form-group > textarea, .form-group > select {
             width: 80%;
@@ -340,7 +340,7 @@
         <h1 style="color:black">Gift Cards</h1>
         <div class="gift-card-container">
 
-            <form class="form-horizontal content-box" method="POST" action="/https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
+            <form class="form-horizontal content-box" method="POST" action="https://susanbordelon.github.io/My-Final-Project/giftcards?utmCampaign=unknown">
                 <input type="hidden" name="restaurant.id" value="126449000000000000" />
                 <input type="hidden" name="giftCard.cartItemGuid" value="" />
                 <input type="hidden" name="authenticityToken" value="dfb5ddf7d00a864902ada5f820436acdc86ecc36">
@@ -499,28 +499,28 @@
                     </div>
                 </div>
 
-                <h3 class="header3"><a id="section-captcha"></a></h3>
-                <div class="control-group">
+                <div>
                     <label class="control-label">Hmmm...you're human, right?</label>
-
-                    <div class="controls">
-                        <div class="g-recaptcha" data-sitekey="6LdIgPMjAAAAACfuP4xEDEa_HsR_ZiQzomomTh27"></div>
+                    <div class="g-recaptcha" 
+                         data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                         data-callback="onRecaptchaSuccess"
+                         data-expired-callback="onRecaptchaResponseExpiry"
+                         data-error-callback="onRecaptchaError">
                     </div>
                 </div>
 
-                <h4 class="header3" aria-hidden="true"></h4>
-                <div style="text-align:center; padding-bottom:30px;">
+                <div class="btn-container">
                     <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
-
-                    <input type="hidden" name="add" value="false" />
+                    <button id="reset" class="btn btn-reset">Clear</button>
                     <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
                 </div>
+
             </form>
         </div>
-
-        <p style="text-align: center;">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
-
+ 
         <footer>
+            <p style="text-align: center;">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p><br />
+
             <p>
                 <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
                 <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
@@ -532,5 +532,6 @@
 
 </body>
 </html>
+
 
     
