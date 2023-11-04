@@ -164,29 +164,31 @@
                         </div>
                     </div>
 
-                    <h3 class="header3">Delivery<span style="color: red;">*</span><br /></h3>
-                    <div class="control-group" id="send-to" style="text-align: center;">
+                    <h3 class="header3">Schedule Delivery</h3>
 
-                        <div class="controls">
+                    <div class="control-group" id="send-to">
+                        <label class="control-label">Send To <span style="color: red;">*</span></label>
+                        <div class="controls" style="text-align: center;">
                             <input type="hidden" name="giftCard.sendTo" value="EMAIL" />
                             <div class="tabbable" id="send-to-tabs">
                                 <ul class="nav nav-tabs" style="list-style-type: none; padding: 0;">
                                     <li class="active">
-                                        <a href="#email" data-toggle="tab" title="Email"> Email</a>
+                                        <a href="#email" data-toggle="tab" title="Email">Email</a>
                                     </li>
-
                                     <li>
-                                        <a href="#phone" data-toggle="tab" title="Phone"> Phone</a>
+                                        <a href="#phone" data-toggle="tab" title="Phone">Phone</a>
                                     </li>
                                 </ul>
-
                                 <div class="tab-content" style="text-align: center;">
                                     <div class="tab-pane active" id="email">
-                                        <input class="input-large" type="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" id="email-input" />
+                                        <input class="input-large" type="email" title="Recipient Email"
+                                           placeholder="Recipient Email"
+                                           name="giftCard.email" value="" />
                                     </div>
-
                                     <div class="tab-pane" id="phone">
-                                        <input class="input-large" type="tel" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" id="phone-input" /><br>
+                                        <input class="input-large" type="tel" title="Recipient Phone"
+                                           placeholder="Recipient Phone"
+                                           name="giftCard.phone" value="" />
                                     </div>
                                 </div>
                             </div>
