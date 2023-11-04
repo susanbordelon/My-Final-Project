@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <style>
+
+        main img {
+            padding: 20px;
+            border-radius: 25px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-wrapper p {
+            font-family: Tahoma, bold, sans-serif;
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        function addToCart(name, price) {
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingItem = cartData.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartData.push({ name, price, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cartData));
+            alert(`${name} added to cart!`);
+
+        }
+
+    </script>
 </head>
 
 <body id="container">
@@ -25,17 +57,103 @@
         </ul>
     </nav>
 
+    <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
 
-<main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
+        <h1 style="color:black">Menu To Go</h1>
+        <label2>
+            <p>Please place your order to go!</p>
 
-    <h1 style="color:black">To Go Orders</h1>
-    <label2>
-        <p>Please place your order to go!</p>
+            <p>Phone: 1-800-MaddieB</p>
+            <p>Email: kitchen@maddiebs.com</p>
+            <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
+        </label2>
 
-        <p>Phone: 1-800-MaddieB</p>
-        <p>Email: kitchen@maddiebs.com</p>
-        <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
-    </label2>
+        <h1 style="color:black">Appetizers</h1>
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Oysters.jpg" alt="Charboiled Oysters" width="270" height="300">
+            <h2 style="margin-top: 10px;">Charboiled Oysters</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $15.00/dozen</p>
+                <a href="javascript:void(0);" onclick="addToCart('Oysters', 15.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Calamari.jpg" alt="Calamari" width="270" height="300">
+            <h2 style="margin-top: 10px;">Marinated Crab Claws</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $12.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Calamari', 12.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Crab Dip.jpg" alt="Crab Dip" width="270" height="300">
+            <h2 style="margin-top: 10px;">Crab Dip</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $10.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Crab Dip', 10.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Crab Guacamole.jpg" alt="Crab Guacamole" width="270" height="300">
+            <h2 style="margin-top: 10px;">Crab Guacamole</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $12.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Crab Guacamole', 12.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Marinated Crab Claw.jpg" alt="Marinated Crab Claws" width="270" height="300">
+            <h2 style="margin-top: 10px;">Marinated Crab Claws</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $15.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Marinated Crab Claws', 15.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <h1 style="color:black">Soup & Salad</h1>
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/House Salad.jpg" alt="House Salad" width="270" height="300">
+            <h2 style="margin-top: 10px;">House Salad</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $12.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('House Salad', 12.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Caesar Salad.jpg" alt="Casear Salad" width="270" height="300">
+            <h2 style="margin-top: 10px;">Caesar Salad</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $15.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Caesar Salad', 15.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Seafood Gumbo.jpg" alt="Seafood Gumbo" width="270" height="300">
+            <h2 style="margin-top: 10px;">Seafood Gumbo</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $8.00</p>
+                <a href="javascript:void(0);" onclick="addToCart('Seafood Gumbo', 8.00)" class="Add-to-Cart button">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="product" style="flex: 1 0 calc(25% - 40px); max-width: 270px; padding: 20px; border-radius: 25px; text-align: center;">
+            <img src="Menu Images/Soup of Day.jpeg" alt="Soup of the Day" width="270" height="300">
+            <h2 style="margin-top: 10px;">Soup of the Day</h2>
+            <div class="product-details">
+                <p class="card-text">Price: $8.00/cup</p>
+                <a href="javascript:void(0);" onclick="addToCart('Soup of the Day', 8.00)" class="Add-to-Cart button">Add to cart</a>
+                <p class="card-text">Price: $10.00/bowl</p>
+                <a href="javascript:void(0);" onclick="addtoCart('Soup of the Day', 10.00)" class="Add-to-Cart button">Add to cart</a>"
+            </div>
+        </div>
+
+    </main>
 
     <footer>
         <p>
@@ -43,6 +161,6 @@
             <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
         </p>
     </footer>
-</main>
-    </body>
-</html>
+</body >
+</html >
+
