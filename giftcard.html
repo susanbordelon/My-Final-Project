@@ -5,6 +5,89 @@
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Maddie B's Kitchen</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    /*Display Preview Message Script*/ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var formatPrice = function (value) {
+                if (!value) {
+                    return value;
+                }
+                var floatValue = 0;
+                if (typeof value === 'string') {
+                    floatValue = parseFloat(value.replace(',', ''));
+                } else if (typeof value === 'number') {
+                    floatValue = value;
+                }
+                return floatValue.toFixed(2);
+            };
+
+            // Handle the amount input field
+            var amountInput = document.getElementById('giftCard_amount');
+            amountInput.addEventListener('input', function () {
+                var val = amountInput.value;
+                var amount = formatPrice(val);
+                amountInput.value = amount;
+                document.getElementById('preview-amount').textContent = amount;
+            });
+
+            // Handle the "To" input field
+            var toInput = document.getElementById('giftCard_to');
+            toInput.addEventListener('input', function () {
+                var text = toInput.value;
+                var previewTo = document.getElementById('preview-to');
+                if (text) {
+                    previewTo.style.display = 'block';
+                    previewTo.querySelector('.msg').textContent = text;
+                } else {
+                    previewTo.style.display = 'none';
+                }
+            });
+
+            // Handle the "From" input field
+            var fromInput = document.getElementById('giftCard_from');
+            fromInput.addEventListener('input', function () {
+                var text = fromInput.value;
+                var previewFrom = document.getElementById('preview-from');
+                if (text) {
+                    previewFrom.style.display = 'block';
+                    previewFrom.querySelector('.msg').textContent = text;
+                } else {
+                    previewFrom.style.display = 'none';
+                }
+            });
+
+            // Handle the message input field
+            var messageInput = document.getElementById('giftCard_message');
+            var previewMessage = document.getElementById('preview-message');
+            messageInput.addEventListener('input', function () {
+                var text = messageInput.value;
+                if (text) {
+                    previewMessage.style.display = 'block';
+                    previewMessage.innerHTML = text.replace(/\n/g, '<br>');
+                } else {
+                    previewMessage.style.display = 'none';
+                }
+            });
+
+            // Prevent mousewheel scrolling on number input fields
+            var numberInputs = document.querySelectorAll('input[type="number"]');
+            numberInputs.forEach(function (input) {
+                input.addEventListener('mousewheel', function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</head>
 </head>
 
 <body id="container">
