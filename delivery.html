@@ -68,7 +68,10 @@
         </div>
 
         <div class="product-grid">
-            <h2 class="product-category">Appetizers</h2>
+            <div class="category-section">
+                <h2 class="product-category">Appetizers</h2>
+            </div>
+
             <div class="product-card">
                 <img src="Oysters.jpg" alt="Charboiled Oysters">
                 <h2>Charboiled Oysters</h2>
@@ -104,7 +107,10 @@
                 <button onclick="addToCart('Marinated Crab Claws', 15.00)">Add to Cart</button>
             </div>
 
-            <h2 class="product-category">Soup & Salad</h2>
+            <div class="category-section">
+                <h2 class="product-category">Soup & Salad</h2>
+            </div>
+
             <div class="product-card">
                 <img src="House Salad.jpg" alt="House Salad">
                 <h2>House Salad</h2>
@@ -135,7 +141,10 @@
                 <button onclick="addToCart('Soup of the Day', 10.00)">Add to Cart</button>
             </div>
 
-            <h2 class="product-category">Entrees</h2>
+            <div class="category-section">
+                <h2 class="product-category">Entrees</h2>
+            </div>
+
             <div class="product-card">
                 <img src="Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish">
                 <h2>Pecan Crusted Redfish</h2>
@@ -171,7 +180,10 @@
                 <button onclick="addToCart('Bone In Ribeye', 32.00)">Add to Cart</button>
             </div>
 
-            <h2 class="product-category">Desserts</h2>
+            <div class="category-section">
+                <h2 class="product-category">Desserts</h2>
+            </div>
+
             <div class="product-card">
                 <img src="Brownie A La Mode.jpg" alt="Brownie ALA Mode">
                 <h2>Brownie A La Mode</h2>
@@ -224,6 +236,10 @@
         gap: 20px;
         justify-items: center;
         text-align: center;
+    }
+
+    .category-section {
+        flex-basis: 100%;
     }
 
     .product-card {
@@ -293,8 +309,7 @@
     </p>
 </footer>
 </body>
-</html>
-
+</html >
 
 
 
