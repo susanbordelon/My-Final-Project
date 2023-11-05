@@ -5,59 +5,55 @@
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        body {
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body id="container">
     <header>
-        <div class="header-content">
-            <img src="Maddie B Kitchen-logos.jpeg" alt="Maddie B Kitchen-logo_white" width="200" height="200"
-        </div>    
-     </header>
+        <img src="Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
+
+        <h1>Maddie B Kitchen</h1>
+    </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="giftcard.html">Gift Cards</a></li>
             <li><a href="cart.html">Cart</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
-    
+
     <main>
-    <h1 style="color:black">Shopping Cart</h1>
+        <h1 style="color:black">Shopping Cart</h1>
 
-    <div class="cart-container">
+        <div class="cart-container">
 
-        <!-- Cart items will be dynamically added here -->
-    <br>
+            <!-- Cart items will be dynamically added here -->
 
-    </div>
+            <br>
+
+        </div>
+
         <div class="cart-footer">
             <h4 style="margin-right: 10px">Total Price:</h4>
             <h4 id="total-price">$0.00</h4>
         </div>
 
-	<div class="cart-button">
+        <div class="cart-button">
+            <button id="clear-cart" class="button">Clear Cart</button>
+            <input type="button" class="button" onclick="checkout();" value="Check Out">
+        </div>
 
-	<button id="clear-cart" class="button">Clear Cart</button>
-	
-        <input type="button" class="button" onclick="checkout();" value="Check Out">
-
-	</div>
-
-    <br>
-              
+        <br>
     </main>
 
-   <footer>
-    <p>
-        <a href="index.html">Home Page</a>&nbsp | <a href="about.html">About Us</a>&nbsp |  <a href="menu.html">Menu</a>&nbsp | <a href="giftcard.html">Gift Cards</a>&nbsp |
-        <a href="cart.html">Cart Page</a>&nbsp |  <a href="contact.html">Contact Us</a>&nbsp |
-    </p>
-</footer>
-    
     <script>
         // Calculate and update the subtotal and total prices
         function updateTotal() {
@@ -79,33 +75,33 @@
             document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
         }
 
-   	function clearCart() {
-    	// Clear the cart items from local storage
-    	localStorage.removeItem('cart');
+        function clearCart() {
+            // Clear the cart items from local storage
+            localStorage.removeItem('cart');
 
-    	// Clear the cart display on the page
-    	const cartContainer = document.querySelector('.cart-container');
-    	cartContainer.innerHTML = ''; // Remove all cart items from the page
+            // Clear the cart display on the page
+            const cartContainer = document.querySelector('.cart-container');
+            cartContainer.innerHTML = ''; // Remove all cart items from the page
 
-    	// Update the total price (set it to $0.00)
-    	document.getElementById('total-price').textContent = '$0.00';
-	}
+            // Update the total price (set it to $0.00)
+            document.getElementById('total-price').textContent = '$0.00';
+        }
 
         // Handle checkout
         function checkout() {
             // Add checkout logic to redirect to a payment page
-            window.location.href = 'https://github.com/susanbordelon/My-Final-Project/blob/394c35b200821770eade3d3789f2a63b2cb86dac/payment.html';
+            window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
         }
 
-	// Remove an item from the cart
-	function removeItem(item) {
-  	const itemName = item.querySelector('h3').textContent;
-    	item.remove();
-	const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-   	const updatedCartData = cartData.filter(cartItem => cartItem.name !== itemName);
-    	localStorage.setItem('cart', JSON.stringify(updatedCartData));
-        updateTotal();
-	}
+        // Remove an item from the cart
+        function removeItem(item) {
+            const itemName = item.querySelector('h3').textContent;
+            item.remove();
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+            const updatedCartData = cartData.filter(cartItem => cartItem.name !== itemName);
+            localStorage.setItem('cart', JSON.stringify(updatedCartData));
+            updateTotal();
+        }
 
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
@@ -122,17 +118,17 @@
                 cartItem.classList.add('cart-item');
 
                 cartItem.innerHTML = `
-                    <img src="images/${item.name}.jpeg" alt="${item.name}">
-                    <div class="cart-item-info">
-                        <h3>${item.name}</h3>
-                        <p class="cart-item-price">$${item.price}</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
-                    </div>
-                    <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
-                    <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
-                `;
+                            <img src="${item.name}.jpeg" alt="${item.name}">
+                            <div class="cart-item-info">
+                                <h3>${item.name}</h3>
+                                <p class="cart-item-price">$${item.price}</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
+                            </div>
+                            <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
+                            <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
+                        `;
 
                 cartContainer.appendChild(cartItem);
             });
@@ -147,6 +143,101 @@
             updateTotal();
         });
     </script>
+
+    <script>
+        document.getElementById('addCardToCart').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the form from submitting (so the page doesn't reload)
+
+            // Gather gift card information from the form elements
+            var amount = document.getElementById('giftCard_amount').value;
+            var to = document.getElementById('giftCard_to').value;
+            var from = document.getElementById('giftCard_from').value;
+            var message = document.getElementById('giftCard_message').value;
+            var sendTo = document.querySelector('input[name="giftCard.sendTo"]:checked').value;
+            var deliveryDate = document.querySelector('input[name="giftCard.deliveryDate"]').value;
+
+            // Construct a JavaScript object representing the gift card
+            var giftCard = {
+                amount: amount,
+                to: to,
+                from: from,
+                message: message,
+                sendTo: sendTo,
+                deliveryDate: deliveryDate,
+            };
+
+            // Get the existing cart data from local storage
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the gift card to the cart
+            cart.push(giftCard);
+
+            // Update the cart data in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Redirect to the cart page
+            window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize an empty cart array
+            var cart = [];
+
+            var clearCartButton = document.getElementById('clear-cart');
+            var cartContainer = document.querySelector('.cart-container');
+
+            clearCartButton.addEventListener('click', function () {
+
+                // Clear the cart items from local storage
+                localStorage.removeItem('cart');
+
+                // Clear the cart display on the page
+                cartContainer.innerHTML = '';
+
+                // Update the total price (set it to $0.00)
+                document.getElementById('total-price').textContent = '$0.00';
+            });
+
+            // Fetch cart items from local storage and create cart elements
+            var cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cartData.forEach(function (item) {
+                var cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                        <div class="cart-item-info">
+                            <h3>${item.to}</h3>
+                            <p class="cart-item-price">$${item.amount}</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <input type="number" value="1" min="1" max="9999" class="quantity">
+                        </div>
+                        <p class="cart-item-subtotal">$${item.amount}</p>
+                        <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
+                    `;
+
+                cartContainer.appendChild(cartItem);
+            });
+
+            // Add input event listeners for quantity inputs
+            var quantityInputs = document.querySelectorAll('.quantity');
+            quantityInputs.forEach(function (input) {
+                input.addEventListener('input', updateTotal);
+            });
+
+            // Initialize total price
+            updateTotal();
+        });
+    </script>
+
+
+    <footer>
+        <p>
+            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
+            <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp; |
+        </p>
+    </footer>
 
 </body>
 </html>
