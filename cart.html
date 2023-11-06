@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCUTYPE html>
 <html lang="en">
 
 <head>
@@ -31,7 +31,7 @@
     </nav>
 
     <main>
-        <h1 style="color:black">Shopping Cart</h1>
+        <h1 style="color: black; text-align: center;">Shopping Cart</h1>
 
         <div class="cart-container">
 
@@ -118,7 +118,7 @@
                 cartItem.classList.add('cart-item');
 
                 cartItem.innerHTML = `
-                            <img src="${item.name}.jpeg" alt="${item.name}">
+                            <img src="${item.name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${item.name}">
                             <div class="cart-item-info">
                                 <h3>${item.name}</h3>
                                 <p class="cart-item-price">$${item.price}</p>
