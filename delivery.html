@@ -1,24 +1,9 @@
-<!DOCTYPE html>
+<!DOCUTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <style>
-
-        main img {
-            padding: 20px;
-            border-radius: 25px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .img-wrapper p {
-            font-family: Tahoma, bold, sans-serif;
-            font-size: 20px;
-        }
-    </style>
 
     <script>
         function addToCart(name, price) {
@@ -230,11 +215,22 @@
         margin: 0 auto; /* Center horizontally */
     }
 
+    main img {
+        padding: 20px;
+        border-radius: 25px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .img-wrapper p {
+        font-family: Tahoma, bold, sans-serif;
+        font-size: 20px;
+    }
+
     .product-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
         gap: 20px;
-        justify-items: center;
         text-align: center;
     }
 
@@ -288,18 +284,6 @@
     .product-card button:active {
         transform: scale(0.95);
     }
-
-    .product-category {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 20px;
-        text-align: center;
-        padding-top: 10px;
-    }
-
-   .product-category:first-child {
-        margin-top: 20px; /* Add margin to separate categories */
-    }
 </style>
 
 <footer>
@@ -309,7 +293,6 @@
     </p>
 </footer>
 </body>
-</html >
-
+</html>
 
 
