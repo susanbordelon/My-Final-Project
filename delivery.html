@@ -1,15 +1,27 @@
-<!DOCTYPE html>
+<!DOCUTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <style>
-        body {
-            display: inline-block;
+
+    <script>
+        function addToCart(name, price) {
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingItem = cartData.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartData.push({ name, price, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cartData));
+            alert(`${name} added to cart!`);
+
         }
-    </style>
+
+    </script>
 </head>
 
 <body id="container">
@@ -30,215 +42,261 @@
         </ul>
     </nav>
 
-    <main>
-        <h1 style="color: black; text-align: center;">Shopping Cart</h1>
-        <div class="cart-container">
-
-            <!-- Cart items will be dynamically added here -->
-
-            <br>
+<main>
+    <div class="main-container">
+        <div class="main-header">
+            <h1>Menu To Go</h1>
+            <p>Please place your order to go!</p>
+            <p>Phone: 1-800-MaddieB</p>
+            <p>Email: kitchen@maddiebs.com</p>
+            <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
         </div>
 
-        <div class="cart-footer">
-            <h4 style="margin-right: 10px">Total Price:</h4>
-            <h4 id="total-price">$0.00</h4>
+        <div class="product-grid">
+            <div class="category-section">
+                <h2 class="product-category">Appetizers</h2>
+            </div>
+
+            <div class="product-card">
+                <img src="Oysters.jpg" alt="Charboiled Oysters">
+                <h2>Charboiled Oysters</h2>
+                <p>Price: $15.00</p>
+                <button onclick="addToCart('Oysters', 15.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Calamari.jpg" alt="Calamari">
+                <h2>Calamari</h2>
+                <p>Price: $12.00</p>
+                <button onclick="addToCart('Calamari', 12.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Crab Dip.jpg" alt="Crab Dip">
+                <h2>Crab Dip</h2>
+                <p>Price: $10.00</p>
+                <button onclick="addToCart('Crab Dip', 10.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Crab Guacamole.jpg" alt="Crab Guacamole">
+                <h2>Crab Guacamole</h2>
+                <p>Price: $12.00</p>
+                <button onclick="addToCart('Crab Guacamole', 12.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Marinated Crab Claw.jpg" alt="Marinated Crab Claws">
+                <h2>Marinated Crab Claws</h2>
+                <p>Price: $15.00</p>
+                <button onclick="addToCart('Marinated Crab Claws', 15.00)">Add to Cart</button>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Soup & Salad</h2>
+            </div>
+
+            <div class="product-card">
+                <img src="House Salad.jpg" alt="House Salad">
+                <h2>House Salad</h2>
+                <p>Price: $12.00</p>
+                <button onclick="addToCart('House Salad', 12.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Caesar Salad.jpg" alt="Casear Salad">
+                <h2>Caesar Salad</h2>
+                <p>Price: $15.00</p>
+                <button onclick="addToCart('Caesar Salad', 15.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Seafood Gumbo.jpg" alt="Seafood Gumbo">
+                <h2>Seafood Gumbo</h2>
+                <p>Price: $8.00</p>
+                <button onclick="addToCart('Seafood Gumbo', 8.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Soup of Day.jpeg" alt="Soup of the Day">
+                <h2>Soup of the Day</h2>
+                <p>Price: $8.00/cup</p>
+                <button onclick="addToCart('Soup of Day', 8.00)">Add to Cart</button>
+                <p>Price: $10.00/bowl</p>
+                <button onclick="addToCart('Soup of Day', 10.00)">Add to Cart</button>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Entrees</h2>
+            </div>
+
+            <div class="product-card">
+                <img src="Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish">
+                <h2>Pecan Crusted Redfish</h2>
+                <p>Price: $30.00</p>
+                <button onclick="addToCart('Pecan Crusted Redfish', 30.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Grilled Salmon.jpg" alt="Grilled Salmon">
+                <h2>Grilled Salmon</h2>
+                <p>Price: $25.00</p>
+                <button onclick="addToCart('Grilled Salmon', 25.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya">
+                <h2>Catfish Atchafalaya</h2>
+                <p>Price: $20.00</p>
+                <button onclick="addToCart('Catfish Atchafalaya', 20.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Shrimp and Gits.jpg" alt="Shrimp and Grits">
+                <h2>Shrimp and Grits</h2>
+                <p>Price: $25.00</p>
+                <button onclick="addToCart('Shrimp and Grits', 25.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Bone In Ribeye.jpg" alt="Bone In Ribeye">
+                <h2>Bone In Ribeye</h2>
+                <p>Price: $32.00</p>
+                <button onclick="addToCart('Bone In Ribeye', 32.00)">Add to Cart</button>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Desserts</h2>
+            </div>
+
+            <div class="product-card">
+                <img src="Brownie A La Mode.jpg" alt="Brownie ALA Mode">
+                <h2>Brownie A La Mode</h2>
+                <p>Price: $8.00</p>
+                <button onclick="addToCart('Brownie A La Mode', 8.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Cheesecake.jpg" alt="Cheesecake">
+                <h2>Cheesecake</h2>
+                <p>Price: $10.00</p>
+                <button onclick="addToCart('Cheesecake', 10.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie">
+                <h2>Chocolate Pecan Pie</h2>
+                <p>Price: $10.00</p>
+                <button onclick="addToCart('Chocolate Pecan Pie', 10.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Bread Pudding.jpg" alt="Bread Pudding">
+                <h2>Bread Pudding</h2>
+                <p>Price: $8.00</p>
+                <button onclick="addToCart('Bread Pudding', 8.00)">Add to Cart</button>
+            </div>
         </div>
+    </div>
+</main>
 
-        <div class="cart-button">
-            <button id="clear-cart" class="button">Clear Cart</button>
-            <input type="button" class="button" onclick="checkout();" value="Check Out">
-        </div>
+<style>
+    .main-container {
+        text-align: center;
+    }
 
-        <br>
-    </main>
+    .main-header {
+        text-align: center;
+        color: black;
+        font-size: 20px;
+        background-color: #FFF0D9;
+        padding: 20px;
+        max-width: 600px; /* Adjust the maximum width as needed */
+        margin: 0 auto; /* Center horizontally */
+    }
 
-    <script>
-        // Calculate and update the subtotal and total prices
-        function updateTotal() {
-            const items = document.querySelectorAll('.cart-item');
-            let totalPrice = 0;
-            items.forEach(item => {
-                const priceElement = item.querySelector('.cart-item-price');
-                const quantityElement = item.querySelector('.quantity');
-                const subtotalElement = item.querySelector('.cart-item-subtotal');
+    main img {
+        padding: 20px;
+        border-radius: 25px;
+        max-width: 100%;
+        height: auto;
+    }
 
-                const price = parseFloat(priceElement.textContent.replace('$', ''));
-                const quantity = parseInt(quantityElement.value);
-                const subtotal = price * quantity;
+    .img-wrapper p {
+        font-family: Tahoma, bold, sans-serif;
+        font-size: 20px;
+    }
 
-                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-                totalPrice += subtotal;
-            });
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        justify-items: center;
+        gap: 20px;
+        text-align: center;
+        padding: 0 45px;
+    }
 
-            document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
-        }
+    .category-section {
+        margin-top: 20px;
+    }
 
-        function clearCart() {
-            // Clear the cart items from local storage
-            localStorage.removeItem('cart');
+    .product-card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-            // Clear the cart display on the page
-            const cartContainer = document.querySelector('.cart-container');
-            cartContainer.innerHTML = ''; // Remove all cart items from the page
+    .product-card img {
+        max-width: 100%;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
 
-            // Update the total price (set it to $0.00)
-            document.getElementById('total-price').textContent = '$0.00';
-        }
+    .product-card h2 {
+        font-size: 20px;
+        margin-top: 10px;
+        display: block;
+        border: none;
+    }
 
-        // Handle checkout
-        function checkout() {
-            // Add checkout logic to redirect to a payment page
-            window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
-        }
+    .product-card p {
+        font-size: 16px;
+    }
 
-        // Remove an item from the cart
-        function removeItem(item) {
-            const itemName = item.querySelector('h3').textContent;
-            item.remove();
-            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-            const updatedCartData = cartData.filter(cartItem => cartItem.name !== itemName);
-            localStorage.setItem('cart', JSON.stringify(updatedCartData));
-            updateTotal();
-        }
+    .product-card button {
+        background-color: #f4ce8f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            const clearCartButton = document.getElementById('clear-cart');
-            const cartContainer = document.querySelector('.cart-container');
+    .product-card button:hover {
+        background-color: #4BBBD3;
+    }
 
-            clearCartButton.addEventListener('click', clearCart);
+    .product-card button:active {
+        transform: scale(0.95);
+    }
+</style>
 
-            // Fetch cart items from local storage and create cart elements
-            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-
-            cartData.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-
-                cartItem.innerHTML = `
-                            <img src="${item.name.toLowerCase().replace(/ /g, '-')}.jpg" alt="${item.name}">
-                            <div class="cart-item-info">
-                                <h3>${item.name}</h3>
-                                <p class="cart-item-price">$${item.price}</p>
-                            </div>
-                            <div class="cart-item-quantity">
-                                <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
-                            </div>
-                            <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
-                            <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
-                        `;
-
-                cartContainer.appendChild(cartItem);
-            });
-
-            // Add input event listeners for quantity inputs
-            const quantityInputs = document.querySelectorAll('.quantity');
-            quantityInputs.forEach(input => {
-                input.addEventListener('input', updateTotal);
-            });
-
-            // Initialize total price
-            updateTotal();
-        });
-    </script>
-
-    <script>
-        document.getElementById('addCardToCart').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the form from submitting (so the page doesn't reload)
-
-            // Gather gift card information from the form elements
-            var amount = document.getElementById('giftCard_amount').value;
-            var to = document.getElementById('giftCard_to').value;
-            var from = document.getElementById('giftCard_from').value;
-            var message = document.getElementById('giftCard_message').value;
-            var sendTo = document.querySelector('input[name="giftCard.sendTo"]:checked').value;
-            var deliveryDate = document.querySelector('input[name="giftCard.deliveryDate"]').value;
-
-            // Construct a JavaScript object representing the gift card
-            var giftCard = {
-                amount: amount,
-                to: to,
-                from: from,
-                message: message,
-                sendTo: sendTo,
-                deliveryDate: deliveryDate,
-            };
-
-            // Get the existing cart data from local storage
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Add the gift card to the cart
-            cart.push(giftCard);
-
-            // Update the cart data in local storage
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Redirect to the cart page
-            window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize an empty cart array
-            var cart = [];
-
-            var clearCartButton = document.getElementById('clear-cart');
-            var cartContainer = document.querySelector('.cart-container');
-
-            clearCartButton.addEventListener('click', function () {
-
-                // Clear the cart items from local storage
-                localStorage.removeItem('cart');
-
-                // Clear the cart display on the page
-                cartContainer.innerHTML = '';
-
-                // Update the total price (set it to $0.00)
-                document.getElementById('total-price').textContent = '$0.00';
-            });
-
-            // Fetch cart items from local storage and create cart elements
-            var cartData = JSON.parse(localStorage.getItem('cart')) || [];
-
-            cartData.forEach(function (item) {
-                var cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-
-                cartItem.innerHTML = `
-                        <div class="cart-item-info">
-                            <h3>${item.to}</h3>
-                            <p class="cart-item-price">$${item.amount}</p>
-                        </div>
-                        <div class="cart-item-quantity">
-                            <input type="number" value="1" min="1" max="9999" class="quantity">
-                        </div>
-                        <p class="cart-item-subtotal">$${item.amount}</p>
-                        <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
-                    `;
-
-                cartContainer.appendChild(cartItem);
-            });
-
-            // Add input event listeners for quantity inputs
-            var quantityInputs = document.querySelectorAll('.quantity');
-            quantityInputs.forEach(function (input) {
-                input.addEventListener('input', updateTotal);
-            });
-
-            // Initialize total price
-            updateTotal();
-        });
-    </script>
-
-
-    <footer>
-        <p>
-            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
-            <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp; |
-        </p>
-    </footer>
-
+<footer>
+    <p>
+        <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
+        <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+    </p>
+</footer>
 </body>
 </html>
+
 </html>
 
 
