@@ -191,36 +191,34 @@
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
-
                         <label>ZIP Code</label>
                         <input type="text" pattern="[0-9]{5}" name="billingZip" id="billingZip">
                     </div>
-                    <br />
-                    <div class="form-group" style="display: flex; margin: 10px;">
-                        <div class="horizontal-fields">
-                            <label>Card Number</label>
-                            <input type="number" name="cardNumber" id="cardNumber" required>
-                            <label>Expiration Date (mm/yy)</label>
-                            <input type="text" name="expDate" id="expDate" required>
-                            <label>CVV</label>
-                            <input type="number" name="cvv" id="cvv" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-group" style="display: flex; margin: 10px;">
-                        <div class="horizontal-fields">
-                            <label>Email</label>
-                            <input type="email" name="email" autocomplete="off" required>
-                            <br>
-                            <label>Phone (Optional)</label>
-                            <input type="tel" name="phone">
-                        </div>
+                </div>
+                <br />
+                <div class="form-group" style="display: flex; margin: 10px;">
+                    <div class="horizontal-fields">
+                        <label>Card Number</label>
+                        <input type="number" name="cardNumber" id="cardNumber" required>
+                        <label>Expiration Date (mm/yy)</label>
+                        <input type="text" name="expDate" id="expDate" required>
+                        <label>CVV</label>
+                        <input type="number" name="cvv" id="cvv" required>
                     </div>
                 </div>
-            </fieldset>
+                <br>
+                <div class="form-group" style="display: flex; margin: 10px;">
+                    <div class="horizontal-fields">
+                        <label>Email</label>
+                        <input type="email" name="email" autocomplete="off" required>
+                        <label>Phone (Optional)</label>
+                        <input type="tel" name="phone">
+                    </div>
+                </div>
+     </fieldset>
             <br>
 
-            <fieldset>
+    <fieldset>
                 <legend style="color: #FFF0D9;">Shipping Information</legend>
                 <input type="checkbox" id="sameAsBilling" onchange="copyBillingToShipping()">
                 <label for="sameAsBilling">Same as Billing</label>
