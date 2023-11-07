@@ -14,7 +14,16 @@ header {background-color: #208FD6; color: #FFF0D9; text-align: center; padding: 
 
 main {width: 80%; background-color: #fff0d9; float: left; padding: 5px; margin-left: 10%; font-family: 'Bookman Old Style'; color: #000000;}
 
-footer {clear: both; background-color: #B1E3E4; color: #4BBBD3; text-align: center; margin-left: 10%; padding: 5px; font-size: 14pt; width: 80%;}
+footer {
+    clear: both;
+    background-color: #B1E3E4;
+    color: #208FD6;
+    text-align: center;
+    margin-left: 10%;
+    padding: 5px;
+    font-size: 14pt;
+    width: 80%;
+}
 
 a:visited {text-decoration: none; color: #ffffff;}
 
@@ -139,13 +148,17 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 /*Reservation Button on Index Page*/
 .btn-reservation {
     display: inline-block;
-    background-color: #f4ce8f;
+    background-color: #4BBBD3;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
 }
+
+.btn-reservation:hover {background-color: #f4ce8f;}
+
+.btn-reservation:active {transform: scale(.95);}
 
 .btn-reservation:hover {background-color: #4BBBD3;}
 
