@@ -1,4 +1,4 @@
-<!DOCUTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -36,6 +36,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="menu.html">Menu</a></li>
+            <li><a href="delivery.html">Delivery</a></li>
             <li><a href="giftcard.html">Gift Cards</a></li>
             <li><a href="cart.html">Cart</a></li>
             <li><a href="contact.html">Contact Us</a></li>
@@ -52,7 +53,7 @@
             <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
         </div>
 
-                <div class="category-section">
+        <div class="category-section">
             <h2 class="product-category">Appetizers</h2>
         </div>
 
@@ -177,7 +178,7 @@
          <div class="product-grid">
              <div class="product-card">
                  <img src="brownie.jpg" alt="brownie">
-                 <h2>Brownie A La Mode</h2>
+                 <h2>Brownie aLa Mode</h2>
                  <p>Price: $8.00</p>
                  <button onclick="addToCart('Brownie A La Mode', 8.00)">Add to Cart</button>
              </div>
@@ -201,6 +202,23 @@
                  <h2>Bread Pudding</h2>
                  <p>Price: $8.00</p>
                  <button onclick="addToCart('Bread Pudding', 8.00)">Add to Cart</button>
+             </div>
+         </div>
+
+         <div class="category-section">
+             <h2 class="product-category">Beverages</h2>
+         </div>
+
+         <div class="product-grid">
+             <div class="product-card">
+                 <img src="cola.png" alt="cola">
+                 <h2>Drinks</h2>
+                 <p>Small $2.00</p>
+                 <button onclick="addToCart('Cola', 2.00)">Add to Cart</button>
+                 <p>Medium $5.00</p>
+                 <button onclick="addToCart('Cola', 5.00)">Add to Cart</button>
+                 <p>Large $8.00</p>
+                 <button onclick="addToCart('Cola', 8.00)">Add to Cart</button>
              </div>
          </div>
     </div>
@@ -253,6 +271,11 @@
         text-align: center;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+    }
+
+    .product-card:hover {
+        background-color: #B1E3E4;
     }
 
     .product-card img {
@@ -296,8 +319,8 @@
 
 <footer>
     <p>
-        <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="giftcard.html">Gift Cards</a>&nbsp; |
-        <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+        <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
+        <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
     </p>
 </footer>
 </body>
