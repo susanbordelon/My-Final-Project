@@ -93,6 +93,7 @@
                     <div style="padding-bottom: 18px;">
                         <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
                         <select id="data_7" name="data_7" style="max-width: 250px;" class="form-control">
+                            <option value="" disabled selected>Select a time</option>
                             <option value="11:00 AM">11:00 AM</option>
                             <option value="11:30 AM">11:30 AM</option>
                             <option value="12:00 PM">12:00 PM</option>
@@ -121,6 +122,7 @@
                     <div style="padding-bottom: 18px;">
                         <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
                         <select id="data_8" name="data_8" style="max-width : 250px;" class="form-control">
+                            <option value="" disabled selected>Select number of attendees</option>
                             <option> 1</option>
                             <option> 2</option>
                             <option> 3</option>
@@ -157,15 +159,13 @@
                var data_8 = document.getElementById("data_8");
                var data_9 = document.getElementById("data_9");
 
-               if (data_3.value == "") {
-
+               if (data_3.value === "") {
                    alert("Please enter your name.");
-
                    data_3.focus();
                    return false;
                }
 
-               if (data_4.value == "") {
+               if (data_4.value === "") {
                    alert("Please enter your number.");
                    data_4.focus();
                    return false;
@@ -178,17 +178,19 @@
                    return false;
                }
 
-               if (!data_6.checkValidity()) {
+               var selectedDate = data_6.value;
+               if (selectedDate === "") {
                    alert("Please choose a date.");
                    data_6.focus();
                    return false;
                }
 
-               if (data_7.value == "") {
-                   alert("Please enter a time.");
+               var data_7Regex = /^\s*$/;
+               if (data_7Regex.test(data_7.value)) {
+                   alert("Please select a time.");
                    data_7.focus();
                    return false;
-               }
+              }
 
                var data_8Regex = /^\s*$/;
                if (data_8Regex.test(data_8.value)) {
@@ -197,7 +199,7 @@
                    return false;
                }
 
-               if (data_9.value == "") {
+               if (data_9.value === "") {
                    alert("Please enter comments.");
                    data_9.focus();
                    return false;
