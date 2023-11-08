@@ -4,24 +4,6 @@
     <meta charset="utf-8" />
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <script>
-        function addToCart(name, price) {
-            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-
-            const existingItem = cartData.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cartData.push({ name, price, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cartData));
-            alert(`${name} added to cart!`);
-
-        }
-
-    </script>
 </head>
 
 <body id="container">
@@ -43,286 +25,324 @@
         </ul>
     </nav>
 
-<main>
-    <div class="main-container">
-        <div class="main-header">
-            <h1>Menu To Go</h1>
-            <p>Please place your order to go!</p>
-            <p>Phone: 1-800-MaddieB</p>
-            <p>Email: kitchen@maddiebs.com</p>
-            <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
+    <main>
+        <div class="main-container">
+            <div class="main-header">
+                <h1>Menu To Go</h1>
+                <p>Please place your order to go!</p>
+                <p>Phone: 1-800-MaddieB</p>
+                <p>Email: kitchen@maddiebs.com</p>
+                <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
+            </div>
+            <div class="shopping">
+                <a href="cart.html">
+                    <img src="images/shopping.png" alt="Shopping Cart" />
+                </a>
+                <span class="quantity" id="cart-quantity">0</span>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Appetizers</h2>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/oysters.jpg" alt="oysters">
+                    <h2>Charboiled Oysters</h2>
+                    <p>$15.00</p>
+                    <button onclick="addToCart('Charboiled Oysters', 15.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/calamari.jpg" alt="calamari">
+                    <h2>Calamari</h2>
+                    <p>$12.00</p>
+                    <button onclick="addToCart('Calamari', 12.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/crabdip.jpg" alt="crabdip">
+                    <h2>Crab Dip</h2>
+                    <p>$10.00</p>
+                    <button onclick="addToCart('Crab Dip', 10.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/guacamole.jpg" alt="guacamole">
+                    <h2>Crab Guacamole</h2>
+                    <p>$12.00</p>
+                    <button onclick="addToCart('Crab Guacamole', 12.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/crabclaw.jpg" alt="crabclaw">
+                    <h2>Marinated Crab Claws</h2>
+                    <p>$15.00</p>
+                    <button onclick="addToCart('Marinated Crab Claws', 15.00)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Soup & Salad</h2>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/housesalad.jpg" alt="housesalad">
+                    <h2>House Salad</h2>
+                    <p>$12.00</p>
+                    <button onclick="addToCart('House Salad', 12.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/caesarsalad.jpg" alt="caesarsalad">
+                    <h2>Caesar Salad</h2>
+                    <p>$15.00</p>
+                    <button onclick="addToCart('Caesar Salad', 15.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/gumbo.jpg" alt="gumbo">
+                    <h2>Seafood Gumbo</h2>
+                    <p>$8.00</p>
+                    <button onclick="addToCart('Seafood Gumbo', 8.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/soup.jpeg" alt="soup">
+                    <h2>Soup of the Day</h2>
+                    <p>$8.00/cup</p>
+                    <button onclick="addToCart('Soup of Day', 8.00)">Add to Cart</button>
+                    <p>$10.00/bowl</p>
+                    <button onclick="addToCart('Soup of Day', 10.00)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Entrees</h2>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/redfish.jpg" alt="redfish">
+                    <h2>Pecan Crusted Redfish</h2>
+                    <p>$30.00</p>
+                    <button onclick="addToCart('Pecan Crusted Redfish', 30.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/grilledsalmon.jpg" alt="grilledsalmon">
+                    <h2>Grilled Salmon</h2>
+                    <p>$25.00</p>
+                    <button onclick="addToCart('Grilled Salmon', 25.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/catfish.jpg" alt="catfish">
+                    <h2>Catfish Atchafalaya</h2>
+                    <p>$20.00</p>
+                    <button onclick="addToCart('Catfish Atchafalaya', 20.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/shrimp.jpg" alt="shrimp">
+                    <h2>Shrimp and Grits</h2>
+                    <p>$25.00</p>
+                    <button onclick="addToCart('Shrimp and Grits', 25.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/ribeye.jpg" alt="ribeye">
+                    <h2>Bone In Ribeye</h2>
+                    <p>$32.00</p>
+                    <button onclick="addToCart('Bone In Ribeye', 32.00)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Desserts</h2>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/brownie.jpg" alt="brownie">
+                    <h2>Brownie aLa Mode</h2>
+                    <p>$8.00</p>
+                    <button onclick="addToCart('Brownie A La Mode', 8.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/cheesecake.jpg" alt="cheesecake">
+                    <h2>Cheesecake</h2>
+                    <p>$10.00</p>
+                    <button onclick="addToCart('Cheesecake', 10.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/pecanpie.jpg" alt="pecanpie">
+                    <h2>Chocolate Pecan Pie</h2>
+                    <p>$10.00</p>
+                    <button onclick="addToCart('Chocolate Pecan Pie', 10.00)">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/breadpudding.jpg" alt="breadpudding">
+                    <h2>Bread Pudding</h2>
+                    <p>$8.00</p>
+                    <button onclick="addToCart('Bread Pudding', 8.00)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="product-category">Beverages</h2>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/cola.png" alt="cola">
+                    <h2>Drinks</h2>
+                    <p>Small $2.00</p>
+                    <button onclick="addToCart('Cola', 2.00)">Add to Cart</button>
+                    <p>Medium $5.00</p>
+                    <button onclick="addToCart('Cola', 5.00)">Add to Cart</button>
+                    <p>Large $8.00</p>
+                    <button onclick="addToCart('Cola', 8.00)">Add to Cart</button>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="category-section">
-            <h2 class="product-category">Appetizers</h2>
-        </div>
+    <style>
+        .main-container {text-align: center;}
 
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/oysters.jpg" alt="oysters">
-                <h2>Charboiled Oysters</h2>
-                <p>$15.00</p>
-                <button onclick="addToCart('Charboiled Oysters', 15.00)">Add to Cart</button>
-            </div>
+        .main-header {
+            text-align: center;
+            color: black;
+            font-size: 20px;
+            background-color: #FFF0D9;
+            padding: 20px;
+            max-width: 600px; /* Keep the max-width for the header */
+            margin: 0 auto; /* Center horizontally */
+        }
 
-            <div class="product-card">
-                <img src="images/calamari.jpg" alt="calamari">
-                <h2>Calamari</h2>
-                <p>$12.00</p>
-                <button onclick="addToCart('Calamari', 12.00)">Add to Cart</button>
-            </div>
+        main img {
+            padding: 20px;
+            border-radius: 25px;
+            max-width: 100%;
+            height: auto;
+        }
 
-            <div class="product-card">
-                <img src="images/crabdip.jpg" alt="crabdip">
-                <h2>Crab Dip</h2>
-                <p>$10.00</p>
-                <button onclick="addToCart('Crab Dip', 10.00)">Add to Cart</button>
-            </div>
+        .img-wrapper p {font-family: Tahoma, bold, sans-serif; font-size: 20px;}
 
-            <div class="product-card">
-                <img src="images/guacamole.jpg" alt="guacamole">
-                <h2>Crab Guacamole</h2>
-                <p>$12.00</p>
-                <button onclick="addToCart('Crab Guacamole', 12.00)">Add to Cart</button>
-            </div>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            justify-items: center;
+            gap: 20px;
+            text-align: center;
+            padding: 0 45px;
+            max-width: 100%; /* Adjust the max-width to take full width */
+        }
 
-            <div class="product-card">
-                <img src="images/crabclaw.jpg" alt="crabclaw">
-                <h2>Marinated Crab Claws</h2>
-                <p>$15.00</p>
-                <button onclick="addToCart('Marinated Crab Claws', 15.00)">Add to Cart</button>
-            </div>
-        </div>
+        .category-section {margin-top: 20px;}
 
-        <div class="category-section">
-            <h2 class="product-category">Soup & Salad</h2>
-        </div>
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
 
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/housesalad.jpg" alt="housesalad">
-                <h2>House Salad</h2>
-                <p>$12.00</p>
-                <button onclick="addToCart('House Salad', 12.00)">Add to Cart</button>
-            </div>
+        .product-card:hover {background-color: #B1E3E4;}
 
-            <div class="product-card">
-                <img src="images/caesarsalad.jpg" alt="caesarsalad">
-                <h2>Caesar Salad</h2>
-                <p>$15.00</p>
-                <button onclick="addToCart('Caesar Salad', 15.00)">Add to Cart</button>
-            </div>
+        .product-card img {max-width: 100%; height: 200px; width: 200px; object-fit: cover; display: block; margin: 0 auto;}
 
-            <div class="product-card">
-                <img src="images/gumbo.jpg" alt="gumbo">
-                <h2>Seafood Gumbo</h2>
-                <p>$8.00</p>
-                <button onclick="addToCart('Seafood Gumbo', 8.00)">Add to Cart</button>
-            </div>
+        .product-card h2 {font-size: 20px; margin-top: 10px; display: block; border: none;}
 
-            <div class="product-card">
-                <img src="images/soup.jpeg" alt="soup">
-                <h2>Soup of the Day</h2>
-                <p>$8.00/cup</p>
-                <button onclick="addToCart('Soup of Day', 8.00)">Add to Cart</button>
-                <p>$10.00/bowl</p>
-                <button onclick="addToCart('Soup of Day', 10.00)">Add to Cart</button>
-            </div>
-        </div>
+        .product-card p {font-size: 16px;}
 
-        <div class="category-section">
-            <h2 class="product-category">Entrees</h2>
-        </div>
+            .product-card button {
+                background-color: #f4ce8f;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
 
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/redfish.jpg" alt="redfish">
-                <h2>Pecan Crusted Redfish</h2>
-                <p>$30.00</p>
-                <button onclick="addToCart('Pecan Crusted Redfish', 30.00)">Add to Cart</button>
-            </div>
+                .product-card button:hover {
+                    background-color: #4BBBD3;
+                }
 
-            <div class="product-card">
-                <img src="images/grilledsalmon.jpg" alt="grilledsalmon">
-                <h2>Grilled Salmon</h2>
-                <p>$25.00</p>
-                <button onclick="addToCart('Grilled Salmon', 25.00)">Add to Cart</button>
-            </div>
+                .product-card button:active {
+                    transform: scale(0.95);
+                }
 
-            <div class="product-card">
-                <img src="images/catfish.jpg" alt="catfish">
-                <h2>Catfish Atchafalaya</h2>
-                <p>$20.00</p>
-                <button onclick="addToCart('Catfish Atchafalaya', 20.00)">Add to Cart</button>
-            </div>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            justify-items: center;
+            gap: 20px;
+            text-align: center;
+            padding: 0 45px;
+            max-width: 100%; /* Adjust the max-width to take full width */
+        }
 
-            <div class="product-card">
-                <img src="images/shrimp.jpg" alt="shrimp">
-                <h2>Shrimp and Grits</h2>
-                <p>$25.00</p>
-                <button onclick="addToCart('Shrimp and Grits', 25.00)">Add to Cart</button>
-            </div>
+        .shopping {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20px;
+        }
 
-            <div class="product-card">
-                <img src="images/ribeye.jpg" alt="ribeye">
-                <h2>Bone In Ribeye</h2>
-                <p>$32.00</p>
-                <button onclick="addToCart('Bone In Ribeye', 32.00)">Add to Cart</button>
-            </div>
-        </div>
+            .shopping img {
+                width: 40px;
+            }
 
-         <div class="category-section">
-            <h2 class="product-category">Desserts</h2>
-         </div>
+            .shopping span {
+                background: red;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                padding: 3px 10px;
+            }
+    </style>
 
-         <div class="product-grid">
-             <div class="product-card">
-                 <img src="images/brownie.jpg" alt="brownie">
-                 <h2>Brownie aLa Mode</h2>
-                 <p>$8.00</p>
-                 <button onclick="addToCart('Brownie A La Mode', 8.00)">Add to Cart</button>
-             </div>
+    <footer>
+        <p>
+            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
+            <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+        </p>
+    </footer>
+    <script>
+        function addToCart(name, price) {
+            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-             <div class="product-card">
-                 <img src="images/cheesecake.jpg" alt="cheesecake">
-                 <h2>Cheesecake</h2>
-                 <p>$10.00</p>
-                 <button onclick="addToCart('Cheesecake', 10.00)">Add to Cart</button>
-             </div>
+            const existingItem = cartData.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartData.push({ name, price, quantity: 1 });
+            }
 
-             <div class="product-card">
-                 <img src="images/pecanpie.jpg" alt="pecanpie">
-                 <h2>Chocolate Pecan Pie</h2>
-                 <p>$10.00</p>
-                 <button onclick="addToCart('Chocolate Pecan Pie', 10.00)">Add to Cart</button>
-             </div>
+            localStorage.setItem('cart', JSON.stringify(cartData));
 
-             <div class="product-card">
-                 <img src="images/breadpudding.jpg" alt="breadpudding">
-                 <h2>Bread Pudding</h2>
-                 <p>$8.00</p>
-                 <button onclick="addToCart('Bread Pudding', 8.00)">Add to Cart</button>
-             </div>
-         </div>
+            // Update the displayed quantity in the shopping cart
+            const quantitySpan = document.getElementById('cart-quantity');
+            if (quantitySpan) {
+                quantitySpan.textContent = cartData.reduce((total, item) => total + item.quantity, 0);
+            }
 
-         <div class="category-section">
-             <h2 class="product-category">Beverages</h2>
-         </div>
+            alert(`${name} added to cart!`);
+        }
+    </script>
 
-         <div class="product-grid">
-             <div class="product-card">
-                 <img src="images/cola.png" alt="cola">
-                 <h2>Drinks</h2>
-                 <p>Small $2.00</p>
-                 <button onclick="addToCart('Cola', 2.00)">Add to Cart</button>
-                 <p>Medium $5.00</p>
-                 <button onclick="addToCart('Cola', 5.00)">Add to Cart</button>
-                 <p>Large $8.00</p>
-                 <button onclick="addToCart('Cola', 8.00)">Add to Cart</button>
-             </div>
-         </div>
-    </div>
-</main>
-
-<style>
-    .main-container {
-        text-align: center;
-    }
-
-    .main-header {
-        text-align: center;
-        color: black;
-        font-size: 20px;
-        background-color: #FFF0D9;
-        padding: 20px;
-        max-width: 600px; /* Adjust the maximum width as needed */
-        margin: 0 auto; /* Center horizontally */
-    }
-
-    main img {
-        padding: 20px;
-        border-radius: 25px;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .img-wrapper p {
-        font-family: Tahoma, bold, sans-serif;
-        font-size: 20px;
-    }
-
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-        justify-items: center;
-        gap: 20px;
-        text-align: center;
-        padding: 0 45px;
-    }
-
-    .category-section {
-        margin-top: 20px;
-    }
-
-    .product-card {
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s;
-    }
-
-    .product-card:hover {
-        background-color: #B1E3E4;
-    }
-
-    .product-card img {
-        max-width: 100%;
-        height: 200px;
-        width: 200px;
-        object-fit: cover;
-        display: block;
-        margin: 0 auto;
-    }
-
-    .product-card h2 {
-        font-size: 20px;
-        margin-top: 10px;
-        display: block;
-        border: none;
-    }
-
-    .product-card p {
-        font-size: 16px;
-    }
-
-    .product-card button {
-        background-color: #f4ce8f;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .product-card button:hover {
-        background-color: #4BBBD3;
-    }
-
-    .product-card button:active {
-        transform: scale(0.95);
-    }
-</style>
-
-<footer>
-    <p>
-        <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
-        <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
-    </p>
-</footer>
 </body>
 </html>
 
