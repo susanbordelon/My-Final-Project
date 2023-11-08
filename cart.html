@@ -61,6 +61,9 @@
             if (cartData.length === 0) {
 
                 cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                cartContainer.querySelector('p').style.fontWeight = 'bold';
+                cartContainer.querySelector('p').style.color = '#208FD6';
+                cartContainer.querySelector('p').style.fontSize = '16px';
             } else {
                 cartContainer.innerHTML = '';
                 cartData.forEach(item => {
