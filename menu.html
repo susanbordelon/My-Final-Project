@@ -7,184 +7,48 @@
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-        .main-container {text-align: center;}
+    .parent {
+        height: 400px;
+        width: 500px;
+        overflow: auto;
+    }
+    
+    .element {
+        float: left;
+        height: 300px;
+        width: 400px;
+        background-color: grey;
+    }
+    
+    .slides {
+        width: calc(716px * 4);
+        animation: slideShow 10s ease infinite;
+    }
 
-        .main-header {
-            text-align: center;
-            color: black;
-            font-size: 20px;
-            background-color: #FFF0D9;
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    @keyframes slideShow {
+        20% {
+            margin-left: 0px;
         }
 
-        main img {
-            padding: 20px;
-            border-radius: 25px;
-            max-width: 100%;
-            height: auto;
+        40% {
+            margin-left: calc(-716px * 1);
         }
 
-        .img-wrapper p {
-            font-family: 'Bookman Old Style';
-            font-size: 20px;
+        60% {
+            margin-left: calc(-716px * 2);
         }
 
-        .category-section {margin-top: 20px;}
-
-        * {
-            box-sizing: border-box
+        80% {
+            margin-left: calc(-716px * 3);
         }
+    }
+</style>
 
-        body {
-            font-family: 'Bookman Old Style';
-            margin: 0
-        }
-        
-        .product-card {
-            display: none;
-            width: 100%;
-            text-align: center;
-        }
-
-        img {vertical-align: middle;}
-
-        /* Slideshow container */
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-
-        /* Next & previous buttons */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .next {
-            right: 0;
-            border-radius: 0 3px 3px 0;
-        }
-
-        .prev:hover, .next:hover {background-color: rgba(0, 0, 0, 0.6);}
-
-        /* Caption text */
-        .text {
-            color: #208FD6;
-            font-size: 20px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #208FD6;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* Fading animation */
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        .product-card img {
-            max-width: 100%; /* Ensure images don't exceed the width of the container */
-            max-height: 100%; /* Set a fixed maximum height for all images */
-            display: inline-block; /* Remove any extra spacing below the images */
-            
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .prev, .next, .text {
-                font-size: 11px
-            }
-        }
-    </style>
-
-    <script>
-        var currentCategory = 'appetizers'; // Default to showing the 'appetizers' category
-        showCategory(currentCategory);
-
-        function showCategory(category) {
-            currentCategory = category.toLowerCase(); // Convert category to lowercase
-            var slides = document.getElementsByClassName("product-card");
-
-            // Hide all product cards
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            // Show product cards of the selected category
-            var categorySlides = document.getElementsByClassName("category-" + currentCategory);
-            for (var i = 0; i < categorySlides.length; i++) {
-                categorySlides[i].style.display = "block";
-            }
-        }
-
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var slides = document.getElementsByClassName("product-card");
-
-            if (n > slides.length) {
-                slideIndex = 1;
-            }
-
-            if (n < 1) {
-                slideIndex = slides.length;
-            }
-
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slides[slideIndex - 1].style.display = "block";
-        }
-    </script>
 </head>
 
 <body id="container">
@@ -214,184 +78,101 @@
                 <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
             </div>
 
-            <div class="slideshow-container">
-                <div class="category-appetizers">
-                    <div class="product-card fade">
-                        <div class="numbertext">1 / 5</div>
-                        <img src="images/Charbroiled Oysters.jpg" alt="Charbroiled Oysters" />
-                        <div class="text">Price: $15.00</div>
+          
+            
+                <h2> Appetizers </h2>
+                <div class="parent">
+                    <div class="slides">
+                        <div class="element">
+                            <img src="images/Charbroiled Oysters.jpg" alt="Charbroiled Oysters">
+                        </div>
+                        <div class="element">
+                            <img src="images/Calamari.jpg" alt="Calamari">
+                        </div>
+                        <div class="element">
+                            <img src="images/Crab Dip.jpg" alt="Crab Dip">
+                        </div>
+                        <div class="element">
+                            <img src="images/Crab Guacamole.jpg" alt="Crab Guacamole">
+                        </div>
+                        <div class="element">
+                            <img src="images/Marinated Crab Claws.jpg" alt="Marinated Crab Claws">
+                        </div>
                     </div>
                 </div>
 
-                <div class="category-appetizers">
-                    <div class="product-card fade">
-                        <div class="numbertext">2 / 5</div>
-                        <img src="images/Calamari.jpg" alt="Calamari" />
-                        <div class="text">Price: $12.00</div>
+                <h2> Salad and Soup </h2>
+                <div class="parent">
+                    <div class="slides">
+                        <div class="element">
+                            <img src="images/House Salad.jpg" alt="House Salad">
+                        </div>
+                        <div class="element">
+                            <img src="images/Caesar Salad.jpg" alt="Caesar Salad">
+                        </div>
+                        <div class="element">
+                            <img src="images/Seafood Gumbo.jpg" alt="Seafood Gumbo">
+                        </div>
+                        <div class="element">
+                            <img src="images/Soup of the Day.jpeg" alt="Soup of the Day">
+                        </div>
                     </div>
                 </div>
 
-                <div class="category-appetizers">
-                    <div class="product-card fade">
-                        <div class="numbertext">3 / 5</div>
-                        <img src="images/Crab Dip.jpg" alt="Crab Dip" />
-                        <div class="text">Price: $10.00</div>
+                <h2> Entrees </h2>
+                <div class="parent">
+                    <div class="slides">
+                        <div class="element">
+                            <img src="images/Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish">
+                        </div>
+                        <div class="element">
+                            <img src="images/Grilled Salmon.jpg" alt="Grilled Salmon">
+                        </div>
+                        <div class="element">
+                            <img src="images/Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya">
+                        </div>
+                        <div class="element">
+                            <img src="images/Shrimp and Grits.jpg" alt="Shrimp and Grits">
+                        </div>
+                        <div class="element">
+                            <img src="images/Bone in Ribeye.jpg" alt="Bone in Ribeye">
+                        </div>
                     </div>
                 </div>
 
-                <div class="category-appetizers">
-                    <div class="product-card fade">
-                        <div class="numbertext">4 / 5</div>
-                        <img src="images/Crab Guacamole.jpg" alt="Crab Guacamole" />
-                        <div class="text">Price: $12.00</div>
+                <h2> Desserts </h2>
+                <div class="parent">
+                    <div class="slides">
+                        <div class="element">
+                            <img src="images/Brownie aLa Mode.jpg" alt="Brownie aLa Mode">
+                        </div>
+                        <div class="element">
+                            <img src="images/Cheesecake.jpg" alt="Cheesecake">
+                        </div>
+                        <div class="element">
+                            <img src="images/Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie">
+                        </div>
+                        <div class="element">
+                            <img src="images/Bread Pudding.jpg" alt="Bread Pudding">
+                        </div>
                     </div>
                 </div>
 
-                <div class="category-appetizers">
-                    <div class="product-card fade">
-                        <div class="numbertext">5 / 5</div>
-                        <img src="images/Marinated Crab Claws.jpg" alt="Marinated Crab Claws" />
-                        <div class="text">Price: $15.00</div>
+                <h2> Beverages </h2>
+                <div class="parent">
+                    <div class="slides">
+                        <div class="element">
+                            <img src="images/Cola.png" alt="Cola">
+                        </div>
+                        <div class="element">
+                            <img src="images/Beer.jpg" alt="Beer">
+                        </div>
+                        <div class="element">
+                            <img src="images/Wine.jpg" alt="Wine">
+                        </div>
                     </div>
                 </div>
-
-                <div class="category-salad-and-soup">
-                    <div class="product-card fade">
-                        <div class="numbertext">1 / 4</div>
-                        <img src="images/House Salad.jpg" alt="House Salad" />
-                        <div class="text">Price: $12.00</div>
-                    </div>
-                </div>
-
-                <div class="category-salad-and-soup">
-                    <div class="product-card fade">
-                        <div class="numbertext">2 / 4</div>
-                        <img src="images/Caesar Salad.jpg" alt="Caesar Salad" />
-                        <div class="text">Price: $15.00</div>
-                    </div>
-                </div>
-
-                <div class="category-salad-and-soup">
-                    <div class="product-card fade">
-                        <div class="numbertext">3 / 4</div>
-                        <img src="images/Seafood Gumbo.jpg" alt="Seafood Gumbo" />
-                        <div class="text">Price: $18.00</div>
-                    </div>
-                </div>
-
-                <div class="category-salad-and-soup">
-                    <div class="product-card fade">
-                        <div class="numbertext">4 / 4</div>
-                        <img src="images/Soup of the Day.jpeg" alt="Soup of the Day" />
-                        <div class="text">Price: $8.00/cup</div>
-                        <div class="text">$10.00/bowl</div>
-                    </div>
-                </div>
-
-                <div class="category-entrees">
-                    <div class="product-card fade">
-                        <div class="numbertext">1 / 5</div>
-                        <img src="images/Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish" />
-                        <div class="text">Price: $30.00</div>
-                    </div>
-                </div>
-
-                <div class="category-entrees">
-                    <div class="product-card fade">
-                        <div class="numbertext">2 / 5</div>
-                        <img src="images/Grilled Salmon.jpg" alt="Grilled Salmon" />
-                        <div class="text">Price: $25.00</div>
-                    </div>
-                </div>
-
-                <div class="category-entrees">
-                    <div class="product-card fade">
-                        <div class="numbertext">3 / 5</div>
-                        <img src="images/Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya" />
-                        <div class="text">Price: $20.00</div>
-                    </div>
-                </div>
-
-                <div class="category-entrees">
-                    <div class="product-card fade">
-                        <div class="numbertext">4 / 5</div>
-                        <img src="images/Shrimp and Grits.jpg" alt="Shrimp and Grits" />
-                        <div class="text">Price: $25.00</div>
-                    </div>
-                </div>
-
-                <div class="category-entrees">
-                    <div class="product-card fade">
-                        <div class="numbertext">5 / 5</div>
-                        <img src="images/Bone in Ribeye.jpg" alt="Bone in Ribeye" />
-                        <div class="text">Price: $32.00</div>
-                    </div>
-                </div>
-
-                <div class="category-desserts">
-                    <div class="product-card fade">
-                        <div class="numbertext">1 / 4</div>
-                        <img src="images/Brownie aLa Mode.jpg" alt="Brownie aLa Mode" />
-                        <div class="text">Price: $8.00</div>
-                    </div>
-                </div>
-
-                <div class="category-desserts">
-                    <div class="product-card fade">
-                        <div class="numbertext">2 / 4</div>
-                        <img src="images/Cheesecake.jpg" alt="Cheesecake" />
-                        <div class="text">Price: $10.00</div>
-                    </div>
-                </div>
-
-                <div class="category-desserts">
-                    <div class="product-card fade">
-                        <div class="numbertext">3 / 4</div>
-                        <img src="images/Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie" />
-                        <div class="text">Price: $10.00</div>
-                    </div>
-                </div>
-
-                <div class="category-desserts">
-                    <div class="product-card fade">
-                       <div class="numbertext">4 / 4</div>
-                       <img src="images/Bread Pudding.jpg" alt="Bread Pudding" />
-                       <div class="text">Price: $8.00</div>
-                    </div>
-                </div>
-
-                <div class="category-beverages">
-                    <div class="product-card fade">
-                        <div class="numbertext">1 / 3</div>
-                        <img src="images/Cola.png" alt="Cola" />
-                        <div class="text">Price: Small $2.00</div>
-                        <div class="text">Medium $5.00</div>
-                        <div class="text">Large $8.00</div>
-                    </div>
-                </div>
-
-                <div class="category-beverages">
-                   <div class="product-card fade">
-                       <div class="numbertext">2 / 3</div>
-                       <img src="images/Beer.jpg" alt="Beer" />
-                       <div class="text">Price: Ask Server</div>
-                   </div>
-                </div>
-
-                <div class="category-beverages">
-                    <div class="product-card fade">
-                        <div class="numbertext">3 / 3</div>
-                        <img src="images/Wine.jpg" alt="Wine" />
-                        <div class="text">Price: Ask Server</div>
-                    </div>
-                </div>
-                <br>
-
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
-                       
             </div>
-        </div>
 
     </main>
     <footer>
