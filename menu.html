@@ -45,9 +45,9 @@
             font-family: 'Bookman Old Style';
             margin: 0
         }
-
+        
         .product-card {
-            display: none
+            display: none;
         }
 
         img {
@@ -62,54 +62,39 @@
         }
 
         /* Next & previous buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
         .prev {
-            left: 0; /* Move the "prev" button to the left */
-            border-radius: 3px 0 0 3px; /* Fix the border-radius */
-            user-select: none;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-        }
-
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            right: 0;
-            left: auto; /* Remove the "left" property */
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
+            left: 0;
             border-radius: 3px 0 0 3px;
         }
 
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover, .next:hover {
-                background-color: rgba(0,0,0,0.8);
-            }
+        .next {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
 
         /* Caption text */
         .text {
-            color: #f2f2f2;
-            font-size: 15px;
+            color: #208FD6;
+            font-size: 20px;
             padding: 8px 12px;
             position: absolute;
             bottom: 8px;
@@ -119,8 +104,8 @@
 
         /* Number text (1/3 etc) */
         .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
+            color: #208FD6;
+            font-size: 15px;
             padding: 8px 12px;
             position: absolute;
             top: 0;
@@ -130,6 +115,14 @@
         .fade {
             animation-name: fade;
             animation-duration: 1.5s;
+        }
+
+        .product-card img {
+            max-width: 100%; /* Ensure images don't exceed the width of the container */
+            max-height: 300px; /* Set a fixed maximum height for all images */
+            display: block; /* Remove any extra spacing below the images */
+            margin: 0 auto; /* Center the images horizontally within the product-card */
+            border-radius: 25px;
         }
 
         @keyframes fade {
@@ -151,55 +144,53 @@
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var currentCategory = 'appetizers'; // Default to showing the 'appetizers' category
-            showCategory(currentCategory);
+        var currentCategory = 'appetizers'; // Default to showing the 'appetizers' category
+        showCategory(currentCategory);
 
-            function showCategory(category) {
-                currentCategory = category;
-                var slides = document.getElementsByClassName("product-card");
+        function showCategory(category) {
+            currentCategory = category.toLowerCase(); // Convert category to lowercase
+            var slides = document.getElementsByClassName("product-card");
 
-                // Hide all product cards
-                for (var i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-
-                // Show product cards of the selected category
-                var categorySlides = document.getElementsByClassName("category-" + category);
-                for (var i = 0; i < categorySlides.length; i++) {
-                    categorySlides[i].style.display = "block";
-                }
+            // Hide all product cards
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
 
-            var slideIndex = 1;
-            showSlides(slideIndex);
+            // Show product cards of the selected category
+            var categorySlides = document.getElementsByClassName("category-" + currentCategory);
+            for (var i = 0; i < categorySlides.length; i++) {
+                categorySlides[i].style.display = "block";
+            }
+        }
 
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var slides = document.getElementsByClassName("product-card");
+
+            if (n > slides.length) {
+                slideIndex = 1;
             }
 
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
+            if (n < 1) {
+                slideIndex = slides.length;
             }
 
-            function showSlides(n) {
-                var slides = document.getElementsByClassName("product-card");
-
-                if (n > slides.length) {
-                    slideIndex = 1;
-                }
-
-                if (n < 1) {
-                    slideIndex = slides.length;
-                }
-
-                for (var i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-
-                slides[slideIndex - 1].style.display = "block";
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-        });
+
+            slides[slideIndex - 1].style.display = "block";
+        }
     </script>
 </head>
 
@@ -420,6 +411,11 @@
             <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
         </p>
     </footer>
+
+    
+    
+</body>
+</html>
 
     
     
