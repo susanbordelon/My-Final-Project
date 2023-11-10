@@ -54,7 +54,6 @@
 
         .product-card:hover {background-color: #B1E3E4;}
 
-        /* Add a pointer when hovering over the thumbnail images */
         .cursor {cursor: pointer;}
 
         /* Next & previous buttons */
@@ -115,12 +114,23 @@
         /* Add a transparency effect for thumnbail images */
         .demo {
             opacity: 0.6;
-            width: 75px; /* Set a specific width */
+            
             height: 75px; /* Set a specific height */
             object-fit: cover; /* Ensure the image covers the specified dimensions */
         }
 
         .active, .demo:hover {opacity: 1;}
+
+        .thumbnail-container .column {
+            width: 16.66%; /* Adjust the width to control the size of each thumbnail */
+            padding: 5px;
+        }
+
+        .thumbnail-container .column img {
+            cursor: pointer;
+            width: 100%; /* This ensures the image takes up 100% of the column width */
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -151,6 +161,8 @@
                 <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
             </div>
 
+        <div class="slideshow-container">
+
             <div class="category-section">
                 <h2 class="product-category">Appetizers</h2>
             </div>
@@ -158,143 +170,86 @@
             <div class="product-container">
                 <div class="product-card">
                     <div class="numbertext">1 / 5</div>
-                    <img src="images/Charbroiled Oysters.jpg" style="width:100%">
-                </div>
+                        <img src="images/Charbroiled Oysters.jpg">
+                    </div>
 
                 <div class="product-card">
                     <div class="numbertext">2 / 5</div>
-                    <img src="images/Calamari.jpg" style="width:100%">
+                        <img src="images/Calamari.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">3 / 5</div>
-                    <img src="images/Crab Dip.jpg" style="width:100%">
+                        <img src="images/Crab Dip.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">4 / 5</div>
-                    <img src="images/Crab Guacamole.jpg" style="width:100%">
+                        <img src="images/Crab Guacamole.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">5 / 5</div>
-                    <img src="images/Marinated Crab Claws.jpg" style="width:100%">
+                        <img src="images/Marinated Crab Claws.jpg">
+                    </div>
                 </div>
-            </div>
-            
-        <div class="thumbnail-container">
-            <div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="images/Charbroiled Oysters.jpg" style="width:100%" onclick="currentSlide(1)" alt="Charbroiled Oysters $15.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Calamari.jpg" style="width:100%" onclick="currentSlide(2)" alt="Calamari $12.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Crab Dip.jpg" style="width:100%" onclick="currentSlide(3)" alt="Crab Dip $10.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Crab Guacamole.jpg" style="width:100%" onclick="currentSlide(4)" alt="Crab Guacamole $12.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Marinated Crab Claws.jpg" style="width:100%" onclick="currentSlide(5)" alt="Marinated Crab Claws $15.00">
-                </div>
-            </div>
-        </div>
 
-            <div class="category-section">
-                <h2 class="product-category">Salad & Soup</h2>
-            </div>
+                <div class="category-section">
+                    <h2 class="product-category">Salad & Soup</h2>
+                </div>
 
             <div class="product-container">
                 <div class="product-card">
                     <div class="numbertext">1 / 4</div>
-                    <img src="images/House Salad.jpg" style="width:100%">
+                        <img src="images/House Salad.jpg">
+                    </div>
+
+                    <div class="product-card">
+                        <div class="numbertext">2 / 4</div>
+                            <img src="images/Caesar Salad.jpg">
+                    </div>
+
+                    <div class="product-card">
+                        <div class="numbertext">3 / 4</div>
+                            <img src="images/Seafood Gumbo.jpg">
+                    </div>
+
+                    <div class="product-card">
+                        <div class="numbertext">4 / 4</div>
+                            <img src="images/Soup of the Day.jpeg">
+                    </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="numbertext">2 / 4</div>
-                    <img src="images/Caesar Salad.jpg" style="width:100%">
+                <div class="category-section">
+                    <h2 class="product-category">Entrees</h2>
                 </div>
-
-                <div class="product-card">
-                    <div class="numbertext">3 / 4</div>
-                    <img src="images/Seafood Gumbo.jpg" style="width:100%">
-                </div>
-
-                <div class="product-card">
-                    <div class="numbertext">4 / 4</div>
-                    <img src="images/Soup of the Day.jpeg" style="width:100%">
-                </div>
-            </div>
-
-        <div class="thumbnail-container">
-            <div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="images/House Salad.jpg" style="width:100%" onclick="currentSlide(6)" alt="House Salad $12.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Caesar Salad.jpg" style="width:100%" onclick="currentSlide(7)" alt="Caesar Salad $15.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Seafood Gumbo.jpg" style="width:100%" onclick="currentSlide(8)" alt="Seafood Gumbo $8.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Soup of the Day.jpeg" style="width:100%" onclick="currentSlide(9)" alt="Soup of the Day $8.00/cup $10.00/bowl">
-                </div>
-            </div>
-        </div>
-
-            <div class="category-section">
-                <h2 class="product-category">Entrees</h2>
-            </div>
 
             <div class="product-container">
                 <div class="product-card">
                     <div class="numbertext">1 / 5</div>
-                    <img src="images/Pecan Crusted Redfish.jpg" style="width:100%">
-                </div>
+                        <img src="images/Pecan Crusted Redfish.jpg">
+                    </div>
 
                 <div class="product-card">
                     <div class="numbertext">2 / 5</div>
-                    <img src="images/Grilled Salmon.jpg" style="width:100%">
-                </div>
+                        <img src="images/Grilled Salmon.jpg">
+                    </div>
 
-                <div class="product-card">
-                    <div class="numbertext">3 / 5</div>
-                    <img src="images/Catfish Atchafalaya.jpg" style="width:100%">
-                </div>
+                    <div class="product-card">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="images/Catfish Atchafalaya.jpg">
+                    </div>
 
-                <div class="product-card">
-                    <div class="numbertext">4 / 5</div>
-                    <img src="images/Shrimp and Grits.jpg" style="width:100%">
-                </div>
+                    <div class="product-card">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="images/Shrimp and Grits.jpg">
+                    </div>
 
-                <div class="product-card">
-                    <div class="numbertext">5 / 5</div>
-                    <img src="images/Bone in Ribeye.jpg" style="width:100%">
+                    <div class="product-card">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="images/Bone in Ribeye.jpg">
+                    </div>
                 </div>
-            </div>
-
-        <div class="thumbnail-container">
-            <div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="images/Pecan Crusted Redfish.jpg" style="width:100%" onclick="currentSlide(10)" alt="Pecan Crusted Redfish $30.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Grilled Salmon.jpg" style="width:100%" onclick="currentSlide(11)" alt="Grilled Salmon $25.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Catfish Atchafalaya.jpg" style="width:100%" onclick="currentSlide(12)" alt="Catfish Atchafalaya $20.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Shrimp and Grits.jpg" style="width:100%" onclick="currentSlide(13)" alt="Shrimp and Grits $25.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Bone in Ribeye.jpg" style="width:100%" onclick="currentSlide(14)" alt="Bone in Ribeye $32.00">
-                </div>
-            </div>
-        </div>
 
             <div class="category-section">
                 <h2 class="product-category">Desserts</h2>
@@ -303,41 +258,24 @@
             <div class="product-container">
                 <div class="product-card">
                     <div class="numbertext">1 / 4</div>
-                    <img src="images/Brownie aLa Mode.jpg" style="width:100%">
+                        <img src="images/Brownie aLa Mode.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">2 / 4</div>
-                    <img src="images/Cheesecake.jpg" style="width:100%">
+                        <img src="images/Cheesecake.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">3 / 4</div>
-                    <img src="images/Chocolate Pecan Pie.jpg" style="width:100%">
+                        <img src="images/Chocolate Pecan Pie.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">4 / 4</div>
-                    <img src="images/Bread Pudding.jpg" style="width:100%">
+                        <img src="images/Bread Pudding.jpg">
                 </div>
             </div>
-
-        <div class="thumbnail-container">
-            <div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="images/Brownie aLa Mode.jpg" style="width:100%" onclick="currentSlide(15)" alt="Brownie aLa Mode $8.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Cheesecake.jpg" style="width:100%" onclick="currentSlide(16)" alt="Cheesecake $10.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Chocolate Pecan Pie.jpg" style="width:100%" onclick="currentSlide(17)" alt="Chocolate Pecan Pie $10.00">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Bread Pudding.jpg" style="width:100%" onclick="currentSlide(18)" alt="Bread Pudding $8.00">
-                </div>
-            </div>
-        </div>
 
             <div class="category-section">
                 <h2 class="product-category">Beverages</h2>
@@ -346,47 +284,110 @@
             <div class="product-container">
                 <div class="product-card">
                     <div class="numbertext">1 / 3</div>
-                    <img src="images/Cola.png" style="width:100%">
+                        <img src="images/Cola.png">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">2 / 3</div>
-                    <img src="images/Beer.jpg" style="width:100%">
+                        <img src="images/Beer.jpg">
                 </div>
 
                 <div class="product-card">
                     <div class="numbertext">3 / 3</div>
-                    <img src="images/Wine.jpg" style="width:100%">
+                        <img src="images/Wine.jpg">
                 </div>
             </div>
 
-        <div class="thumbnail-container">
-            <div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="images/Cola.png" style="width:100%" onclick="currentSlide(19)" alt="Cola $2.00/Small $5.00/Medium $8.00/Large">
+            <div class="thumbnail-container">
+                    <div class="row">
+                        <div class="column">
+                            <img class="demo cursor" src="images/Charbroiled Oysters.jpg" style="width:100%" onclick="currentSlide(1)" alt="Charbroiled Oysters $15.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Calamari.jpg" style="width:100%" onclick="currentSlide(2)" alt="Calamari $12.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Crab Dip.jpg" style="width:100%" onclick="currentSlide(3)" alt="Crab Dip $10.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Crab Guacamole.jpg" style="width:100%" onclick="currentSlide(4)" alt="Crab Guacamole $12.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Marinated Crab Claws.jpg" style="width:100%" onclick="currentSlide(5)" alt="Marinated Crab Claws $15.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/House Salad.jpg" style="width:100%" onclick="currentSlide(6)" alt="House Salad $12.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Caesar Salad.jpg" style="width:100%" onclick="currentSlide(7)" alt="Caesar Salad $15.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Seafood Gumbo.jpg" style="width:100%" onclick="currentSlide(8)" alt="Seafood Gumbo $8.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Soup of the Day.jpeg" style="width:100%" onclick="currentSlide(9)" alt="Soup of the Day $8.00/cup $10.00/bowl">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Pecan Crusted Redfish.jpg" style="width:100%" onclick="currentSlide(10)" alt="Pecan Crusted Redfish $30.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Grilled Salmon.jpg" style="width:100%" onclick="currentSlide(11)" alt="Grilled Salmon $25.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Catfish Atchafalaya.jpg" style="width:100%" onclick="currentSlide(12)" alt="Catfish Atchafalaya $20.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Shrimp and Grits.jpg" style="width:100%" onclick="currentSlide(13)" alt="Shrimp and Grits $25.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Bone in Ribeye.jpg" style="width:100%" onclick="currentSlide(14)" alt="Bone in Ribeye $32.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Brownie aLa Mode.jpg" style="width:100%" onclick="currentSlide(15)" alt="Brownie aLa Mode $8.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Cheesecake.jpg" style="width:100%" onclick="currentSlide(16)" alt="Cheesecake $10.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Chocolate Pecan Pie.jpg" style="width:100%" onclick="currentSlide(17)" alt="Chocolate Pecan Pie $10.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Bread Pudding.jpg" style="width:100%" onclick="currentSlide(18)" alt="Bread Pudding $8.00">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Cola.png" style="width:100%" onclick="currentSlide(19)" alt="Cola $2.00/Small $5.00/Medium $8.00/Large">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Beer.jpg" style="width:100%" onclick="currentSlide(20)" alt="Beer Ask Server">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="images/Wine.jpg" style="width:100%" onclick="currentSlide(21)" alt="Wine Ask Server">
+                        </div>
+                    </div>
                 </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Beer.jpg" style="width:100%" onclick="currentSlide(20)" alt="Beer Ask Server">
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
                 </div>
-                <div class="column">
-                    <img class="demo cursor" src="images/Wine.jpg" style="width:100%" onclick="currentSlide(21)" alt="Wine Ask Server">
-                </div>
+
             </div>
         </div>
+    </main>
+    <footer>
+        <p>
+            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
+            <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+        </p>
+    </footer>
 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <script>
+        // JavaScript functions for slideshow
+        var slideIndex = 1;
 
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
-        </div>
-</main>
-<script>
-  // JavaScript functions for slideshow
-  var slideIndex = 1;
-
-  showSlides(slideIndex);
+        showSlides(slideIndex);
 
         function plusSlides(n) {
             showSlides(slideIndex += n);
@@ -396,42 +397,34 @@
             showSlides(slideIndex = n);
         }
 
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("product-card");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("product-card");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
 
-        if (n > slides.length) {
-            slideIndex = 1;
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+
+            // Update the caption text based on the alt text of the currently displayed image
+            captionText.innerHTML = dots[slideIndex - 1].alt;
         }
-
-        if (n < 1) {
-            slideIndex = slides.length;
-        }
-
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-
-        // Update the caption text based on the alt text of the currently displayed image
-        captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
     </script>
-
-<footer>
-    <p>
-        <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
-        <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
-    </p>
-</footer>
-
 </body>
 </html>
