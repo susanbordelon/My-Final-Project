@@ -1,4 +1,4 @@
-<!DOCUTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,44 +9,78 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <script>
-        function copyBillingToShipping() {
-            if (document.getElementById('sameAsBilling').checked) {
-                document.getElementById('shippingFname').value = document.getElementById('billingFname').value;
-                document.getElementById('shippingLname').value = document.getElementById('billingLname').value;
-                document.getElementById('shippingAddress').value = document.getElementById('billingAddress').value;
-                document.getElementById('shippingCity').value = document.getElementById('billingCity').value;
-                document.getElementById('shippingState').value = document.getElementById('billingState').value;
-                document.getElementById('shippingZip').value = document.getElementById('billingZip').value;
-            } else {
-                // Clear shipping information if checkbox is unchecked
-                document.getElementById('shippingFname').value = '';
-                document.getElementById('shippingLname').value = '';
-                document.getElementById('shippingAddress').value = '';
-                document.getElementById('shippingCity').value = '';
-                document.getElementById('shippingState').value = '';
-                document.getElementById('shippingZip').value = '';
+        function validateForm() {
+            var fname = document.getElementById('fname').value;
+            var address = document.getElementById('adr').value;
+            var city = document.getElementById('city').value;
+            var state = document.getElementById('state').value;
+            var zip = document.getElementById('zip').value;
+            var email = document.getElementById('email').value;
+            var nameoncard = document.getElementById('cname').value;
+            var creditcardnumber = document.getElementById('ccnum').value;
+            var expdate = document.getElementById('expmonth').value;
+
+                if (fname.trim() === '') {
+                    alert('Please fill out the Full Name field.');
+                    return false; // Prevent form submission.
+                }
+
+                if (address.trim() === '') {
+                    alert('Please fill out the Address field.');
+                    return false;
+                }
+
+                if (city.trim() === '') {
+                    alert('Please fill out the City field.');
+                    return false;
+                }
+
+                if (state.trim() === '') {
+                    alert('Please fill out the State field.');
+                    return false;
+                }
+
+                if (zip.trim() === '' || !/^\d{5}$/.test(zip)) {
+                    alert('Please fill out the Zip field.');
+                    return false;
+                }
+
+                if (!/^\S+@\S+\.\S+$/.test(email)) {
+                    alert('Please verify your email.');
+                    return false;
+                }
+
+                if (nameoncard.trim() === '') {
+                    alert('Please fill out the Name on Card field.');
+                }
+
+                if (creditcardnumber.trim() === '') {
+                    alert('Please verify the credit card number.');
+                }
+
+                if (expdate.trim() === '') {
+                    alert('Please verify the expiration date.');
+                }
+
+                // Add more validation logic for other fields as needed.
+
+                return true; // Form is valid, submission will continue.
             }
-        }
 
-        document.getElementById('checkoutButton').addEventListener('click', function (event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
+            document.getElementById('checkoutButton').addEventListener('click', function (event) {
+                // Prevent the default form submission behavior
+                event.preventDefault();
 
-            // Here, you can add your custom code to handle the checkout process.
-            // For example, you can show a confirmation message or navigate to a new page.
+                alert('Thank you for your order!');
 
-            // Example: Show a confirmation alert
-            alert('Thank you for your order!');
+                // Example: Navigate to a new page (replace 'checkout-success.html' with your desired URL)
+                window.location.href = "index.html";
+            });
 
-            // Example: Navigate to a new page (replace 'checkout-success.html' with your desired URL)
-            window.location.href = "index.html"
-        });
-
-        function handlecheckoutButton() {
-
-            alert("Payment successful. Confirmation email has been sent.");
-            return false;
-        }
+            function handlecheckoutButton() {
+                alert("Payment successful. Confirmation email has been sent.");
+                return false;
+            }
     </script>
 
     <style>
@@ -223,28 +257,28 @@
             <div class="row">
                 <div class="col-75">
                     <div class="container">
-                        <form id="form" autocomplete="off" onsubmit="return validateForm();">
+                        <form action="#" method="post" autocomplete="on" onsubmit="return handleSubmit();">
 
                             <div class="row">
                                 <div class="col-50">
                                     <h3>Billing Address</h3>
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                    <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                    <input type="text" id="fname" name="firstname" placeholder="John M. Doe" required />
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                    <input type="text" id="email" name="email" placeholder="john@example.com">
+                                    <input type="text" id="email" name="email" placeholder="john@example.com" required>
                                     <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                                    <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" required>
                                     <label for="city"><i class="fa fa-institution"></i> City</label>
-                                    <input type="text" id="city" name="city" placeholder="New York">
+                                    <input type="text" id="city" name="city" placeholder="New York" required>
 
                                     <div class="row">
                                         <div class="col-50">
                                             <label for="state">State</label>
-                                            <input type="text" id="state" name="state" placeholder="NY">
+                                            <input type="text" id="state" name="state" placeholder="NY" required>
                                         </div>
                                         <div class="col-50">
                                             <label for="zip">Zip</label>
-                                            <input type="text" id="zip" name="zip" placeholder="10001">
+                                            <input type="text" id="zip" name="zip" placeholder="10001" required>
                                         </div>
                                     </div>
                                 </div>
@@ -259,19 +293,19 @@
                                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                                     </div>
                                     <label for="cname">Name on Card</label>
-                                    <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                    <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
                                     <label for="ccnum">Credit card number</label>
-                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
                                     <label for="expmonth">Exp Month</label>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                                    <input type="text" id="expmonth" name="expmonth" placeholder="September" required>
                                     <div class="row">
                                         <div class="col-50">
                                             <label for="expyear">Exp Year</label>
-                                            <input type="text" id="expyear" name="expyear" placeholder="2018">
+                                            <input type="text" id="expyear" name="expyear" placeholder="2018" required>
                                         </div>
                                         <div class="col-50">
                                             <label for="cvv">CVV</label>
-                                            <input type="text" id="cvv" name="cvv" placeholder="352">
+                                            <input type="text" id="cvv" name="cvv" placeholder="352" required>
                                         </div>
                                     </div>
                                 </div>
@@ -293,10 +327,6 @@
             <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
         </p>
     </footer>
-
-</body>
-</html>
-</html>
 
 </body>
 </html>
