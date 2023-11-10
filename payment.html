@@ -29,14 +29,24 @@
         }
 
         document.getElementById('checkoutButton').addEventListener('click', function (event) {
-        // Prevent the default form submission behavior
-        event.preventDefault();
+            // Prevent the default form submission behavior
+            event.preventDefault();
 
-        alert('Thank you for your order!');
+            // Here, you can add your custom code to handle the checkout process.
+            // For example, you can show a confirmation message or navigate to a new page.
 
-        window.location.href = "index.html"
-});
-});
+            // Example: Show a confirmation alert
+            alert('Thank you for your order!');
+
+            // Example: Navigate to a new page (replace 'checkout-success.html' with your desired URL)
+            window.location.href = "index.html"
+        });
+
+        function handlecheckoutButton() {
+
+            alert("Payment successful. Confirmation email has been sent.");
+            return false;
+        }
     </script>
 
     <style>
@@ -213,7 +223,7 @@
             <div class="row">
                 <div class="col-75">
                     <div class="container">
-                        <form action="/action_page.php" onsubmit="return checkoutFunction();">
+                        <form id="form" autocomplete="off" onsubmit="return validateForm();">
 
                             <div class="row">
                                 <div class="col-50">
@@ -270,30 +280,11 @@
                             <label>
                                 <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                             </label>
-                            <input type="submit" value="Continue to checkout" class="btn">
+                            <input type="submit" value="Continue to checkout" class="btn" id="checkoutButton">
                         </form>
                     </div>
                 </div>
             </div>
-
-                <script>
-
-                    function myFunction() {
-                        var inpObj = document.getElementById("id1");
-                        if (inpObj.checkValidity() == false) {
-                            document.getElementById("passcode").innerHTML = inpObj.validationMessage;
-                        } else {
-                            alert("Discount applied successfully");
-                        }
-                    }
-
-                    function handleSubmit() {
-
-                        alert("Payment successful. Confirmation email has been sent.");
-                        return false;
-                    }
-                </script>
-
 </main>
 
     <footer>
@@ -304,6 +295,7 @@
     </footer>
 
 </body>
+</html>
 </html>
 
 </body>
