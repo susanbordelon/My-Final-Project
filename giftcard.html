@@ -3,25 +3,60 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <script src="https://cdn.toasttab.com/release-342-2/javascripts/jquery-1.7.min.js"></script>
-    <script src="https://cdn.toasttab.com/release-342-2/javascripts/public.min.js?v=114"></script>
+    <style>
+        body {
+            font-family: 'Bookman Old Style';
+        }
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.toasttab.com/release-342-2/bootstrap/css/toast-bootstrap-3-0.min.css?v=114" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.toasttab.com/release-342-2/bootstrap/css/toast-bootstrap-select-3-0.min.css?v=114" />
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
 
-    <link href="https://cdn.toasttab.com/release-342-2/stylesheets/fonts/material-icons.css" rel="stylesheet" type='text/css'>
+        label {
+            margin: 10px 0;
+        }
 
-    <script src="https://cdn.toasttab.com/release-342-2/bootstrap/js/toast-bootstrap.min.js"></script>
-    <script src="https://cdn.toasttab.com/release-342-2/bootstrap/js/bootstrap-select.min.js"></script>
-    <script src="https://cdn.toasttab.com/release-342-2/bootstrap/js/bootstrap-datepicker.min.js"></script>
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #F4CE8F;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .center-container .email-label,
+        .center-container .email,
+        .center-container .phone-label,
+        .center-container .phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        select[name="delivery_method"] ~ .center-container .recipient_email,
+        select[name="delivery_method"] ~ .center-container .recipient_phone {
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body id="container">
     <header>
-        <img src="Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
+        <img src="images/Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
 
         <h1>Maddie B Kitchen</h1>
     </header>
@@ -39,497 +74,189 @@
     </nav>
 
     <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
-        <h1 style="color:black">Gift Cards</h1>
-        <div class="gift-card-wrapper">
-            <div class="gift-card-container">
+        <h1>eGift Card Ordering</h1>
+        <form id="order-form">
+            <label for="amount">Amount (USD):</label>
+            <input type="number" id="amount" name="amount" min="10" step="10" required>
 
-                <form id="form" autocomplete="off" onsubmit="return validateForm()">
+            <label for="recipient_name">Recipient's Name:</label>
+            <input type="text" id="recipient_name" name="recipient_name" required>
 
+            <label for="from_name">From:</label>
+            <input type="text" id="from_name" name="from_name" required />
 
-                    <h3 class="header3">Amount<span style="color: red;">*</span><br /></h3>
-                    <div class="control-group"
-                         id="control-group-giftCard_amount">
+            <label for="message">Personal Message:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
 
+            <label for="delivery_method">Delivery Method:</label>
+            <select id="delivery_method" name="delivery_method" onchange="toggleFields()">
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+            </select>
 
-                        <div class="controls">
+            <label for="recipient_email" class="email-label">Recipient Email:</label>
+            <input class="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" />
 
-                            <div class="input-prepend">
-                                <span class="add-on"> $</span>
-                                <input id="giftCard_amount" type="number" value="" name="giftCard.amount"
-                                       class='input-mini'
-                                       min='5.00 $'
-                                       max='500.00 $'
-                                       data-lpignore='true' />
-                            </div>
+            <label for="recipient_phone" class="phone-label">Recipient Phone:</label>
+            <input class="phone" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" />
 
-                            <p class="help-inline"> $5.00 - $500.00</p>
-                        </div>
-                    </div>
+            <label for="delivery_method">Delivery Date:</label>
+            <input type="text" id="delivery-date" name="date" required>
 
-                    <h3 class="header3">Personalize</h3>
-                    <div class="control-group"
-                         id="control-group-giftCard_to">
-                        <label for="giftCard_to" class="control-label">To<span style="color: red;">*</span><br/></label>
+            <button type="submit" id="submit-button">Order eGift Card</button>
+        </form>
 
-                        <div class="controls">
-                            <input id="giftCard_to" type="text" value="" name="giftCard.to" class='input-large' maxlength='255' data-lpignore='true' />
-                        </div>
-                    </div>
+        <div class="preview" style="max-width:300px;margin:0 auto;">
+            <h1>Preview</h1>
+            <div id="preview-msg-container" style="padding:10px 0px;">
+                <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                    <span>To:</span><span class="msg"></span>
+                </div>
 
-                    <div class="control-group"
-                         id="control-group-giftCard_from">
-                        <label for="giftCard_from" class="control-label"> From<br /></label>
+                <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
+                    <span>From:</span><span class="msg"></span>
+                </div>
 
-                        <div class="controls">
-                            <input id="giftCard_from" type="text" value="" name="giftCard.from" class='input-large' maxlength='255' data-lpignore='true' />
-                        </div>
-                    </div>
-
-                    <div class="control-group"
-                         id="control-group-giftCard_message">
-                        <label for="giftCard_message" class="control-label">Message<br /></label>
-
-                        <div class="controls">
-                            <textarea id="giftCard_message" name="giftCard.message" rows="5" maxlength=350 class='input-large'></textarea>
-                        </div>
-                    </div>
-
-                    <h3 class="header3">Schedule Delivery</h3>
-
-                    <div class="control-group" id="send-to">
-                        <label class="control-label">Send To <span style="color: red;">*</span></label>
-                        <div class="controls" style="text-align: center;">
-                            <input type="hidden" name="giftCard.sendTo" value="EMAIL" />
-                            <div class="tabbable" id="send-to-tabs">
-                                <ul class="nav nav-tabs" style="list-style-type: none; padding: 0;">
-                                    <li class="active">
-                                        <a href="#email" data-toggle="tab" title="Email">Email</a>
-                                    </li>
-                                    <li>
-                                        <a href="#phone" data-toggle="tab" title="Phone">Phone</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" style="text-align: center;">
-                                    <div class="tab-pane active" id="email">
-                                        <input class="input-large" type="email" title="Recipient Email"
-                                           placeholder="Recipient Email"
-                                           name="giftCard.email" value="" />
-                                    </div>
-                                    <div class="tab-pane" id="phone">
-                                        <input class="input-large" type="tel" title="Recipient Phone"
-                                           placeholder="Recipient Phone"
-                                           name="giftCard.phone" value="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="control-group" id="delivery-date">
-                        <label id="selectDeliveryDate" class="control-label">Delivery Date<span style="color: red;">*</span></label>
-                        <div class="controls" style="text-align: center">
-                            <input type="text" name="giftCard.deliveryDate" required>
-
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-                            <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-                            <script type="text/javascript">new Pikaday({ field: document.getElementById('delivery-date') });</script>
-                        </div>
-                    </div>
-
-                    <h3 class="header3">Preview</h3>
-                    <div id="preview-wrapper">
-                        <div style="max-width:300px;margin:0 auto;">
-                            <div id="preview-msg-container" style="padding:10px 0px;">
-                                <div id="preview-to" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                    <span>To:</span><span class="msg"></span>
-                                </div>
-
-                                <div id="preview-from" class="msg-line" style="border-bottom:1px solid #ddd;display:none;">
-                                    <span>From:</span><span class="msg"></span>
-                                </div>
-
-                                <div id="preview-message" class="msg-line" style="display:none;"></div>
-                            </div>
-
-                            <div id="cart-summary">
-                                <div class="toast-card" style="margin:0;">
-                                    <div id="toast-card-logo">
-                                        <img src="Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
-                                    </div>
-                                    <div id="toast-card-title">Card Balance</div>
-                                    <div id="toast-card-amount">
-                                        <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span><span id="preview-amount"></span>
-                                    </div>
-                                    <div id="toast-card-restaurant" style="font-size:21px">Maddie B Kitchen</div>
-                                </div>
-                                <div style="height:30px;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="btn-container">
-                        <button id="addCardToCart" class="btn btn-add-another">Add eGift to Cart</button>
-                        <button id="reset" class="btn btn-reset">Clear</button>
-                    </div>
-
-
-                </form>
+                <div id="preview-message" class="msg-line" style="display:none;"></div>
             </div>
+
         </div>
+
+        <div id="result"></div>
+
+        <footer>
+            <p style="text-align: center; color: #F4CE8F">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
+
+            <p>
+                <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
+                <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
+            </p>
+        </footer>
+
     </main>
 
-    <aside class="gift-cards-summary">
-        <div id="addedGiftCardsContainer"></div>
-        <div id="totalAmountContainer">Total Amount: $0.00</div>
-        <a href="cart.html" class="btn btn-cart">Shopping Cart</a>
-    </aside>
+    <script>
+        // Initially hide the email and phone fields
+        document.querySelector('.email-label').style.display = 'none';
+        document.querySelector('.email').style.display = 'none';
+        document.querySelector('.phone-label').style.display = 'none';
+        document.querySelector('.phone').style.display = 'none';
 
-    <footer>
-        <p style="text-align: center; color: #FFFDD9">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
+        // Function to toggle fields
+        function toggleFields() {
+            const deliveryMethod = document.getElementById('delivery_method').value;
+            const emailLabel = document.querySelector('.email-label');
+            const emailInput = document.querySelector('.email');
+            const phoneLabel = document.querySelector('.phone-label');
+            const phoneInput = document.querySelector('.phone');
 
-        <p>
-            <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
-            <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
-        </p>
-    </footer>
+            if (deliveryMethod === 'email') {
+                emailLabel.style.display = 'block';
+                emailInput.style.display = 'block';
+                phoneLabel.style.display = 'none';
+                phoneInput.style.display = 'none';
+            } else if (deliveryMethod === 'phone') {
+                emailLabel.style.display = 'none';
+                emailInput.style.display = 'none';
+                phoneLabel.style.display = 'block';
+                phoneInput.style.display = 'block';
+            }
+        }
 
-     <script>
-     $(document).ready(function () {
-         $('#send-to-tabs a').click(function (e) {
-             e.preventDefault();
-             $(this).tab('show');
-         });
-     });
- </script>
+        // Add an event listener for when the page loads
+        window.addEventListener('load', toggleFields);
+        // Add an event listener for the dropdown's change event
+        document.getElementById('delivery_method').addEventListener('change', toggleFields);
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Get references to the form and its input fields
-            var giftCardForm = document.getElementById('giftCardForm');
-            var amountInput = document.getElementById('giftCard_amount');
-            var toInput = document.getElementById('giftCard_to');
-            var giftCardsSummary = document.querySelector('.gift-cards-summary');
-            var addedGiftCards = [];
+            const form = document.getElementById("order-form");
+            const resultDiv = document.getElementById("result");
+            const previewContainer = document.querySelector(".preview");
+            const previewTo = document.getElementById("preview-to");
+            const previewFrom = document.getElementById("preview-from");
+            const previewMessage = document.getElementById("preview-message");
 
-            giftCardForm.addEventListener('submit', function (event) {
-                // Prevent the form from submitting by default
-                event.preventDefault();
+            // Initially hide the email and phone fields
+            document.querySelector('.email-label').style.display = 'none';
+            document.querySelector('.email').style.display = 'none';
+            document.querySelector('.phone-label').style.display = 'none';
+            document.querySelector('.phone').style.display = 'none';
 
-                // Perform form validation here
-                var valid = true;
+            // Function to toggle fields
+            function toggleFields() {
+                const deliveryMethod = document.getElementById('delivery_method').value;
+                const emailLabel = document.querySelector('.email-label');
+                const emailInput = document.querySelector('.email');
+                const phoneLabel = document.querySelector('.phone-label');
+                const phoneInput = document.querySelector('.phone');
 
-                // Validate the Amount input
-                var amountValue = parseFloat(amountInput.value);
-                if (isNaN(amountValue) || amountValue < 5 || amountValue > 500) {
-                    alert('Amount must be between $5.00 and $500.00');
-                    valid = false;
+                if (deliveryMethod === 'email') {
+                    emailLabel.style.display = 'block';
+                    emailInput.style.display = 'block';
+                    phoneLabel.style.display = 'none';
+                    phoneInput.style.display = 'none';
+                } else if (deliveryMethod === 'phone') {
+                    emailLabel.style.display = 'none';
+                    emailInput.style.display = 'none';
+                    phoneLabel.style.display = 'block';
+                    phoneInput.style.display = 'block';
+                }
+            }
+
+            // Add an event listener for the page load and the dropdown change event
+            window.addEventListener('load', toggleFields);
+            document.getElementById('delivery_method').addEventListener('change', toggleFields);
+
+            // Show the eGift card preview as fields are filled out
+            form.addEventListener("input", function () {
+                const recipientName = document.getElementById("recipient_name").value;
+                const fromName = document.getElementById("from_name").value;
+                const message = document.getElementById("message").value;
+                const deliveryMethod = document.getElementById("delivery_method").value;
+
+                // Update the preview based on user input
+                if (deliveryMethod === "email") {
+                    previewTo.style.display = "block";
+                    previewTo.querySelector(".msg").textContent = recipientName;
+                    previewFrom.style.display = "block";
+                    previewFrom.querySelector(".msg").textContent = fromName;
+                } else if (deliveryMethod === "phone") {
+                    previewTo.style.display = "block";
+                    previewTo.querySelector(".msg").textContent = recipientName;
+                    previewFrom.style.display = "none";
                 }
 
-                // Validate the "To" input
-                if (toInput.value.trim() === '') {
-                    alert('Please enter the recipient\'s name');
-                    valid = false;
+                if (message.trim() !== "") {
+                    previewMessage.style.display = "block";
+                    previewMessage.textContent = message;
+                } else {
+                    previewMessage.style.display = "none";
                 }
 
-                // If all validations pass, you can submit the form
-                if (valid) {
-                    // Simulate adding the eGift to the cart
-                    var amount = parseFloat(amountInput.value);
-                    var to = toInput.value;
-                    var from = document.getElementById('giftCard_from').value;
-                    var message = document.getElementById('giftCard_message').value;
-
-                    var giftCard = {
-                        amount: amount,
-                        to: to,
-                        from: from,
-                        message: message,
-                    };
-
-                    giftCardsSummary.style.display = 'block';
-
-                    // Add the gift card to the list
-                    addedGiftCards.push(giftCard);
-
-                    // Update the total amount
-                    updateTotalAmount(document.getElementById('totalAmountContainer'), addedGiftCards);
-
-                    // Update the display of added gift cards
-                    updateAddedGiftCardsDisplay(document.getElementById('addedGiftCardsContainer'), addedGiftCards);
-
-                    // Clear form inputs
-                    amountInput.value = '';
-                    toInput.value = '';
-
-                    // Display a confirmation message
-                    alert('eGift added to cart');
-                }
+                // Show the preview
+                previewContainer.style.display = "block";
             });
 
-            // Function to update the display of added gift cards
-            function updateAddedGiftCardsDisplay(container, giftCards) {
-                container.innerHTML = '';
+            // Handle the form submission
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-                giftCards.forEach(function (giftCard, index) {
-                    var cardElement = document.createElement('div');
-                    cardElement.className = 'added-gift-card';
-                    cardElement.innerHTML = `
-                        <strong>Gift Card ${index + 1}:</strong><br>
-                        Amount: ${giftCard.amount}<br>
-                        To: ${giftCard.to}<br>
-                        From: ${giftCard.from}<br>
-                        Message: ${giftCard.message}
-                    `;
-                    container.appendChild(cardElement);
-                });
-            }
+                const recipientName = document.getElementById("recipient_name").value;
+                const fromName = document.getElementById("from_name").value;
+                const message = document.getElementById("message").value;
+                const deliveryMethod = document.getElementById("delivery_method").value;
 
-            // Function to update the total amount
-            function updateTotalAmount(container, giftCards) {
-                var totalAmount = giftCards.reduce(function (total, giftCard) {
-                    return total + giftCard.amount;
-                }, 0);
-                container.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
-            }
+                // Simulate sending the eGift card (e.g., by displaying a success message)
+                resultDiv.textContent = `Sending an eGift card to ${recipientName} via ${deliveryMethod} with message: ${message}`;
+            });
         });
     </script>
 
-    <style>
-        #giftCard_amount {
-            background-color: white;
-        }
-
-        .gift-card-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .gift-card-container {
-            background-color: #4BBBD3;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-         .gift-cards-summary {
-             position: relative;
-             top: 0;
-             right: 0;
-             width: 28%;
-             background-color: #4BBBD3;
-             box-shadow: 0 2px 6px #000;
-             padding: 10px;
-             border-radius: 5px;
-             text-align: center;
-         }    
-
-        .toast-card {
-            margin: 10px auto;
-            height: 200px;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px #000;
-            background-color: #FFF0D9;
-            color: #333;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        #toast-card-logo {
-            height: 150px;
-            width: 50%;
-            overflow: hidden;
-            display: inline-block;
-            border-top-left-radius: 10px;
-            float: left;
-        }
-
-            #toast-card-logo img {
-                height: 100%;
-            }
-
-        .default-card-icon {
-            background-color: #c3c9ed;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #toast-card-restaurant {
-            height: 50px;
-            line-height: 50px;
-            overflow: hidden;
-            margin: 0;
-            padding: 0 10px;
-            background-color: #fff;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            font-size: 24.5px;
-            font-weight: bold;
-            clear: both;
-            white-space: nowrap;
-        }
-
-        #toast-card-amount {
-            display: inline-block;
-            width: calc(50% - 10px);
-            padding: 0;
-            margin: 0;
-            text-align: right;
-            float: right;
-            padding-right: 10px;
-        }
-
-        #toast-card-title,
-        #toast-card-date-info {
-            font-weight: normal;
-            font-size: 12px;
-            float: right;
-            width: calc(50% - 10px);
-            text-align: right;
-            display: inline-block;
-            padding: 0;
-            margin: 0;
-            padding-top: 10px;
-            padding-bottom: 0px;
-            padding-right: 10px;
-        }
-
-        #toast-card-amount {
-            font-weight: bold;
-            font-size: 30px;
-            vertical-align: baseline;
-            color: #0079b6;
-            line-height: 30px;
-        }
-
-        #toast-card-loyalty-amount {
-            text-align: right;
-            padding: 3px 10px 0 0;
-        }
-
-        #toast-card-value-transactions, #toast-card-points-transactions {
-            background-color: #4BBBD3;
-        }
-
-        .msg-line {
-            padding: 8px 5px 5px;
-        }
-
-        .msg-line span {
-            display: inline-block;
-            width: 50px;
-         }
-
-         .msg-line span.msg {
-            width: auto;
-         }
-
-        .num-line span {
-            display: inline-block;
-            text-align: left;
-            width: 110px;
-        }
-
-        span.card-number {
-            width: auto;
-            font-size: 16px;
-        }
-
-        #qrcode {
-            width: 140px;
-            margin: 10px auto 5px;
-        }
-
-        .notice-text {
-            font-size: 0.9em;
-            color: #767676;
-        }
-
-        #transactions {
-            color: #1977d7;
-        }
-
-        .card-balance {
-            color: #131313;
-        }
-
-        .form-container {
-            background-color: #4bbbd3;
-            width: 60%;
-        }
-
-        input, textarea {
-            color: black;
-            font-size: 18px;
-            font-family: 'Bookman Old Style';
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-            input[type=number] {
-                background-color: black;
-            }
-
-            input[type=checkbox], input[type=radio] {
-                height: 15px;
-                width: 15px;
-            }
-
-        select {
-            background-color: #FFF0D9;
-        }
-
-        .form-group {
-            display: flex;
-            align-items: center;
-            margin: 10px;
-        }
-
-            .form-group > input, .form-group > textarea, .form-group > select {
-                width: 80%;
-                border: none;
-                outline: none;
-            }
-
-        form-group > textarea {
-            height: 100px;
-            resize: none;
-        }
-
-        form-group > input[type=submit], .form-group > input[type=reset] {
-            width: auto;
-            margin-left: auto;
-        }
-
-        .control-label {
-            text-align: center;
-        }
-
-        .added-gift-card {
-            background-color: #4BBBD3;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        #preview-wrapper {
-            max-width: 300px;
-            margin: 0 auto;
-        }
-    </style>
-
-    <script>(function () { var js = "window['__CF$cv$params']={r:'81acbc77da393be7',t:'MTY5ODA5MzAwOC44MTAwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);"; var _0xh = document.createElement('iframe'); _0xh.height = 1; _0xh.width = 1; _0xh.style.position = 'absolute'; _0xh.style.top = 0; _0xh.style.left = 0; _0xh.style.border = 'none'; _0xh.style.visibility = 'hidden'; document.body.appendChild(_0xh); function handler() { var _0xi = _0xh.contentDocument || _0xh.contentWindow.document; if (_0xi) { var _0xj = _0xi.createElement('script'); _0xj.innerHTML = js; _0xi.getElementsByTagName('head')[0].appendChild(_0xj); } } if (document.readyState !== 'loading') { handler(); } else if (window.addEventListener) { document.addEventListener('DOMContentLoaded', handler); } else { var prev = document.onreadystatechange || function () { }; document.onreadystatechange = function (e) { prev(e); if (document.readyState !== 'loading') { document.onreadystatechange = prev; handler(); } }; } })();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">new Pikaday({ field: document.getElementById('delivery-date') });</script>
 
 </body>
 </html>
