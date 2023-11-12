@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-   
+    <style>
+        body {
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body id="container">
@@ -40,14 +44,13 @@
         <div class="cart-footer">
             <h4 style="margin-right: 10px">Total Price:</h4>
             <h4 id="total-price">$0.00</h4>
-               <div class="cart-button button-style">
-                   <button id="clear-cart" class="button">Clear Cart</button>
-                   <input type="button" class="button" onclick="checkout();" value="Check Out">
-                </div>
         </div>
-
-        <br>
-    </main>
+        <br />
+        <div class="cart-button">
+            <button id="clear-cart" class="button">Clear Cart</button>
+            <input type="button" class="button" onclick="checkout();" value="Check Out">
+        </div>
+   </main>
 
     <script>
         function displayCartItems() {
