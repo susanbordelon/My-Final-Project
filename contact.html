@@ -7,9 +7,14 @@
     <title>Maddie B Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-        * {
-            box-sizing: border-box;
+        label {
+            text-align: left;
+            width: 100px; 
+            margin-right: 10px; 
+            font-family: 'Bookman Old Style';
         }
+
+        * {box-sizing: border-box;}
 
         input[type=text], select, textarea {
             width: 100%;
@@ -33,9 +38,7 @@
             font-family: 'Bookman Old Style'
         }
 
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
+        input[type=submit]:hover {background-color: #45a049;}
 
         .container {
             width: 60%; 
@@ -46,9 +49,7 @@
             font-family: 'Bookman Old Style';
         }
 
-        select {
-            background-color: #FFF0D9;
-        }
+        select {background-color: #FFF0D9;}
 
         .radio-group {
             display: flex;
@@ -59,11 +60,10 @@
         .radio-group > div {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
 
-        .radio-group > div > label {
-            margin-right: 5px;
-        }
+        .radio-group > div > label {margin-right: 5px;}
 
         button, input[type=reset], input[type=submit] {
             display: inline-block;
@@ -75,13 +75,17 @@
             border-radius: 5px;
         }
 
-        button, input[type=reset]:hover, input[type=submit]:hover {
-            background-color: #B1E3E4;
+        button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
+
+        button, input[type=reset]:active, input[type=submit]:active {transform: scale(0.95);}
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        button, input[type=reset]:active, input[type=submit]:active {
-            transform: scale(0.95);
-        }
+        .form-group input[type="checkbox"] {margin-right: 10px;}
     </style>
 </head>
 <body id="container">
@@ -156,8 +160,11 @@
                 <br>
                 <br>
 
-                <input type="checkbox" id="offer" name="offer" value="checked">
-                <label for="offer">Sign up for our mailing list!</label>
+                <div class="form-group">
+                    <input type="checkbox" id="list" name="list" value="checked">
+                    <label form="list">Sign up for our mailing list!</label>
+                </div>
+
 
                 <br>
                 <br>
