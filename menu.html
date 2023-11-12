@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
     <style>
-    .parent {height: 400px; width: 500px; overflow: auto;}
-    
-    .element {float: left; height: 300px; width: 400px; background-color: grey;}
-    
-    .slides {width: calc(716px * 4); animation: slideShow 10s ease infinite;}
+        div.scroll-container {
+            background-color: #333;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+            display: flex;
+        }
 
-    .slides .element img {width: 100%; height: 100%;}
-    
-    @keyframes slideShow {
-        20% {margin-left: 0px;}
+            div.scroll-container img {
+                padding: 10px;
+            }
 
-        40% {margin-left: calc(-716px * 1);}
-
-        60% {margin-left: calc(-716px * 2);}
-
-        80% {margin-left: calc(-716px * 3);}
-    }
-</style>
-
+        .text-block {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
 </head>
 
 <body id="container">
     <header>
         <img src="images/Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
+
         <h1>Maddie B Kitchen</h1>
     </header>
 
@@ -54,100 +58,48 @@
                 <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
             </div>
 
-                      
-                <h2> Appetizers </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Charbroiled Oysters.jpg" alt="Charbroiled Oysters">
-                        </div>
-                        <div class="element">
-                            <img src="images/Calamari.jpg" alt="Calamari">
-                        </div>
-                        <div class="element">
-                            <img src="images/Crab Dip.jpg" alt="Crab Dip">
-                        </div>
-                        <div class="element">
-                            <img src="images/Crab Guacamole.jpg" alt="Crab Guacamole">
-                        </div>
-                        <div class="element">
-                            <img src="images/Marinated Crab Claws.jpg" alt="Marinated Crab Claws">
-                        </div>
-                    </div>
-                </div>
 
-                <h2> Salad and Soup </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/House Salad.jpg" alt="House Salad">
-                        </div>
-                        <div class="element">
-                            <img src="images/Caesar Salad.jpg" alt="Caesar Salad">
-                        </div>
-                        <div class="element">
-                            <img src="images/Seafood Gumbo.jpg" alt="Seafood Gumbo">
-                        </div>
-                        <div class="element">
-                            <img src="images/Soup of the Day.jpeg" alt="Soup of the Day">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Entrees </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish">
-                        </div>
-                        <div class="element">
-                            <img src="images/Grilled Salmon.jpg" alt="Grilled Salmon">
-                        </div>
-                        <div class="element">
-                            <img src="images/Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya">
-                        </div>
-                        <div class="element">
-                            <img src="images/Shrimp and Grits.jpg" alt="Shrimp and Grits">
-                        </div>
-                        <div class="element">
-                            <img src="images/Bone in Ribeye.jpg" alt="Bone in Ribeye">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Desserts </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Brownie aLa Mode.jpg" alt="Brownie aLa Mode">
-                        </div>
-                        <div class="element">
-                            <img src="images/Cheesecake.jpg" alt="Cheesecake">
-                        </div>
-                        <div class="element">
-                            <img src="images/Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie">
-                        </div>
-                        <div class="element">
-                            <img src="images/Bread Pudding.jpg" alt="Bread Pudding">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Beverages </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Cola.png" alt="Cola">
-                        </div>
-                        <div class="element">
-                            <img src="images/Beer.jpg" alt="Beer">
-                        </div>
-                        <div class="element">
-                            <img src="images/Wine.jpg" alt="Wine">
-                        </div>
-                    </div>
-                </div>
+            <h2> Appetizers </h2>
+            <div class="scroll-container">
+                <img src="images/Charbroiled Oysters.jpg" alt="Charbroiled Oysters" width="600" height="400">
+                <img src="images/Calamari.jpg" alt="Calamari" width="600" height="400">
+                <img src="images/Crab Dip.jpg" alt="Crab Dip" width="600" height="400">
+                <img src="images/Crab Guacamole.jpg" alt="Crab Guacamole" width="600" height="400">
+                <img src="images/Marinated Crab Claws.jpg" alt="Marinated Crab Claws" width="600" height="400">
             </div>
+
+            <h2> Salad and Soup </h2>
+            <div class="scroll-container">
+                <img src="images/House Salad.jpg" alt="House Salad" width="600" height="400">
+                <img src="images/Caesar Salad.jpg" alt="Caesar Salad" width="600" height="400">
+                <img src="images/Seafood Gumbo.jpg" alt="Seafood Gumbo" width="600" height="400">
+                <img src="images/Soup of the Day.jpeg" alt="Soup of the Day" width="600" height="400">
+            </div>
+
+            <h2> Entrees </h2>
+            <div class="scroll-container">
+                <img src="images/Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish" width="600" height="400">
+                <img src="images/Grilled Salmon.jpg" alt="Grilled Salmon" width="600" height="400">
+                <img src="images/Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya" width="600" height="400">
+                <img src="images/Shrimp and Grits.jpg" alt="Shrimp and Grits" width="600" height="400">
+                <img src="images/Bone in Ribeye.jpg" alt="Bone in Ribeye" width="600" height="400">
+            </div>
+
+            <h2> Desserts </h2>
+            <div class="scroll-container">
+                <img src="images/Brownie aLa Mode.jpg" alt="Brownie aLa Mode" width="600" height="400">
+                <img src="images/Cheesecake.jpg" alt="Cheesecake" width="600" height="400">
+                <img src="images/Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie" width="600" height="400">
+                <img src="images/Bread Pudding.jpg" alt="Bread Pudding" width="600" height="400">
+            </div>
+
+            <h2> Beverages </h2>
+            <div class="scroll-container">
+                <img src="images/Cola.png" alt="Cola" width="600" height="400">
+                <img src="images/Beer.jpg" alt="Beer" width="600" height="400">
+                <img src="images/Wine.jpg" alt="Wine" width="600" height="400">
+            </div>
+        </div>
 
     </main>
     <footer>
