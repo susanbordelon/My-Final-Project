@@ -7,15 +7,43 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <style>
-        .form-container {background-color: #4bbbd3; padding: 20px; border-radius: 5px; margin: 0 auto; width: 30%; text-align: center;}
+        .form-container {
+            background-color: #4bbbd3;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 0 auto;
+            width: 30%;
+            text-align: center;
+        }
 
-        input, textarea {width: 100%; padding: 12px; border: 1px solid #ccc;  box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize: vertical; font-size: 16px; font-family: 'Bookman Old Style'; border-radius: 4px; display: inline-block;}
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+            font-size: 16px;
+            font-family: 'Bookman Old Style';
+            border-radius: 4px;
+            display: inline-block;
+        }
 
         input[type=number] {background-color: black;}
-    
+
         select {background-color: #FFF0D9;}
 
-        button, input[type=reset], input[type=submit] {display: inline-block; background-color: #f4ce8f; color: #fff; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px;}
+        button, input[type=reset], input[type=submit] {
+            display: inline-block;
+            background-color: #f4ce8f;
+            color: #fff;
+            width: 100px;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
         button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
 
@@ -30,8 +58,8 @@
         .form-group > input, .form-group > textarea, .form-group > select {width: 80%; border: none; outline: none;}
 
         .form-group > textarea {height: 100px; resize: none;}
-		
-		* {box-sizing: border-box;}
+
+        * {box-sizing: border-box;}
     </style>
 
 </head>
@@ -69,153 +97,153 @@
         <div class="form-container">
 
             <form id="form" autocomplete="off" onsubmit="return validateForm()">
-                
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Name <span style="color: red;"> *</span></label><br />
-                        <input type="text" id="data_3" name="data_3" style="max-width: 400px;" class="form-control" />
-                    </div>
 
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Phone <span style="color: red;"> *</span></label><br />
-                        <input type="text" id="data_4" name="data_4" style="max-width: 400px; " class="form-control" />
-                    </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Name <span style="color: red;"> *</span></label><br />
+                    <input type="text" id="data_3" name="data_3" style="max-width: 400px;" class="form-control" placeholder="Name" />
+                </div>
 
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Email <span style="color: red;"> *</span></label><br />
-                        <input type="text" id="data_5" name="data_5" style="max-width: 400px; " class="form-control" />
-                    </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Phone <span style="color: red;"> *</span></label><br />
+                    <input type="text" id="data_4" name="data_4" style="max-width: 400px; " class="form-control" placeholder="Phone" />
+                </div>
 
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Date <span style="color: red;"> *</span></label><br />
-                        <input type="text" id="data_6" name="data_6" style="max-width : 250px;" class="form-control" />
-                    </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Email <span style="color: red;"> *</span></label><br />
+                    <input type="text" id="data_5" name="data_5" style="max-width: 400px; " class="form-control" placeholder="Email" />
+                </div>
 
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-                    <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
-                        <select id="data_7" name="data_7" style="max-width: 250px;" class="form-control">
-                            <option value="" disabled selected>Select a time</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="11:30 AM">11:30 AM</option>
-                            <option value="12:00 PM">12:00 PM</option>
-                            <option value="12:30 PM">12:30 PM</option>
-                            <option value="1:00 PM">1:00 PM</option>
-                            <option value="1:30 PM">1:30 PM</option>
-                            <option value="2:00 PM">2:00 PM</option>
-                            <option value="2:30 PM">2:30 PM</option>
-                            <option value="3:00 PM">3:00 PM</option>
-                            <option value="3:30 PM">3:30 PM</option>
-                            <option value="4:00 PM">4:00 PM</option>
-                            <option value="4:30 PM">4:30 PM</option>
-                            <option value="5:00 PM">5:00 PM</option>
-                            <option value="5:30 PM">5:30 PM</option>
-                            <option value="6:00 PM">6:00 PM</option>
-                            <option value="6:30 PM">6:30 PM</option>
-                            <option value="7:00 PM">7:00 PM</option>
-                            <option value="7:30 PM">7:30 PM</option>
-                            <option value="8:00 PM">8:00 PM</option>
-                            <option value="8:30 PM">8:30 PM</option>
-                            <option value="9:00 PM">9:00 PM</option>
-                            <option value="9:30 PM">9:30 PM</option>
-                        </select>                                                                                                                   
-                    </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Date <span style="color: red;"> *</span></label><br />
+                    <input type="text" id="data_6" name="data_6" style="max-width : 250px;" class="form-control" placeholder="Click to Choose Date" />
+                </div>
 
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
-                        <select id="data_8" name="data_8" style="max-width : 250px;" class="form-control">
-                            <option value="" disabled selected>Select number of attendees</option>
-                            <option> 1</option>
-                            <option> 2</option>
-                            <option> 3</option>
-                            <option> 4</option>
-                            <option> 5</option>
-                            <option> 6</option>
-                            <option> 7</option>
-                            <option> 8</option>
-                            <option> 9</option>
-                            <option> 10</option>
-                            <option> 10 + (Specify in Comments)</option>
-                        </select>
-                    </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
+                    <select id="data_7" name="data_7" style="max-width: 250px;" class="form-control">
+                        <option value="" disabled selected>Select a time</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="1:30 PM">1:30 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="2:30 PM">2:30 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="3:30 PM">3:30 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="4:30 PM">4:30 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="5:30 PM">5:30 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="6:30 PM">6:30 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
+                        <option value="7:30 PM">7:30 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                        <option value="8:30 PM">8:30 PM</option>
+                        <option value="9:00 PM">9:00 PM</option>
+                        <option value="9:30 PM">9:30 PM</option>
+                    </select>
+                </div>
 
-                    <div style="padding-bottom: 18px;">
-                        <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Comments/Other Information</label><br />
-                        <textarea id="data_9" false name="data_9" style="max-width : 400px;" rows="6" class="form-control"> </textarea>
-                    </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
+                    <select id="data_8" name="data_8" style="max-width : 250px;" class="form-control">
+                        <option value="" disabled selected>Select number of attendees</option>
+                        <option> 1</option>
+                        <option> 2</option>
+                        <option> 3</option>
+                        <option> 4</option>
+                        <option> 5</option>
+                        <option> 6</option>
+                        <option> 7</option>
+                        <option> 8</option>
+                        <option> 9</option>
+                        <option> 10</option>
+                        <option> 10 + (Specify in Comments)</option>
+                    </select>
+                </div>
 
-                    <div>
-                        <input type="reset" class="button" value="Clear">
-                        <input type="submit" class="button" value="Submit">
-                    </div>
-                </form>
-            </div>
+                <div style="padding-bottom: 18px;">
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Comments & Other Information</label><br />
+                    <textarea id="data_9" false name="data_9" style="max-width : 400px;" rows="6" class="form-control" placeholder="Please write here..."> </textarea>
+                </div>
 
-       <script>
-           function validateForm() {
-               var data_3 = document.getElementById("data_3");
-               var data_4 = document.getElementById("data_4");
-               var data_5 = document.getElementById("data_5");
-               var data_6 = document.getElementById("data_6");
-               var data_7 = document.getElementById("data_7");
-               var data_8 = document.getElementById("data_8");
-               var data_9 = document.getElementById("data_9");
+                <div>
+                    <input type="reset" class="button" value="Clear">
+                    <input type="submit" class="button" value="Submit">
+                </div>
+            </form>
+        </div>
 
-               if (data_3.value === "") {
-                   alert("Please enter your name.");
-                   data_3.focus();
-                   return false;
-               }
+        <script>
+            function validateForm() {
+                var data_3 = document.getElementById("data_3");
+                var data_4 = document.getElementById("data_4");
+                var data_5 = document.getElementById("data_5");
+                var data_6 = document.getElementById("data_6");
+                var data_7 = document.getElementById("data_7");
+                var data_8 = document.getElementById("data_8");
+                var data_9 = document.getElementById("data_9");
 
-               if (data_4.value === "") {
-                   alert("Please enter your number.");
-                   data_4.focus();
-                   return false;
-               }
+                if (data_3.value === "") {
+                    alert("Please enter your name.");
+                    data_3.focus();
+                    return false;
+                }
 
-               var data_5Regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-               if (!data_5Regex.test(data_5.value)) {
-                   alert("Please enter a valid email address.");
-                   data_5.focus();
-                   return false;
-               }
+                if (data_4.value === "") {
+                    alert("Please enter your number.");
+                    data_4.focus();
+                    return false;
+                }
 
-               var selectedDate = data_6.value;
-               if (selectedDate === "") {
-                   alert("Please choose a date.");
-                   data_6.focus();
-                   return false;
-               }
+                var data_5Regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!data_5Regex.test(data_5.value)) {
+                    alert("Please enter a valid email address.");
+                    data_5.focus();
+                    return false;
+                }
 
-               var data_7Regex = /^\s*$/;
-               if (data_7Regex.test(data_7.value)) {
-                   alert("Please select a time.");
-                   data_7.focus();
-                   return false;
-              }
+                var selectedDate = data_6.value;
+                if (selectedDate === "") {
+                    alert("Please choose a date.");
+                    data_6.focus();
+                    return false;
+                }
 
-               var data_8Regex = /^\s*$/;
-               if (data_8Regex.test(data_8.value)) {
-                   alert("Please select the number of attendees.");
-                   data_8.focus();
-                   return false;
-               }
+                var data_7Regex = /^\s*$/;
+                if (data_7Regex.test(data_7.value)) {
+                    alert("Please select a time.");
+                    data_7.focus();
+                    return false;
+                }
 
-               if (data_9.value === "") {
-                   alert("Please enter comments.");
-                   data_9.focus();
-                   return false;
-               }
+                var data_8Regex = /^\s*$/;
+                if (data_8Regex.test(data_8.value)) {
+                    alert("Please select the number of attendees.");
+                    data_8.focus();
+                    return false;
+                }
 
-               alert("Reservation has been confirmed!");
+                if (data_9.value === "") {
+                    alert("Please enter comments.");
+                    data_9.focus();
+                    return false;
+                }
 
-               return true;
-           }     
-       </script>
+                alert("Reservation has been confirmed!");
+
+                return true;
+            }
+        </script>
 
     </main>
-    
+
     <footer>
         <p>
             <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
