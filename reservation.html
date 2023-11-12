@@ -9,7 +9,7 @@
     <style>
         .form-container {background-color: #4bbbd3; padding: 20px; border-radius: 5px; margin: 0 auto; width: 30%; text-align: center;}
 
-        input, textarea {color: black; font-size: 16px; font-family: 'Bookman Old Style'; border-radius: 20px; display: inline-block;}
+        input, textarea {width: 100%; padding: 12px; border: 1px solid #ccc;  box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize: vertical; font-size: 16px; font-family: 'Bookman Old Style'; border-radius: 4px; display: inline-block;}
 
         input[type=number] {background-color: black;}
     
@@ -30,6 +30,8 @@
         .form-group > input, .form-group > textarea, .form-group > select {width: 80%; border: none; outline: none;}
 
         .form-group > textarea {height: 100px; resize: none;}
+		
+		* {box-sizing: border-box;}
     </style>
 
 </head>
