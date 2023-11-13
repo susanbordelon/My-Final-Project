@@ -75,7 +75,7 @@
                     const fileExtension = item.name.split('.').pop().toLowerCase();
 
                     cartItem.innerHTML = `
-                        <img src="images/${item.name}.${fileExtension}" alt="${item.name}">
+                        <img src="images/${item.name}.jpg" alt="${item.name}">
                         <h3>${item.name}</h3>
                         <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
                         <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
