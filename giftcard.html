@@ -259,161 +259,132 @@
     </main>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("order-form");
-        const resultDiv = document.getElementById("result");
-        const previewContainer = document.querySelector(".gift-card-preview");
-        const amountInput = document.getElementById("amount");
-        const previewAmount = document.getElementById("preview-amount");
-        const addedGiftCardsContainer = document.getElementById("added-gift-cards");
-        const totalAmountDiv = document.getElementById("total-amount"); // Get the total amount div
-
-        const addedGiftCards = [];
-
-        function updateTotalAmount() {
-            let total = 0;
-
-            // Calculate the total amount by summing the amounts of all added gift cards
-            addedGiftCards.forEach((giftCard) => {
-                total += parseFloat(giftCard.amount);
-            });
-
-            totalAmountDiv.textContent = `Total Amount: $${total.toFixed(2)}`;
-        }
-        // Call the updateTotalAmount function when the page loads
-        updateTotalAmount();
-
-        function addGiftCardToOrder(amount, recipientName, fromName, message, deliveryMethod) {
-            const giftCard = {
-                amount,
-                recipientName,
-                fromName,
-                message,
-                deliveryMethod,
-            };
-
-            addedGiftCards.push(giftCard);
-
-            // Create a div to display the added gift card
-            const addedGiftCardDiv = document.createElement("div");
-            addedGiftCardDiv.classList.add("added-gift-card");
-
-            // Set the content of the added gift card
-            addedGiftCardDiv.innerHTML = `
-                <div class="gift-card">
-                    <div class="gift-card-logo">
-                        <img src="images/Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
-                    </div>
-                    <div class="gift-card-content">
-                        <div id="gift-card-title">Card Amount</div>
-                        <div id="gift-card-amount">
-                            <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span>
-                            <span>${amount}</span>
-                        </div>
-                    </div>
-                    <div id="gift-card-restaurant" style="font-size: 21px">Maddie B Kitchen</div>
-                </div>
-                <p>Recipient: ${recipientName}</p>
-                <p>From: ${fromName}</p>
-                <p>Message: ${message}</p>
-                <p>Delivery Method: ${deliveryMethod}</p>
-            `;
-
-            addedGiftCardsContainer.appendChild(addedGiftCardDiv);
-        }
-
-        function updateTotalAmount() {
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("order-form");
+            const resultDiv = document.getElementById("result");
+            const amountInput = document.getElementById("amount");
+            const previewAmount = document.getElementById("preview-amount");
+            const addedGiftCardsContainer = document.getElementById("added-gift-cards");
+            const addCardButton = document.getElementById("add-card-button");
+            const submitButton = document.getElementById("submit-button");
             const totalAmountDiv = document.getElementById("total-amount");
-            let total = 0;
 
-            // Calculate the total amount by summing the amounts of all added gift cards
-            addedGiftCards.forEach((giftCard) => {
-                total += parseFloat(giftCard.amount);
-            });
+            const addedGiftCards = [];
 
-            totalAmountDiv.textContent = `Total Amount: $${total.toFixed(2)}`;
-        }
+            function addGiftCardToOrder(amount, recipientName, fromName, message, deliveryMethod) {
+                const giftCard = {
+                    amount,
+                    recipientName,
+                    fromName,
+                    message,
+                    deliveryMethod,
+                };
 
-        const addCardButton = document.getElementById("add-card-button");
-        addCardButton.addEventListener("click", function () {
-            const recipientName = document.getElementById("recipient_name").value;
-            const fromName = document.getElementById("from_name").value;
-            const message = document.getElementById("message").value;
-            const deliveryMethod = document.getElementById("delivery_method").value;
-            const amount = document.getElementById("amount").value;
+                addedGiftCards.push(giftCard);
 
-            addGiftCardToOrder(amount, recipientName, fromName, message, deliveryMethod);
-            updateTotalAmount(); // Update the total amount
+                // Create a div to display the added gift card
+                const addedGiftCardDiv = document.createElement("div");
+                addedGiftCardDiv.classList.add("added-gift-card");
 
-            form.reset();
-        });
+                // Set the content of the added gift card
+                addedGiftCardDiv.innerHTML = `
+                        <div class="gift-card">
+                            <div class="gift-card-logo">
+                                <img src="images/Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
+                            </div>
+                            <div class="gift-card-content">
+                                <div id="gift-card-title">Card Amount</div>
+                                <div id="gift-card-amount">
+                                    <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span>
+                                    <span>${amount}</span>
+                                </div>
+                            </div>
+                            <div id="gift-card-restaurant" style="font-size: 21px">Maddie B Kitchen</div>
+                        </div>
+                        <p>Recipient: ${recipientName}</p>
+                        <p>From: ${fromName}</p>
+                        <p>Message: ${message}</p>
+                        <p>Delivery Method: ${deliveryMethod}</p>
+                    `;
 
-        // Initially hide the email and phone fields
-        document.querySelector('.email-label').style.display = 'none';
-        document.querySelector('.email').style.display = 'none';
-        document.querySelector('.phone-label').style.display = 'none';
-        document.querySelector('.phone').style.display = 'none';
+                addedGiftCardsContainer.appendChild(addedGiftCardDiv);
+                updateTotalAmount();
+            }
 
-        // Function to toggle fields
-        function toggleFields() {
-            const deliveryMethod = document.getElementById('delivery_method').value;
+            function updateTotalAmount() {
+                let total = 0;
+                addedGiftCards.forEach((giftCard) => {
+                    total += parseFloat(giftCard.amount);
+                });
+                totalAmountDiv.textContent = `Total Amount: $${total.toFixed(2)}`;
+            }
+
+            // Initially hide the email and phone fields
             const emailLabel = document.querySelector('.email-label');
             const emailInput = document.querySelector('.email');
             const phoneLabel = document.querySelector('.phone-label');
             const phoneInput = document.querySelector('.phone');
+            emailLabel.style.display = 'none';
+            emailInput.style.display = 'none';
+            phoneLabel.style.display = 'none';
+            phoneInput.style.display = 'none';
 
-            if (deliveryMethod === 'email') {
-                emailLabel.style.display = 'block';
-                emailInput.style.display = 'block';
-                phoneLabel.style.display = 'none';
-                phoneInput.style.display = 'none';
-            } else if (deliveryMethod === 'phone') {
-                emailLabel.style.display = 'none';
-                emailInput.style.display = 'none';
-                phoneLabel.style.display = 'block';
-                phoneInput.style.display = 'block';
+            // Function to toggle fields
+            function toggleFields() {
+                const deliveryMethod = document.getElementById('delivery_method').value;
+
+                if (deliveryMethod === 'email') {
+                    emailLabel.style.display = 'block';
+                    emailInput.style.display = 'block';
+                    phoneLabel.style.display = 'none';
+                    phoneInput.style.display = 'none';
+                } else if (deliveryMethod === 'phone') {
+                    emailLabel.style.display = 'none';
+                    emailInput.style.display = 'none';
+                    phoneLabel.style.display = 'block';
+                    phoneInput.style.display = 'block';
+                }
             }
-        }
 
-        window.addEventListener('load', toggleFields);
-        document.getElementById('delivery_method').addEventListener('change', toggleFields);
+            window.addEventListener('load', toggleFields);
+            document.getElementById('delivery_method').addEventListener('change', toggleFields);
 
-        amountInput.addEventListener("input", function () {
-            // Update the preview amount when the user inputs an amount
-            previewAmount.textContent = amountInput.value;
+            amountInput.addEventListener("input", function () {
+                previewAmount.textContent = amountInput.value;
+            });
+
+            addCardButton.addEventListener("click", function () {
+                const recipientName = document.getElementById("recipient_name").value;
+                const fromName = document.getElementById("from_name").value;
+                const message = document.getElementById("message").value;
+                const deliveryMethod = document.getElementById("delivery_method").value;
+                const amount = document.getElementById("amount").value;
+
+                addGiftCardToOrder(amount, recipientName, fromName, message, deliveryMethod);
+                form.reset();
+            });
+
+            submitButton.addEventListener("click", function () {
+                if (addedGiftCards.length === 0) {
+                    alert("No eGift cards added to the cart. Please add eGift cards before ordering.");
+                } else {
+                    addedGiftCards.forEach(function (giftCard, index) {
+                        const recipientName = giftCard.recipientName;
+                        const fromName = giftCard.fromName;
+                        const message = giftCard.message;
+                        const deliveryMethod = giftCard.deliveryMethod;
+                        const amount = giftCard.amount;
+
+                        const alertMessage = `Sending eGift card #${index + 1} of $${amount} to ${recipientName} from ${fromName} via ${deliveryMethod} with message: ${message}`;
+                        alert(alertMessage);
+                    });
+
+                    // Redirect to the payment page
+                    window.location.href = "payment.html";
+                }
+            });
         });
-
-        form.addEventListener("input", function () {
-            const recipientName = document.getElementById("recipient_name").value;
-            const fromName = document.getElementById("from_name").value;
-            const message = document.getElementById("message").value;
-            const deliveryMethod = document.getElementById("delivery_method").value;
-
-            previewContainer.style.display = "block";
-        });
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const recipientName = document.getElementById("recipient_name").value;
-            const fromName = document.getElementById("from_name").value;
-            const message = document.getElementById("message").value;
-            const deliveryMethod = document.getElementById("delivery_method").value;
-            const amount = document.getElementById("amount").value;
-
-            addGiftCardToOrder(amount, recipientName, fromName, message, deliveryMethod);
-
-            form.reset();
-
-            // Display an alert message
-            const alertMessage = `Sending an eGift card of $${amount} to ${recipientName} from ${fromName} via ${deliveryMethod} with message: ${message}`;
-            alert(alertMessage);
-
-            // Redirect to the payment page
-            window.location.href = "payment.html";
-        });
-    });
-</script>
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
@@ -421,7 +392,6 @@
 
 </body>
 </html>
-
 
 
 
