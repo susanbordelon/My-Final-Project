@@ -7,193 +7,182 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+    label {
+        text-align: center;
+        width: auto;
+        margin-right: 10px;
+        font-family: 'Bookman Old Style';
+        color: #F4CE8F;
+    }
 
-    <style>
-        label {
-            text-align: center;
-            width: auto;
-            margin-right: 10px;
-            font-family: 'Bookman Old Style';
-            color: #F4CE8F;
-        }
-        
-        .gift-card-form {
-            background-color: #4bbbd3;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 0 auto;
-            width: 30%;
-            text-align: center;
-        }
+    .gift-card-form {
+        background-color: #4bbbd3;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 0 auto;
+        width: 30%;
+        text-align: center;
+    }
 
-        .gift-card-form label {
-            margin: 10px 0;
-            color: black;
-            text-align: center;
-            display: block;
-            font-family: 'Bookman Old Style';
-        }
+    .gift-card-form label {
+        margin: 10px 0;
+        color: black;
+        text-align: center;
+        display: block;
+        font-family: 'Bookman Old Style';
+    }
 
-        .gift-card-form input[type="text"],
-        .gift-card-form input[type="number"],
-        .gift-card-form select,
-        .gift-card-form textarea {
-            width: 75%;
-            padding: 10px; 
-            margin-bottom: 15px; 
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Bookman Old Style';
-        }
+    .gift-card-form input[type="text"],
+    .gift-card-form input[type="number"],
+    .gift-card-form select,
+    .gift-card-form textarea {
+        width: 75%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: 'Bookman Old Style';
+    }
 
-        .gift-card-form button {
-            background-color: #F4CE8F;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            display: block;
-            margin: 0 auto;
-        }
+    .gift-card-form button {
+        background-color: #F4CE8F;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
 
-        .center-container {display: flex; flex-direction: column; align-items: center;}
+    .center-container {display: flex; flex-direction: column; align-items: center;}
 
-        .email-label,
-        .email,
-        .phone-label,
-        .phone {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Bookman Old Style'
-        }
+    .email,
+    .phone {display: block; margin: 0 auto; font-family: 'Bookman Old Style'}
 
-        select[name="delivery_method"] ~ .center-container .recipient_email,
-        select[name="delivery_method"] ~ .center-container .recipient_phone {align-items: center; font-family: 'Bookman Old Style' }
+    select[name="delivery_method"] ~ .center-container .recipient_email,
+    select[name="delivery_method"] ~ .center-container .recipient_phone {align-items: center; font-family: 'Bookman Old Style'}
 
-        .delivery_method.recipient_email, .delivery_method.recipient_phone {
-            align-items: center;
-            font-family: 'Bookman Old Style';
-        }
+    .gift-card {
+        max-width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        background-color: #FFF0D9;
+        color: #333;
+        text-align: center;
+        overflow: hidden;
+    }
 
-        .gift-card {
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px #000;
-            background-color: #FFF0D9;
-            color: #333;
-            text-align: center;
-            overflow: hidden;
-        }
+    .gift-card-logo {
+        width: 50%;
+        display: center;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
 
-        .gift-card-logo {
-            width: 50%;
-            display: center;
-            margin: 0 auto;
-            padding: 10px 0;
-        }
+    .gift-card-preview {
+        max-width: 300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .gift-card-preview {
-            max-width: 300px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .gift-card-content {display: flex; align-items: center;}
 
-        .gift-card-content {display: flex; align-items: center;}
+    #gift-card-restaurant {
+        padding: 10px;
+        font-size: 24.5px;
+        font-weight: bold;
+        color: #0079b6;
+    }
 
-        #gift-card-restaurant {
-            padding: 10px;
-            font-size: 24.5px;
-            font-weight: bold;
-            color: #0079b6;
-        }
+    #gift-card-amount {
+        font-weight: bold;
+        font-size: 30px;
+        color: #0079b6;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-        #gift-card-amount {
-            font-weight: bold;
-            font-size: 30px;
-            color: #0079b6;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    #gift-card-title {font-size: 16px; font-weight: bold;}
 
-        #gift-card-title {font-size: 16px; font-weight: bold;}
+    .gift-card-details {text-align: right; margin-right: 10px;}
 
-        .gift-card-details {text-align: right; margin-right: 10px;}
+    #preview-wrapper {max-width: 300px; margin: 0 auto;}
 
-        #preview-wrapper {max-width: 300px; margin: 0 auto;}
+    .added-gift-card {
+        background-color: #4BBBD3;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
 
-        .added-gift-card {
-            background-color: #4BBBD3;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
+    .card-balance {color: #131313;}
 
-        .card-balance {color: #131313;}
+    .gift-card-logo img {max-width: 100%; max-height: 100%;}
 
-        .gift-card-logo img {max-width: 100%; max-height: 100%;}
+    .gift-cards-summary {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 28%;
+        background-color: #4BBBD3;
+        box-shadow: 0 2px 6px #000;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
 
-        .gift-cards-summary {
-            position: relative;
-            top: 0;
-            right: 0;
-            width: 28%;
-            background-color: #4BBBD3;
-            box-shadow: 0 2px 6px #000;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
+    #gift-card-amount {
+        display: inline-block;
+        width: calc(50% - 10px);
+        padding: 0;
+        margin: 0;
+        text-align: right;
+        float: right;
+        padding-right: 10px;
+        font-weight: bold;
+        font-size: 30px;
+        vertical-align: baseline;
+        color: #0079b6;
+        line-height: 30px;
+    }
 
-        #gift-card-amount {
-            display: inline-block;
-            width: calc(50% - 10px);
-            padding: 0;
-            margin: 0;
-            text-align: right;
-            float: right;
-            padding-right: 10px;
-            font-weight: bold;
-            font-size: 30px;
-            vertical-align: baseline;
-            color: #0079b6;
-            line-height: 30px;
-        }
+    .gift-card-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 
-        .gift-card-wrapper {display: flex; justify-content: space-between; align-items: flex-start;}
+    .gift-card-container {
+        background-color: #4BBBD3;
+        padding: 20px;
+        border-radius: 5px;
+        width: 80%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .gift-card-container {
-            background-color: #4BBBD3;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    .gift-card-content {width: 100%; text-align: center;}
 
-        .gift-card-content {width: 100%; text-align: center;}
+    .clear {clear: both;}
 
-        .clear {clear: both;}
+    .space {margin-bottom: 20px;}
 
-        .space {margin-bottom: 20px;}
+    #result {margin-top: 20px;}
 
-        #result {margin-top: 20px;}
+    .centered-select {text-align: center;}
 
-        .centered-select {text-align: center;}
+    .centered-text {text-align: center;}
 
-        .centered-text {text-align: center;}
-
-        .footer .footer-text {
-            text-align: center;
-            color: #4BBBD3;
-        }
-    </style>
+    .footer .footer-text {text-align: center; color: #4BBBD3;}
+</style>
 </head>
 
 <body id="container">
