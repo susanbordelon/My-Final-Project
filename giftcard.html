@@ -8,10 +8,6 @@
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-        label {
-            text-align: center;
-        }
-        
         .gift-card-form {
             background-color: #4bbbd3;
             padding: 20px;
@@ -204,31 +200,31 @@
         <h1 style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">eGift Card Ordering</h1>
         <div class="gift-card-form">
             <form id="order-form">
-                <label for="amount">Amount (USD):</label>
+                <label for="amount" style="text-align: center;">Amount (USD):</label>
                 <input type="number" id="amount" name="amount" min="10" step="10" required>
 
-                <label for="recipient_name">Recipient's Name:</label>
+                <label for="recipient_name" style="text-align: center;">Recipient's Name:</label>
                 <input type="text" id="recipient_name" name="recipient_name" required>
 
-                <label for="from_name">From:</label>
+                <label for="from_name" style="text-align: center;">From:</label>
                 <input type="text" id="from_name" name="from_name" required />
 
-                <label for="message">Personal Message:</label>
+                <label for="message" style="text-align: center;">Personal Message:</label>
                 <textarea id="message" name="message" rows="4"></textarea>
 
-                <label for="delivery_method">Delivery Method:</label>
+                <label for="delivery_method" style="text-align: center;">Delivery Method:</label>
                 <select id="delivery_method" name="delivery_method" class="centered-select" onchange="toggleFields()">
                     <option value="email">Email</option>
                     <option value="phone">Phone</option>
                 </select>
 
-                <label for="recipient_email" class="email-label">Recipient Email:</label>
+                <label for="recipient_email" class="email-label" style="text-align: center;">Recipient Email:</label>
                 <input class="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" />
 
-                <label for="recipient_phone" class="phone-label">Recipient Phone:</label>
+                <label for="recipient_phone" class="phone-label" style="text-align: center;">Recipient Phone:</label>
                 <input class="phone" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" />
 
-                <label for="delivery_method">Delivery Date:</label>
+                <label for="delivery_method" style="text-align: center;">Delivery Date:</label>
                 <input type="text" id="delivery-date" name="date" required>
 
                 <div id="added-gift-cards">
