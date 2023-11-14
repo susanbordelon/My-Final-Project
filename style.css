@@ -222,6 +222,10 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border: none;
 }
 
+.gift-card-form button:hover {background-color: #B1E3E4;}
+
+.gift-card-form button:active {transform: scale(.95);}
+
 .added-gift-card {
     display: inline-block;
     background-color: #f4ce8f;
