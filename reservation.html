@@ -5,17 +5,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Maddie B's Kitchen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <style>
-        .form-container {
-            background-color: #4bbbd3;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 0 auto;
-            width: 30%;
-            text-align: center;
-        }
+        .form-container {background-color: #4bbbd3; padding: 20px; border-radius: 5px; margin: 0 auto; width: 30%; text-align: center;}
 
         input, textarea {
             width: 100%;
@@ -33,7 +27,7 @@
 
         input[type=number] {background-color: black;}
 
-        select {background-color: #FFF0D9;}
+        select#data_7, select#data_8 {background-color: #FFF0D9; max-width: 300px}
 
         button, input[type=reset], input[type=submit] {
             display: inline-block;
@@ -50,7 +44,7 @@
 
         button, input[type=reset]:active, input[type=submit]:active {transform: scale(0.95);}
 
-        label {color: #FFF0D9; display: inline-block; text-align: left;}
+        label {color: #F4CE8F; display: inline-block; text-align: left;}
 
         label2 {color: black; font-size: 20px; display: inline-block;}
 
@@ -100,22 +94,22 @@
             <form id="form" autocomplete="off" onsubmit="return validateForm()">
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Name <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-user"></i> Name <span style="color: red;"> *</span></label><br />
                     <input type="text" id="data_3" name="data_3" style="max-width: 400px;" class="form-control" placeholder="Name" />
                 </div>
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Phone <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-phone"></i> Phone <span style="color: red;"> *</span></label><br />
                     <input type="text" id="data_4" name="data_4" style="max-width: 400px; " class="form-control" placeholder="Phone" />
                 </div>
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Email <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-envelope"></i> Email <span style="color: red;"> *</span></label><br />
                     <input type="text" id="data_5" name="data_5" style="max-width: 400px; " class="form-control" placeholder="Email" />
                 </div>
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Date <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-calendar"></i> Date <span style="color: red;"> *</span></label><br />
                     <input type="text" id="data_6" name="data_6" style="max-width : 250px;" class="form-control" placeholder="Click to Choose Date" />
                 </div>
 
@@ -123,7 +117,7 @@
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
                 <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Time <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-clock-o"></i> Time <span style="color: red;"> *</span></label><br />
                     <select id="data_7" name="data_7" style="max-width: 250px;" class="form-control">
                         <option value="" disabled selected>Select a time</option>
                         <option value="11:00 AM">11:00 AM</option>
@@ -152,7 +146,7 @@
                 </div>
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Number of Attendees <span style="color: red;"> *</span></label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-group"></i> Number of Attendees <span style="color: red;"> *</span></label><br />
                     <select id="data_8" name="data_8" style="max-width : 250px;" class="form-control">
                         <option value="" disabled selected>Select number of attendees</option>
                         <option> 1</option>
@@ -170,7 +164,7 @@
                 </div>
 
                 <div style="padding-bottom: 18px;">
-                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;">Comments & Other Information</label><br />
+                    <label style="font-size: 20px; color: #FFF0D9; text-align: center;"><i class="fa fa-comments"></i> Comments & Other Information</label><br />
                     <textarea id="data_9" false name="data_9" style="max-width : 400px;" rows="6" class="form-control" placeholder="Please write here..."> </textarea>
                 </div>
 
