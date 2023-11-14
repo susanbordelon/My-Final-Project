@@ -211,6 +211,25 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 .btn-submit:active {transform: scale(.95);}
 
 /*Gift Card Form Buttons on Gift Card Page*/
+.gift-card-form button {
+    display: inline-block;
+    background-color: #f4ce8f;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+.gift-card-form button:hover { {background-color: #B1E3E4;}
+
+.gift-card-form button:active { {transform: scale(.95);}
+
+
+
+
+
 .btn-cart {
     display: inline-block;
     background-color: #f4ce8f;
@@ -229,10 +248,11 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     display: inline-block;
     background-color: #f4ce8f;
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+    border: none;
 }
 
 .gift-card-form button:hover { {background-color: #B1E3E4;}
@@ -252,6 +272,9 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 .btn-reset:hover {background-color: #B1E3E4;}
 
 .btn-reset:active {transform: scale(.95);}
+
+
+
 
 .header-content {
         display: flex;
