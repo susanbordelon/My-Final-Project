@@ -5,13 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maddie B Kitchen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
         label {
             text-align: center;
-            width: auto; 
-            margin-right: 10px; 
+            width: auto;
+            margin-right: 10px;
             font-family: 'Bookman Old Style';
+            font-size: 20px;
+            color: #FFF0D9;
         }
 
         * {box-sizing: border-box;}
@@ -19,7 +22,7 @@
         input[type=text], select, textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: none;
             border-radius: 4px;
             box-sizing: border-box;
             margin-top: 6px;
@@ -41,11 +44,11 @@
         input[type=submit]:hover {background-color: #45a049;}
 
         .container {
-            width: 60%; 
-            margin: 0 auto; 
+            width: 60%;
+            margin: 0 auto;
             border-radius: 5px;
             background-color: #4BBBD3;
-            padding: 20px; 
+            padding: 20px;
             font-family: 'Bookman Old Style';
         }
 
@@ -73,6 +76,7 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
+            border: none;
         }
 
         button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
@@ -116,20 +120,17 @@
             <p>Email: kitchen@maddiebs.com</p>
             <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
         </label2>
-
+                       
         <div class="container">
             <form id="form" autocomplete="on" onsubmit="return validateForm()">
                 <h2 style="color: #FFF0D9;">Personal Information</h2><br>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input type="text" id="fname" name="fullname" placeholder="Your full name..">
 
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-                <label for="email">Email Address</label>
+                <label for="email"><i class="fa fa-envelope"></i> Email Address</label>
                 <input type="text" id="email" name="email" placeholder="Your email address..">
 
-                <label for="phone">Phone Number</label>
+                <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
                 <input type="text" id="phone" name="phone" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
 
@@ -143,7 +144,7 @@
                     <option value="other">Other</option>
                 </select>
 
-                <label for="comments">Comments & Other Information</label>
+                <label for="comments"><i class="fa fa-comments"></i> Comments & Other Information</label>
                 <textarea id="comments" name="comments" placeholder="Write something.." style="height:200px"></textarea>
 
 
@@ -162,7 +163,6 @@
                     <label form="list">Sign up for our mailing list!</label>
                 </div>
 
-
                 <br>
                 <br>
 
@@ -173,7 +173,6 @@
         <script>
             function validateForm() {
                 var fname = document.getElementById("fname");
-                var lname = document.getElementById("lname");
                 var email = document.getElementById("email");
                 var phone = document.getElementById("phone");
                 var subject = document.getElementById("subject");
@@ -183,15 +182,9 @@
 
                 if (fname.value == "") {
 
-                    alert("Please enter your first name.");
+                    alert("Please enter your full name.");
 
                     fname.focus();
-                    return false;
-                }
-
-                if (lname.value == "") {
-                    alert("Please enter your last name.");
-                    lname.focus();
                     return false;
                 }
 
