@@ -222,14 +222,21 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border: none;
 }
 
-.gift-card-form button:hover { {background-color: #B1E3E4;}
+.added-gift-card {
+    display: inline-block;
+    background-color: #f4ce8f;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
 
-.gift-card-form button:active { {transform: scale(.95);}
+.added-gift-card:hover {background-color: #B1E3E4;}
 
-
-
-
-
+.added-gift-card:active {transform: scale(.95);}
+    
 .btn-cart {
     display: inline-block;
     background-color: #f4ce8f;
