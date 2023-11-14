@@ -210,7 +210,7 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-submit:active {transform: scale(.95);}
 
-/*Buttons (Cart, Reset, Add Another) on Gift Card Page*/
+/*Gift Card Form Buttons on Gift Card Page*/
 .btn-cart {
     display: inline-block;
     background-color: #f4ce8f;
@@ -225,7 +225,7 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .btn-cart:active {transform: scale(.95);}
 
-.btn-add-another {
+.gift-card-form button {
     display: inline-block;
     background-color: #f4ce8f;
     color: #fff;
@@ -235,9 +235,9 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
     border-radius: 5px;
 }
 
-.btn-add-another:hover {background-color: #B1E3E4;}
+.gift-card-form button:hover { {background-color: #B1E3E4;}
 
-.btn-add-another:active {transform: scale(.95);}
+.gift-card-form button:active { {transform: scale(.95);}
 
 .btn-reset {
     display: inline-block;
