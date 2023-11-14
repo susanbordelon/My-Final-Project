@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Maddie B's Kitchen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
         .gift-card-form {
@@ -17,12 +18,7 @@
             text-align: center;
         }
 
-        .gift-card-form label {
-            margin: 10px 0;
-            color: #F4CE8F;
-            text-align: center;
-            font-family: 'Bookman Old Style';
-        }
+        .gift-card-form label {margin: 10px 0; color: #FFF0D9; text-align: center; font-family: 'Bookman Old Style'; font-size: 20px;}
 
         .gift-card-form input[type="text"],
         .gift-card-form input[type="number"],
@@ -100,8 +96,6 @@
 
         .gift-card-details {text-align: right; margin-right: 10px;}
 
-        #preview-wrapper {max-width: 300px; margin: 0 auto;}
-
         .added-gift-card {
             background-color: #4BBBD3;
             border: 1px solid #ccc;
@@ -164,8 +158,6 @@
         .centered-select {text-align: center;}
 
         .centered-text {text-align: center;}
-
-        .footer .footer-text {text-align: center; color: #4BBBD3;}
     </style>
 </head>
 
@@ -192,16 +184,16 @@
         <h1 style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">eGift Card Ordering</h1>
         <div class="gift-card-form">
             <form id="order-form">
-                <label for="amount" style="text-align: center;">Amount (USD):</label>
+                <label for="amount" style="text-align: center;"><i class="fa fa-money"></i> Amount (USD):</label>
                 <input type="number" id="amount" name="amount" min="10" step="10" required>
 
-                <label for="recipient_name" style="text-align: center;">Recipient's Name:</label>
+                <label for="recipient_name" style="text-align: center;"><i class="fa fa-user"></i> Recipient's Name:</label>
                 <input type="text" id="recipient_name" name="recipient_name" required>
 
-                <label for="from_name" style="text-align: center;">From:</label>
+                <label for="from_name" style="text-align: center;"><i class="fa fa-user"></i> Sender's Name:</label>
                 <input type="text" id="from_name" name="from_name" required />
 
-                <label for="message" style="text-align: center;">Personal Message:</label>
+                <label for="message" style="text-align: center;"><i class="fa fa-comments"></i> Personal Message:</label>
                 <textarea id="message" name="message" rows="4"></textarea>
 
                 <label for="delivery_method" style="text-align: center;">Delivery Method:</label>
@@ -210,13 +202,13 @@
                     <option value="phone">Text Message</option>
                 </select>
 
-                <label for="recipient_email" class="email-label" style="text-align: center;">Recipient Email:</label>
+                <label for="recipient_email" class="email-label" style="text-align: center;"><i class="fa fa-envelope"></i> Recipient Email:</label>
                 <input class="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" />
 
-                <label for="recipient_phone" class="phone-label" style="text-align: center;">Recipient Phone:</label>
+                <label for="recipient_phone" class="phone-label" style="text-align: center;"><i class="fa fa-phone"></i> Recipient Phone:</label>
                 <input class="phone" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" />
 
-                <label for="delivery_method" style="text-align: center;">Delivery Date:</label>
+                <label for="delivery_method" style="text-align: center;"><i class="fa fa-calendar"></i> Delivery Date:</label>
                 <input type="text" id="delivery-date" name="date" required>
 
                 <div id="added-gift-cards">
@@ -230,7 +222,7 @@
                 <p style="color: #F4CE8F !important">Gift Cards are not redeemable for cash except as required by applicable law and then only to the extent required by applicable law.</p>
             </form>
         </div>
-                
+
         <div id="result"></div>
 
         <footer>
@@ -272,24 +264,24 @@
 
                 // Set the content of the added gift card
                 addedGiftCardDiv.innerHTML = `
-                        <div class="gift-card">
-                            <div class="gift-card-logo">
-                                <img src="images/Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
-                            </div>
-                            <div class="gift-card-content">
-                                <div id="gift-card-title">Card Amount</div>
-                                <div id="gift-card-amount">
-                                    <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span>
-                                    <span>${amount}</span>
+                            <div class="gift-card">
+                                <div class="gift-card-logo">
+                                    <img src="images/Maddie B Kitchen-logos.jpeg" alt="Card Logo" />
                                 </div>
+                                <div class="gift-card-content">
+                                    <div id="gift-card-title">Card Amount</div>
+                                    <div id="gift-card-amount">
+                                        <span style="font-size:60%;vertical-align:text-top;padding-right:3px;">$</span>
+                                        <span>${amount}</span>
+                                    </div>
+                                </div>
+                                <div id="gift-card-restaurant" style="font-size: 21px">Maddie B Kitchen</div>
                             </div>
-                            <div id="gift-card-restaurant" style="font-size: 21px">Maddie B Kitchen</div>
-                        </div>
-                        <p>Recipient: ${recipientName}</p>
-                        <p>From: ${fromName}</p>
-                        <p>Message: ${message}</p>
-                        <p>Delivery Method: ${deliveryMethod}</p>
-                    `;
+                            <p>Recipient: ${recipientName}</p>
+                            <p>From: ${fromName}</p>
+                            <p>Message: ${message}</p>
+                            <p>Delivery Method: ${deliveryMethod}</p>
+                        `;
 
                 addedGiftCardsContainer.appendChild(addedGiftCardDiv);
                 updateTotalAmount();
@@ -376,6 +368,7 @@
 
 </body>
 </html>
+
 
 
 
