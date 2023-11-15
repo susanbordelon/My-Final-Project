@@ -84,9 +84,7 @@
     </script>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * {box-sizing: border-box;}
 
         .row {
             display: -ms-flexbox;
@@ -96,26 +94,15 @@
             margin: 0 -16px;
         }
 
-        .col-25 {
-            -ms-flex: 25%; /* IE10 */
-            flex: 25%;
-        }
+        .col-25 {-ms-flex: 25%; flex: 25%;}
 
-        .col-50 {
-            -ms-flex: 50%; /* IE10 */
-            flex: 50%;
-        }
+        .col-50 {-ms-flex: 50%; flex: 50%;}
 
-        .col-75 {
-            -ms-flex: 75%; /* IE10 */
-            flex: 75%;
-        }
+        .col-75 {-ms-flex: 75%; flex: 75%;}
 
         .col-25,
         .col-50,
-        .col-75 {
-            padding: 0 16px;
-        }
+        .col-75 {padding: 0 16px;}
 
         .container {
             background-color: #4BBBD3;
@@ -150,10 +137,6 @@
             border-radius: 3px;
         }
 
-        select {
-            background-color: #FFF0D9;
-        }
-
         input[type=radio], input[type=checkbox] {
             padding: 5px;
             display: inline-block;
@@ -173,34 +156,28 @@
             padding: 7px 0;
             font-size: 24px;
         }
-
-        .btn:hover {
-            background-color: #208FD6;
+        .btn {
+            display: inline-block;
+            background-color: #f4ce8f;
+            color: #fff;
+            width: 100px;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
-        a {
-            color: #2196F3;
-        }
+        .btn:hover {background-color: #B1E3E4;}
 
-        hr {
-            border: 1px solid lightgrey;
-        }
+        .btn:active {transform: scale(0.95);}
 
-        span.price {
-            float: right;
-            color: grey;
-        }
+        a {color: #2196F3;}
 
-        .horizontal-fields {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+        hr {border: 1px solid lightgrey;}
 
-            .horizontal-fields label {
-                width: auto;
-                margin-right: 10px;
-            }
+        .horizontal-fields {display: flex; align-items: center; margin-bottom: 10px;}
+
+        .horizontal-fields label {width: auto; margin-right: 10px;}
 
         .form-section {
             border: 2px solid #4b5c4b;
@@ -211,23 +188,13 @@
             max-width: 800px;
         }
 
-        .passcode-box {
-            padding: 10px;
-            border: 1px solid white;
-            border-radius: 5px;
-        }
+        .passcode-box {padding: 10px; border: 1px solid white; border-radius: 5px;}
 
-        #cvv, #expDate, #billingZip, #shippingZip {
-            width: 100px;
-        }
+        #cvv, #expDate, #billingZip, #shippingZip {width: 100px;}
 
-        #cardNumber {
-            width: 200px;
-        }
+        #cardNumber {width: 200px;}
 
-        #billingAddress, #shippingAddress {
-            width: 350px;
-        }
+        #billingAddress, #shippingAddress {width: 350px;}
     </style>
 </head>
 
