@@ -10,6 +10,31 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
+        .img-container {max-width: 100%; max-height: 100%;}
+
+        .img-container img {width: 100%; height: 100%; object-fit: cover;}
+
+        /* Social media icons*/
+        .fa {
+            padding: 20px;
+            font-size: 15px;
+            width: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+
+        .fa:hover {opacity: 0.7;}
+
+        /* Facebook */
+        .fa-facebook {background: #3B5998; color: white;}
+
+        /* Instagram */
+        .fa-instagram {background: #55ACEE; color: white;}
+
+        /*Twitter*/
+        .fa-twitter {background: #55ACEE; color: white;}
+
         .btn-container {
             display: flex;
             justify-content: space-between;
@@ -22,36 +47,6 @@
             justify-content: center;
             align-content: center;
             margin: 20px;
-        }
-
-        /* Style social media icons */
-        .fa {
-            padding: 20px;
-            font-size: 15px;
-            width: 15px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50%;
-        }
-
-         .fa:hover {opacity: 0.7;}
-
-        /* Facebook */
-        .fa-facebook {
-            background: #3B5998;
-            color: white;
-        }
-
-        /* Instagram */
-        .fa-instagram {
-            background: #55ACEE;
-            color: white;
-        }
-
-        /*Twitter*/
-        .fa-twitter {
-            background: #55ACEE;
-            color: white;
         }
     </style>
 </head>
@@ -94,23 +89,27 @@
 
 <footer>
     <div class="btn-container">
-        <p>5500 Seawall Blvd<br />
+        <p>
+            5500 Seawall Blvd<br />
             Galvestan, TX 77550<br />
-            Phone: 1-800-MaddieB</p>
-            
+            Phone: 1-800-MaddieB
+        </p>
+
         <p>kitchen@maddiebs.com</p>
 
-        <p>Hours:<br />
+        <p>
+            Hours:<br />
             Sunday thru Saturday<br />
-            11:00 AM to 11:00 PM</p>
-   </div>
+            11:00 AM to 11:00 PM
+        </p>
+    </div>
 
     <div>
         <a href="#" class="fa fa-facebook"></a>
         <a href="#" class="fa fa-instagram"></a>
         <a href="#" class="fa fa-twitter"></a>
     </div>
-  
+ 
 </footer>
 
 </body>
