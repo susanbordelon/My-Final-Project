@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Maddie B's Kitchen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maddie B Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -28,11 +29,11 @@
     <main>
         <div class="main-container">
             <div class="main-header">
-                <h1>Menu To Go</h1>
-                <p>Please place your order to go!</p>
+                <h1>Delivery Menu</h1>
+                <p>Place an order for delivery.</p>
                 <p>Phone: 1-800-MaddieB</p>
                 <p>Email: kitchen@maddiebs.com</p>
-                <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
+                <p>5500 Seawall Blvd, Galveston, TX 77550</p>
             </div>
             <div class="shopping">
                 <a href="cart.html">
@@ -233,10 +234,7 @@
             height: auto;
         }
 
-        .img-wrapper p {
-            font-family: Tahoma, bold, sans-serif;
-            font-size: 20px;
-        }
+        .img-wrapper p {font-family: 'Bookman Old Style'; font-size: 20px;}
 
         .product-grid {
             display: grid;
@@ -280,20 +278,6 @@
 
         .product-card p {font-size: 16px;}
 
-        .product-card button {
-            background-color: #f4ce8f;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .product-card button:hover {background-color: #4BBBD3;}
-
-        .product-card button:active {transform: scale(0.95);}
-
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -303,6 +287,24 @@
             padding: 0 45px;
             max-width: 100%; 
         }
+
+        .product-card button {
+            display: inline-block;
+            background-color: #f4ce8f;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: auto;
+            margin: 0 auto;
+            border: none;
+        }
+
+        .product-card button:hover {background-color: #4BBBD3;}
+
+        .product-card button:active {transform: scale(0.95);}
 
         .shopping {
             display: flex;
@@ -340,21 +342,22 @@
             cartQuantityElement.textContent = totalQuantity;
         }
 
-        function addToCart(Name, Price) {
-            
-            
+        function addToCart(itemName, itemPrice) {
+            // Capitalize the first letter of the name and replace camel case with spaces
+            const formattedName = itemName.replace(/([A-Z])/g, ' $1').trim();
             const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-            const existingItem = cartData.find(item => item.name === Name);
+            const existingItem = cartData.find(item => item.name === formattedName);
+
             if (existingItem) {
                 existingItem.quantity++;
             } else {
-                cartData.push({ name: Name, price: Price, quantity: 1 });
+                cartData.push({ name: formattedName, price: itemPrice, quantity: 1 });
             }
 
             localStorage.setItem('cart', JSON.stringify(cartData));
             updateCartQuantity();
-            alert(`${Name} added to cart!`);
+            alert(`${formattedName} added to cart!`);
         }
     </script>
 
