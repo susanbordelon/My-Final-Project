@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <style>
-        .form-container {background-color: #4bbbd3; padding: 20px; border-radius: 5px; margin: 0 auto; width: 30%; text-align: center;}
+        .form-container {background-color: #4bbbd3; border-radius: 5px; margin: 0 auto; width: 30%;padding:20px; text-align: center}
 
         input, textarea {
             width: 100%;
@@ -25,29 +25,26 @@
             display: inline-block;
         }
 
-        input[type=number] {background-color: black;}
-
-        select#data_7, select#data_8 {background-color: #FFF0D9; max-width: 300px}
-
-        button, input[type=reset], input[type=submit] {
+        .button, input[type=reset], input[type=submit] {
             display: inline-block;
             background-color: #f4ce8f;
             color: #fff;
-            width: 100px;
-            padding: 10px;
+            padding: 10px 20px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
         }
 
-        button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
+        button, input[type=reset]:hover, input[type=submit]:hover {background-color: #4BBBD3;}
 
-        button, input[type=reset]:active, input[type=submit]:active {transform: scale(0.95);}
+        button, input[type=reset]:active, input[type=submit]:active {transform: scale(.95);}
 
-        label {color: #F4CE8F; display: inline-block; text-align: left;}
+        input[type=number] {background-color: black;}
 
-        label2 {color: black; font-size: 20px; display: inline-block;}
+        select#data_7, select#data_8 {background-color: #FFF0D9; max-width: 300px}
 
+        label {color: #F4CE8F; text-align: left;}
+           
         .form-group {display: flex; align-items: center; margin: 10px;}
 
         .form-group > input, .form-group > textarea, .form-group > select {width: 80%; border: none; outline: none;}
@@ -248,4 +245,3 @@
 
 </body>
 </html>
-
