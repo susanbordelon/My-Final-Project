@@ -10,22 +10,6 @@
         body {
             display: inline-block;
         }
-
-        .button {
-            display: inline-block;
-            background-color: #f4ce8f;
-            color: #fff;
-            width: 100px;
-            padding: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .button:hover {background-color: #B1E3E4;}
-
-        .button:active {transform: scale(.95);}
     </style>
 </head>
 
@@ -84,7 +68,7 @@
                 emptyCartMessage.textContent = 'Your cart is empty.';
                 emptyCartMessage.style.fontWeight = 'bold';
                 emptyCartMessage.style.color = '#208FD6';
-                emptyCartMessage.style.fontSize = '16px';
+                emptyCartMessage.style.fontSize = '20px';
                 cartContainer.appendChild(emptyCartMessage);
             } else {
                 cartData.forEach(item => {
@@ -110,6 +94,8 @@
                 quantityInputs.forEach(input => {
                     input.addEventListener('input', updateTotal);
                 });
+
+                updateTotal();
             }
         }
 
@@ -121,8 +107,10 @@
 
         // Calculate and update the subtotal and total prices
         function updateTotal() {
+            console.log('Updating total');
             const items = document.querySelectorAll('.cart-item');
             let totalPrice = 0;
+
             items.forEach(item => {
                 const priceElement = item.querySelector('.cart-item-price');
                 const quantityElement = item.querySelector('.quantity');
