@@ -10,6 +10,22 @@
         body {
             display: inline-block;
         }
+
+        .button {
+            display: inline-block;
+            background-color: #f4ce8f;
+            color: #fff;
+            width: 100px;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .button:hover {background-color: #B1E3E4;}
+
+        .button:active {transform: scale(0.95);}
     </style>
 </head>
 
@@ -50,9 +66,12 @@
             <button id="clear-cart" class="button">Clear Cart</button>
             <input type="button" class="button" onclick="checkout();" value="Check Out">
         </div>
-   </main>
+    </main>
 
     <script>
+        // Define the file extension variable here
+        let fileExtension = '';
+
         function displayCartItems() {
             const cartData = JSON.parse(localStorage.getItem('cart')) || [];
             const cartContainer = document.querySelector('.cart-container');
@@ -72,11 +91,13 @@
                     const cartItem = document.createElement('div');
                     cartItem.classList.add('cart-item');
 
-                    const fileExtension = item.name.split('.').pop().toLowerCase();
+                    fileExtension = item.name.split('.').pop().toLowerCase();
+                    const cleanedName = item.name.replace(/[0-9]/g, ''); // Remove any extra digits
 
                     cartItem.innerHTML = `
                         <img src="images/${item.name}.jpg" alt="${item.name}">
-                        <h3>${item.name}</h3>
+                        <h3>${cleanedName}</h3>
+                        <p class="cart-item-price">$${item.price}</p> <!-- Add cart item price and class -->
                         <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
                         <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
                         <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
@@ -92,7 +113,10 @@
             }
         }
 
-        updateTotal(); // Call updateTotal to calculate and update the total price
+        // Wait for the DOM to load, then call displayCartItems to initialize the cart
+        document.addEventListener('DOMContentLoaded', () => {
+            displayCartItems();
+        });
 
         // Calculate and update the subtotal and total prices
         function updateTotal() {
@@ -113,7 +137,7 @@
 
             document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
         }
-           
+
         function clearCart() {
             // Clear the cart items from local storage
             localStorage.removeItem('cart');
@@ -125,56 +149,16 @@
             // Update the total price (set it to $0.00)
             document.getElementById('total-price').textContent = '$0.00';
         }
-        
+
         // Remove an item from the cart
         function removeItem(item) {
             const itemName = item.querySelector('h3').textContent;
-                item.remove();
+            item.remove();
             const cartData = JSON.parse(localStorage.getItem('cart')) || [];
             const updatedCartData = cartData.filter(cartItem => cartItem.name !== itemName);
-                localStorage.setItem('cart', JSON.stringify(updatedCartData));
-                updateTotal();
-        }
-
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            const clearCartButton = document.getElementById('clear-cart');
-            const cartContainer = document.querySelector('.cart-container');
-
-            clearCartButton.addEventListener('click', clearCart);
-
-            // Fetch cart items from local storage and create cart elements
-            const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-
-            cartData.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-
-                cartItem.innerHTML = `
-                    <img src="images/${item.name}.jpeg" alt="${item.name}">
-                    <div class="cart-item-info">
-                        <h3>${item.name}</h3>
-                        <p class="cart-item-price">$${item.price}</p>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <input type="number" value="${item.quantity}" min="0" max="9999" class="quantity">
-                    </div>
-                        <p class="cart-item-subtotal">$${(item.price * item.quantity).toFixed(2)}</p>
-                        <button class="cart-item-remove" onclick="removeItem(this.parentElement);">X</button>
-                    `;
-
-                cartContainer.appendChild(cartItem);
-            });
-
-            // Add input event listeners for quantity inputs
-            const quantityInputs = document.querySelectorAll('.quantity');
-            quantityInputs.forEach(input => {
-                input.addEventListener('input', updateTotal);
-            });
-
-            // Initialize total price
+            localStorage.setItem('cart', JSON.stringify(updatedCartData));
             updateTotal();
-        });
+        }
 
         // Handle Checkout
         function checkout() {
@@ -183,9 +167,7 @@
             localStorage.removeItem('cart');
 
             alert('Thank you for your order! Your cart has been cleared.');
-
         }
-
     </script>
 
     <footer>
