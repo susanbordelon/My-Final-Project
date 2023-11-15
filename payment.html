@@ -137,10 +137,10 @@
             border-radius: 3px;
         }
 
-        input[type=radio], input[type=checkbox] {
-            padding: 5px;
+        label input[type="checkbox"] {
+            vertical-align: middle;
             display: inline-block;
-            width: 50px;
+            margin-right: 5px;
         }
 
         label {
@@ -255,12 +255,11 @@
                                     <label for="fname">Accepted Cards</label>
                                     <div class="icon-container">
                                         <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                        <i class="fa fa-cc-amex" style="color:blue;"></i>
                                         <i class="fa fa-cc-mastercard" style="color:red;"></i>
                                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                                     </div>
                                     <label for="cname">Name on Card</label>
-                                    <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
+                                    <input type="text" id="cname" name="cardname" placeholder="John Doe" required>
                                     <label for="ccnum">Credit card number</label>
                                     <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
                                     <label for="expmonth">Exp Month</label>
@@ -281,7 +280,7 @@
                             <label>
                                 <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                             </label>
-                            <input type="submit" value="Continue to checkout" class="btn" id="checkoutButton">
+                            <input type="submit" value="Submit" class="btn" id="checkoutButton">
                         </form>
                     </div>
                 </div>
