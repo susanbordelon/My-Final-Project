@@ -116,6 +116,7 @@
         // Wait for the DOM to load, then call displayCartItems to initialize the cart
         document.addEventListener('DOMContentLoaded', () => {
             displayCartItems();
+            updateTotal();
         });
 
         // Calculate and update the subtotal and total prices
