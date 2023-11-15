@@ -181,22 +181,6 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .gift-card-form button:active {transform: scale(.95);}
 
-.btn-cart {
-    display: inline-block;
-    background-color: #f4ce8f;
-    color: #fff;
-    width: 100px;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-}
-
-.btn-cart:hover {background-color: #B1E3E4;}
-
-.btn-cart:active {transform: scale(.95);}
-
 .gift-card-form button {
     display: inline-block;
     background-color: #f4ce8f;
