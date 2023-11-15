@@ -97,21 +97,6 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .img-wrapper {display: inline-block; text-align: center;}
 
-/*Buttons*/
-.button {
-    display: inline-block;
-    background-color: #f4ce8f;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.button:hover {background-color: #4BBBD3;}
-
-.button:active {transform: scale(0.95);}
-
 /*Cart*/
 .cart-button {text-align: right; padding-right: 15%;}
 
