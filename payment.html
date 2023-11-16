@@ -4,68 +4,80 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Maddie B Kitchen</title>
+    <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
+       
     <style>
-        label {
-            text-align: center;
-            width: auto;
-            margin-right: 10px;
-            font-family: 'Bookman Old Style';
-            font-size: 20px;
-            color: #FFF0D9;
-        }
-
         * {box-sizing: border-box;}
 
-        input[type=text], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 18px;
-            resize: vertical;
-            font-family: 'Bookman Old Style';
-            font-size: 14px;
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 0 -16px;
         }
 
-        input[type=submit] {
-            background-color: #04AA6D;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Bookman Old Style'
-        }
+        .payment-row {display: flex; flex-wrap: wrap;}
 
-        input[type=submit]:hover {background-color: #45a049;}
+        .col-50 {-ms-flex: 50%; flex: 50%;}
+
+        .col-75 {-ms-flex: 75%; flex: 75%;}
+
+        .col-50, .col-75 {padding: 0 16px;}
 
         .container {
-            width: 60%;
-            margin: 0 auto;
-            border-radius: 5px;
             background-color: #4BBBD3;
-            padding: 20px;
+            padding: 5px 20px 15px 20px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
+
+        h2 {
+            font-family: Bookman Old Style;
+            text-align: center;
+            font-style: normal;
+            color: #F4CE8F;
+        }
+
+        form {
+            width: 85%;
+            margin: 0 auto;
+            font-family: Bookman Old Style;
+            background-color: #4BBBD3;
+            padding: 5px;
+        }
+
+        input, textarea {
+            color: black;
+            font-size: 18px;
             font-family: 'Bookman Old Style';
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
         }
 
-        select {background-color: #FFF0D9;}
+        label input[type="checkbox"] {margin-right: 5px;}
 
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px;
+        .label-container {display: flex; align-items: center;}
+
+        label {
+            color: #F4CE8F;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .radio-group > div {display: flex; align-items: center; justify-content: center;}
-
-        .radio-group > div > label {margin-right: 5px;}
-
-        button, input[type=reset], input[type=submit] {
+        .icon-container {
+            margin-bottom: 20px;
+            padding: 7px 0;
+            font-size: 24px;
+        }
+        .btn {
             display: inline-block;
             background-color: #f4ce8f;
             color: #fff;
@@ -74,18 +86,47 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
-            border: none;
         }
 
-        button, input[type=reset]:hover, input[type=submit]:hover {background-color: #B1E3E4;}
+        .btn:hover {background-color: #B1E3E4;}
 
-        button, input[type=reset]:active, input[type=submit]:active {transform: scale(0.95);}
+        .btn:active {transform: scale(0.95);}
 
-        .form-group {display: flex; align-items: center; justify-content: center;}
+        a {color: #2196F3;}
 
-        .form-group input[type="checkbox"] {margin-right: 10px;}
+        hr {border: 1px solid lightgrey;}
+
+        .horizontal-fields {display: flex; align-items: center; margin-bottom: 10px;}
+
+        .horizontal-fields label {width: auto; margin-right: 10px;}
+
+        .form-section {
+            border: 2px solid #4b5c4b;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .passcode-box {padding: 10px; border: 1px solid white; border-radius: 5px;}
+
+        #cvv, #billingZip {width: 100px;}
+
+        #cardNumber {width: 200px;}
+
+        #billingAddress, #shippingAddress {width: 350px;}
+
+        #expmonth {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
     </style>
 </head>
+
 <body id="container">
     <header>
         <img src="images/Maddie B Kitchen-logos_white1.jpg" alt="Maddie B Kitchen-logo_white1" width="800" height="200" />
@@ -106,121 +147,105 @@
     </nav>
 
     <main style="display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Bookman Old Style';">
-        <h1 style="color:black">Contact Us at Maddie B Kitchen</h1>
-        <label2>
-            <p>We're open to receiving your thoughts, feedback, and suggestions, so please feel free to reach out.  We're exicted to hear from you!</p>
 
-            <p>Phone: 1-800-MaddieB</p>
-            <p>Email: kitchen@maddiebs.com</p>
-            <p>Visit us @ 5500 Seawall Blvd, Galvestan, TX 77550</p>
-        </label2>
-                       
-        <div class="container">
-            <form id="form" autocomplete="on" onsubmit="return validateForm()">
-                <h2 style="color: #FFF0D9;">Personal Information</h2><br>
-                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                <input type="text" id="fname" name="fullname" placeholder="Your full name..">
+        <h1 style="color:black">Payment</h1>
 
-                <label for="email"><i class="fa fa-envelope"></i> Email Address</label>
-                <input type="text" id="email" name="email" placeholder="Your email address..">
+        <div class="row">
+            <div class="col-75">
+                <div class="container">
+                    <form id="form" autocomplete="off" onsubmit="return validateForm();">
 
-                <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
-                <input type="text" id="phone" name="phone" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        <div class="row">
+                            <div class="col-50">
+                                <h3>Billing Address</h3>
+                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                <input type="text" id="fname" name="firstname" placeholder="Name" required />
+                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                <input type="text" id="email" name="email" placeholder="john@example.com" required>
+                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                <input type="text" id="adr" name="address" placeholder="Address" required>
+                                <label for="city"><i class="fa fa-institution"></i> City</label>
+                                <input type="text" id="city" name="city" placeholder="City" required>
+
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="state"><i class="fa fa-institution"></i> State</label>
+                                        <input type="text" id="state" name="state" placeholder="State" required>
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="zip"><i class="fa fa-institution"></i> Zip</label>
+                                        <input type="text" id="zip" name="zip" placeholder="Zip" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-50">
+                                <h3>Payment</h3>
+                                <label for="fname"><i class="fa fa-credit-card-alt"></i> Accepted Cards</label>
+                                <div class="icon-container">
+                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                </div>
+                                <label for="cname"><i class="fa fa=user"></i> Name on Card</label>
+                                <input type="text" id="cname" name="cardname" placeholder="John Doe" required>
+                                <label for="ccnum"><i class="fa fa-credit-card-alt"></i> Credit card number</label>
+                                <input type="text" id="ccnum" name="cardnumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                                <label for="expmonth"><i class="fa fa-calendar"></i> Exp Month</label>
+                                <select name="expmonth" id="expmonth" required>
+                                    <option value="Jan">January</option>
+                                    <option value="Feb">February</option>
+                                    <option value="Mar">March</option>
+                                    <option value="Apr">April</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">June</option>
+                                    <option value="Jul">July</option>
+                                    <option value="Aug">August</option>
+                                    <option value="Sep">September</option>
+                                    <option value="Oct">October</option>
+                                    <option value="Nov">November</option>
+                                    <option value="Dec">December</option>
+                                </select>
+
+                                <label for="expyear"><i class="fa fa-calendar"></i> Exp Year</label>
+                                <input type="text" id="expyear" name="expyear" placeholder="Year" required>
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+
+                        <label class="label-container">
+                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                        </label>
+
+                        <div class="col-50">
+                            <h3>Shipping Address</h3>
+                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Name" required />
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                            <input type="text" id="adr" name="address" placeholder="Address" required>
+                            <label for="city"><i class="fa fa-institution"></i> City</label>
+                            <input type="text" id="city" name="city" placeholder="City" required>
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="state"><i class="fa fa-institution"></i> State</label>
+                                    <input type="text" id="state" name="state" placeholder="State" required>
+                                </div>
+                                <div class="col-50">
+                                    <label for="zip"><i class="fa fa-institution"></i> Zip</label>
+                                    <input type="text" id="zip" name="zip" placeholder="Zip" required>
+                                </div>
+                            </div>
+                        </div>
 
 
-                <h2 style="color: #FFF0D9;">Comments</h2><br>
-                <label for="subject">Subject:</label>
-                <select id="subject" name="subject">
-                    <option value="">Please select a subject</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="question">Question</option>
-                    <option value="suggestion">Suggestion</option>
-                    <option value="other">Other</option>
-                </select>
-
-                <label for="comments"><i class="fa fa-comments"></i> Comments & Other Information</label>
-                <textarea id="comments" name="comments" placeholder="Write something.." style="height:200px"></textarea>
-
-
-                <label form="list">Please select your preferred contact method:</label>
-                <input type="radio" id="email_method" name="method" value="email_method">
-                <label for="email_method" style="margin-right: 5px;">Email</label>
-
-                <input type="radio" id="phone_method" name="method" value="phone_method">
-                <label for="phone_method" style="margin-right: 5px;">Phone</label>
-
-                <br>
-                <br>
-
-                <div class="form-group">
-                    <input type="checkbox" id="list" name="list" value="checked">
-                    <label form="list">Sign up for our mailing list!</label>
+                        <input type="submit" value="Submit" class="btn" id="checkoutButton">
+                    </form>
                 </div>
-
-                <br>
-                <br>
-
-                <input type="reset" class="button" value="Clear">
-                <input type="submit" class="button" value="Submit">
-            </form>
+            </div>
         </div>
-        <script>
-            function validateForm() {
-                var fname = document.getElementById("fname");
-                var email = document.getElementById("email");
-                var phone = document.getElementById("phone");
-                var subject = document.getElementById("subject");
-                var comments = document.getElementById("comments");
-                var email_method = document.getElementById("email_method");
-                var phone_method = document.getElementById("phone_method");
-
-                if (fname.value == "") {
-
-                    alert("Please enter your full name.");
-
-                    fname.focus();
-                    return false;
-                }
-
-                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-                if (!emailRegex.test(email.value)) {
-                    alert("Please enter a valid email address.");
-                    email.focus();
-                    return false;
-                }
-
-                if (!phone.checkValidity()) {
-                    alert("Please enter a valid phone number.");
-                    phone.focus();
-                    return false;
-                }
-
-                if (subject.value == "") {
-                    alert("Please select a subject.");
-                    subject.focus();
-                    return false;
-                }
-
-                var commentsRegex = /^\s*$/;
-                if (commentsRegex.test(comments.value)) {
-                    alert("Please enter a comment.");
-                    comments.focus();
-                    return false;
-                }
-
-                if (!email_method.checked && !phone_method.checked) {
-                    alert("Please select your preferred contact method.");
-                    email_method.focus();
-                    return false;
-                }
-
-                alert("Thank you for your feedback, question, or suggestion!");
-
-                return true;
-            }
-        </script>
-
-    </main>
+       </main>
 
     <footer>
         <p>
@@ -228,6 +253,103 @@
             <a href="giftcard.html">Gift Cards</a>&nbsp; | <a href="cart.html">Cart</a>&nbsp; | <a href="contact.html">Contact Us</a>&nbsp;
         </p>
     </footer>
+
+    <script>
+        function validateForm() {
+            console.log('Validating form...');
+            var fname = document.getElementById('fname').value;
+            var address = document.getElementById('adr').value;
+            var city = document.getElementById('city').value;
+            var state = document.getElementById('state').value;
+            var zip = document.getElementById('zip').value;
+            var email = document.getElementById('email').value;
+            var nameoncard = document.getElementById('cname').value;
+            var creditcardnumber = document.getElementById('ccnum').value;
+            var expdate = document.getElementById('expmonth').value;
+
+            if (fname.trim() === '') {
+                alert('Please fill out the Full Name field.');
+                return false;
+            }
+
+            if (address.trim() === '') {
+                alert('Please fill out the Address field.');
+                return false;
+            }
+
+            if (city.trim() === '') {
+                alert('Please fill out the City field.');
+                return false;
+            }
+
+            if (state.trim() === '') {
+                alert('Please fill out the State field.');
+                return false;
+            }
+
+            if (zip.trim() === '' || !/^\d{5}$/.test(zip)) {
+                alert('Please fill out the Zip field.');
+                return false;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Please verify your email.');
+                return false;
+            }
+
+            if (nameoncard.trim() === '') {
+                alert('Please fill out the Name on Card field.');
+            }
+
+            if (creditcardnumber.trim() === '') {
+                alert('Please verify the credit card number.');
+            }
+
+            if (expdate.trim() === '') {
+                alert('Please verify the expiration date.');
+            }
+
+            return true;
+        }
+
+        function copyBillingToShipping() {
+            var billingFullName = document.getElementById('fname').value;
+            var billingAddress = document.getElementById('adr').value;
+            var billingCity = document.getElementById('city').value;
+            var billingState = document.getElementById('state').value;
+            var billingZip = document.getElementById('zip').value;
+
+            document.getElementById('fnameShipping').value = billingFullName;
+            document.getElementById('adrShipping').value = billingAddress;
+            document.getElementById('cityShipping').value = billingCity;
+            document.getElementById('stateShipping').value = billingState;
+            document.getElementById('zipShipping').value = billingZip;
+        }
+
+        document.getElementById('checkoutButton').addEventListener('click', function (event) {
+            console.log('Checkout button clicked.');
+            if (!validateForm()) {
+                console.log('Form validation failed.');
+                event.preventDefault();
+            } else {
+                console.log('Form validation passed.');
+                alert("Payment successful. Confirmation email has been sent.");
+            }
+        });
+
+        document.getElementById('sameadr').addEventListener('change', function () {
+            if (this.checked) {
+                copyBillingToShipping();
+            } else {
+                
+                document.getElementById('fnameShipping').value = '';
+                document.getElementById('adrShipping').value = '';
+                document.getElementById('cityShipping').value = '';
+                document.getElementById('stateShipping').value = '';
+                document.getElementById('zipShipping').value = '';
+            }
+        });
+    </script>
 
 </body>
 </html>
