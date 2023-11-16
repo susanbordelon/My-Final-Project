@@ -255,101 +255,101 @@
     </footer>
 
     <script>
-        function validateForm() {
-            console.log('Validating form...');
-            var fname = document.getElementById('fname').value;
-            var address = document.getElementById('adr').value;
-            var city = document.getElementById('city').value;
-            var state = document.getElementById('state').value;
-            var zip = document.getElementById('zip').value;
-            var email = document.getElementById('email').value;
-            var nameoncard = document.getElementById('cname').value;
-            var creditcardnumber = document.getElementById('ccnum').value;
-            var expdate = document.getElementById('expmonth').value;
+    function validateForm() {
+        console.log('Validating form...');
+        var fname = document.getElementById('fname').value;
+        var address = document.getElementById('adr').value;
+        var city = document.getElementById('city').value;
+        var state = document.getElementById('state').value;
+        var zip = document.getElementById('zip').value;
+        var email = document.getElementById('email').value;
+        var nameoncard = document.getElementById('cname').value;
+        var creditcardnumber = document.getElementById('ccnum').value;
+        var expdate = document.getElementById('expmonth').value;
 
-            if (fname.trim() === '') {
-                alert('Please fill out the Full Name field.');
-                return false;
-            }
-
-            if (address.trim() === '') {
-                alert('Please fill out the Address field.');
-                return false;
-            }
-
-            if (city.trim() === '') {
-                alert('Please fill out the City field.');
-                return false;
-            }
-
-            if (state.trim() === '') {
-                alert('Please fill out the State field.');
-                return false;
-            }
-
-            if (zip.trim() === '' || !/^\d{5}$/.test(zip)) {
-                alert('Please fill out the Zip field.');
-                return false;
-            }
-
-            if (!/^\S+@\S+\.\S+$/.test(email)) {
-                alert('Please verify your email.');
-                return false;
-            }
-
-            if (nameoncard.trim() === '') {
-                alert('Please fill out the Name on Card field.');
-            }
-
-            if (creditcardnumber.trim() === '') {
-                alert('Please verify the credit card number.');
-            }
-
-            if (expdate.trim() === '') {
-                alert('Please verify the expiration date.');
-            }
-
-            return true;
+        if (fname.trim() === '') {
+            alert('Please fill out the Full Name field.');
+            return false;
         }
 
-        function copyBillingToShipping() {
-            var billingFullName = document.getElementById('fname').value;
-            var billingAddress = document.getElementById('adr').value;
-            var billingCity = document.getElementById('city').value;
-            var billingState = document.getElementById('state').value;
-            var billingZip = document.getElementById('zip').value;
-
-            document.getElementById('fnameShipping').value = billingFullName;
-            document.getElementById('adrShipping').value = billingAddress;
-            document.getElementById('cityShipping').value = billingCity;
-            document.getElementById('stateShipping').value = billingState;
-            document.getElementById('zipShipping').value = billingZip;
+        if (address.trim() === '') {
+            alert('Please fill out the Address field.');
+            return false;
         }
 
-        document.getElementById('checkoutButton').addEventListener('click', function (event) {
-            console.log('Checkout button clicked.');
-            if (!validateForm()) {
-                console.log('Form validation failed.');
-                event.preventDefault();
-            } else {
-                console.log('Form validation passed.');
-                alert("Payment successful. Confirmation email has been sent.");
-            }
-        });
+        if (city.trim() === '') {
+            alert('Please fill out the City field.');
+            return false;
+        }
 
-        document.getElementById('sameadr').addEventListener('change', function () {
-            if (this.checked) {
-                copyBillingToShipping();
-            } else {
-                
-                document.getElementById('fnameShipping').value = '';
-                document.getElementById('adrShipping').value = '';
-                document.getElementById('cityShipping').value = '';
-                document.getElementById('stateShipping').value = '';
-                document.getElementById('zipShipping').value = '';
-            }
-        });
-    </script>
+        if (state.trim() === '') {
+            alert('Please fill out the State field.');
+            return false;
+        }
+
+        if (zip.trim() === '' || !/^\d{5}$/.test(zip)) {
+            alert('Please fill out the Zip field.');
+            return false;
+        }
+
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            alert('Please verify your email.');
+            return false;
+        }
+
+        if (nameoncard.trim() === '') {
+            alert('Please fill out the Name on Card field.');
+        }
+
+        if (creditcardnumber.trim() === '') {
+            alert('Please verify the credit card number.');
+        }
+
+        if (expdate.trim() === '') {
+            alert('Please verify the expiration date.');
+        }
+
+        return true;
+    }
+
+    function copyBillingToShipping() {
+        var billingFullName = document.getElementById('fname').value;
+        var billingAddress = document.getElementById('adr').value;
+        var billingCity = document.getElementById('city').value;
+        var billingState = document.getElementById('state').value;
+        var billingZip = document.getElementById('zip').value;
+
+        document.getElementById('fnameShipping').value = billingFullName;
+        document.getElementById('adrShipping').value = billingAddress;
+        document.getElementById('cityShipping').value = billingCity;
+        document.getElementById('stateShipping').value = billingState;
+        document.getElementById('zipShipping').value = billingZip;
+    }
+
+    document.getElementById('form').addEventListener('submit', function (event) {
+        console.log('Form submitted.');
+        if (!validateForm()) {
+            console.log('Form validation failed.');
+            event.preventDefault();
+        } else {
+            console.log('Form validation passed.');
+            alert("Payment successful. Confirmation email has been sent.");
+        }
+    });
+
+    document.getElementById('sameadr').addEventListener('change', function () {
+        if (this.checked) {
+            copyBillingToShipping();
+        } else {
+            
+            document.getElementById('fnameShipping').value = '';
+            document.getElementById('adrShipping').value = '';
+            document.getElementById('cityShipping').value = '';
+            document.getElementById('stateShipping').value = '';
+            document.getElementById('zipShipping').value = '';
+        }
+    });
+</script>
 
 </body>
 </html>
