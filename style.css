@@ -120,8 +120,6 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .cart-item-quantity button {width: 15px; height: 15px; background-color: #f4ce8f; border-radius: 5px; font-weight: bold; cursor: pointer;}
 
-.cart-item-quantity input {width: 30px; height: 15px;}
-
 .cart-item-remove {width: 30px; height: 30px; background-color: red; color: white; border: none; font-weight: bold; cursor: pointer; margin-top: auto;}
 
 .cart-footer {display: flex; justify-content: flex-end; align-items: center; padding-right: 12%; padding-bottom: 5%; width: 80%; margin: auto; font-size: 30px;}
