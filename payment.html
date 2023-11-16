@@ -346,18 +346,17 @@
             }
         });
 
-        document.getElementById('sameadr').addEventListener('change', function () {
-            if (this.checked) {
-                copyBillingToShipping();
-            } else {
-                
-                document.getElementById('fnameShipping').value = '';
-                document.getElementById('adrShipping').value = '';
-                document.getElementById('cityShipping').value = '';
-                document.getElementById('stateShipping').value = '';
-                document.getElementById('zipShipping').value = '';
-            }
-        });
+        document.getElementsByName('sameadr')[0].addEventListener('change', function () {
+        if (this.checked) {
+            copyBillingToShipping();
+        } else {
+            document.getElementById('fnameShipping').value = '';
+            document.getElementById('adrShipping').value = '';
+            document.getElementById('cityShipping').value = '';
+            document.getElementById('stateShipping').value = '';
+            document.getElementById('zipShipping').value = '';
+        }
+    });
     </script>
 </body>
 </html>
