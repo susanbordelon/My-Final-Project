@@ -7,26 +7,59 @@
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-    .parent {height: 400px; width: 500px; overflow: auto;}
-    
-    .element {float: left; height: 300px; width: 400px; background-color: grey;}
-    
-    .slides {width: calc(716px * 4); animation: slideShow 10s ease infinite;}
+        .section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
-    .slides .element img {width: 100%; height: 100%;}
-    
-    @keyframes slideShow {
-        20% {margin-left: 0px;}
+        .container {
+            position: relative;
+            width: 20%;
+            margin: 10px;
+            overflow: hidden;
+            display: inline-block;
+            height: 300px;
+        }
 
-        40% {margin-left: calc(-716px * 1);}
+        .image {
+            opacity: 1;
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
 
-        60% {margin-left: calc(-716px * 2);}
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-        80% {margin-left: calc(-716px * 3);}
-    }
-</style>
+        .container:hover .image {
+            opacity: 0.3;
+        }
 
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #4BBBD3;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: Bookman Old Style;
+            border-radius: 8px;
+        }
+    </style>
 </head>
+
 
 <body id="container">
     <header>
@@ -52,103 +85,170 @@
             <p>Phone: 1-800-MaddieB</p>
             <p>Visit us @ 5500 Seawall Blvd, Galveston, TX 77550</p>
         </label2>
-            
-        <div class="main-container">
+
+        <div class="section">
             <h2> Appetizers </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Charbroiled Oysters.jpg" alt="Charbroiled Oysters">
-                        </div>
-                        <div class="element">
-                            <img src="images/Calamari.jpg" alt="Calamari">
-                        </div>
-                        <div class="element">
-                            <img src="images/Crab Dip.jpg" alt="Crab Dip">
-                        </div>
-                        <div class="element">
-                            <img src="images/Crab Guacamole.jpg" alt="Crab Guacamole">
-                        </div>
-                        <div class="element">
-                            <img src="images/Marinated Crab Claws.jpg" alt="Marinated Crab Claws">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Salad and Soup </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/House Salad.jpg" alt="House Salad">
-                        </div>
-                        <div class="element">
-                            <img src="images/Caesar Salad.jpg" alt="Caesar Salad">
-                        </div>
-                        <div class="element">
-                            <img src="images/Seafood Gumbo.jpg" alt="Seafood Gumbo">
-                        </div>
-                        <div class="element">
-                            <img src="images/Soup of the Day.jpeg" alt="Soup of the Day">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Entrees </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Pecan Crusted Redfish.jpg" alt="Pecan Crusted Redfish">
-                        </div>
-                        <div class="element">
-                            <img src="images/Grilled Salmon.jpg" alt="Grilled Salmon">
-                        </div>
-                        <div class="element">
-                            <img src="images/Catfish Atchafalaya.jpg" alt="Catfish Atchafalaya">
-                        </div>
-                        <div class="element">
-                            <img src="images/Shrimp and Grits.jpg" alt="Shrimp and Grits">
-                        </div>
-                        <div class="element">
-                            <img src="images/Bone in Ribeye.jpg" alt="Bone in Ribeye">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Desserts </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Brownie aLa Mode.jpg" alt="Brownie aLa Mode">
-                        </div>
-                        <div class="element">
-                            <img src="images/Cheesecake.jpg" alt="Cheesecake">
-                        </div>
-                        <div class="element">
-                            <img src="images/Chocolate Pecan Pie.jpg" alt="Chocolate Pecan Pie">
-                        </div>
-                        <div class="element">
-                            <img src="images/Bread Pudding.jpg" alt="Bread Pudding">
-                        </div>
-                    </div>
-                </div>
-
-                <h2> Beverages </h2>
-                <div class="parent">
-                    <div class="slides">
-                        <div class="element">
-                            <img src="images/Cola.png" alt="Cola">
-                        </div>
-                        <div class="element">
-                            <img src="images/Beer.jpg" alt="Beer">
-                        </div>
-                        <div class="element">
-                            <img src="images/Wine.jpg" alt="Wine">
-                        </div>
-                    </div>
+            <div class="container">
+                <img src="images/CharbroiledOysters.jpg" alt="Charbroiled Oysters" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Charbroiled Oysters</div>
                 </div>
             </div>
 
-    </main>
+            <div class="container">
+                <img src="images/Calamari.jpg" alt="Calamari" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Calamari</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/CrabDip.jpg" alt="Crab Dip" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Crab Dip</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/CrabGuacamole.jpg" alt="Crab Guacamole" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Crab Guacamole</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/MarinatedCrabClaws.jpg" alt="Marinated Crab Claws" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Marinated Crab Claws</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2> Salad and Soup </h2>
+            <div class="container">
+                <img src="images/HouseSalad.jpg" alt="House Salad" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">House Salad</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/CaesarSalad.jpg" alt="Caesar Salad" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Caesar Salad</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/SeafoodGumbo.jpg" alt="Seafood Gumbo" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Seafood Gumbo</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/SoupOfTheDay.jpeg" alt="Soup of the Day" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Soup of the Day</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2> Entrees </h2>
+            <div class="container">
+                <img src="images/PecanCrustedRedfish.jpg" alt="Pecan Crusted Redfish" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Pecan Crusted Redfish</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/GrilledSalmon.jpg" alt="Grilled Salmon" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Grilled Salmon</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/CatfishAtchafalaya.jpg" alt="Catfish Atchafalaya" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Catfish Atchafalaya</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/ShrimpandGrits.jpg" alt="Shrimp and Grits" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Shrimp and Grits</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/BoneInRibeye.jpg" alt="Bone in Ribeye" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Bone In Ribeye</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2> Desserts </h2>
+            <div class="container">
+                <img src="images/BrownieaLaMode.jpg" alt="Brownie aLa Mode" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Brownie aLa Mode</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/Cheesecake.jpg" alt="Cheesecake" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Cheesecake</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/ChocolatePecanPie.jpg" alt="Chocolate Pecan Pie" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Chocolate Pecan Pie</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/BreadPudding.jpg" alt="Bread Pudding" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Bread Pudding</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2> Beverages </h2>
+            <div class="container">
+                <img src="images/Cola.png" alt="Drinks" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Drinks</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/Beer.jpg" alt="Beer" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Beer</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <img src="images/Wine.jpg" alt="Wine" class="image" style="width:100%">
+                <div class="middle">
+                    <div class="text">Wine</div>
+                </div>
+            </div>
+        </div>
+</main>
+
     <footer>
         <p>
             <a href="index.html">Home</a>&nbsp; | <a href="about.html">About</a>&nbsp; |  <a href="menu.html">Menu</a>&nbsp; | <a href="delivery.html">Delivery</a>&nbsp; |
