@@ -10,11 +10,20 @@
     <style>
         .happening {background-color: #208FD6; color: #fff; padding: 20px;}
 
-        .img-container {width: 200px; height: 200px; overflow: hidden; position: relative;}
+        .img-container {width: 350px; height: 350px; overflow: hidden; position: relative;}
 
-        .img-container img {width: 100%; height: 100%; transition: transform 0.3s;}
+        .img-container img {width: 100%; height: 100%; animation: rotation 10s infinite linear;}
 
-        .img-container:hover img {transform: scale(1.1);}
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 </head>
 
@@ -41,7 +50,7 @@
         <h1 style="color:black">Happenings at Maddie B Kitchen</h1>
 
         <div class="img-container">
-           <img src="images/Island Time 2023.jpg" alt="island" width="200" height="200" />
+           <img src="images/Island Time 2023.jpg" alt="island" />
         </div>
 
         <div class="happening">
@@ -49,15 +58,15 @@
                 <p>Monday - Friday</p>
                 <p>3PM to 7PM</p>
         
-            <h2>VETERAN'S DAY</h2>
-                <p>Saturday, November 12</p>
-                <p>Veterans enjoy a free appetizer all day</p>
-                <p>Must show ID</p>
-     
             <h2>THANKSGIVING DAY</h2>
                 <p>Thursday, November 23</p>
                 <p>Enjoy an Oceanview and Chef's Thanksgiving Menu</p>
                 <p>$40 per person</p>
+     
+            <h2>BLACK FRIDAY</h2>
+                <p>Friday, November 24</p>
+                <p>Happy Hour starts early and lasts longer!</p>
+                <p>2PM to 8PM</p>
         </div>
     </main>
 
