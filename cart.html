@@ -7,29 +7,29 @@
     <title>Maddie B's Kitchen</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-    body {
-        display: inline-block;
-    }
+        body {
+            display: inline-block;
+        }
 
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s;
-        width: auto;
-        border-radius: 5px;
-        border: none;
-    }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: auto;
+            border-radius: 5px;
+            border: none;
+        }
 
-    .clear-button {background-color: #FF6347; color: #fff;}
+        .clear-button {background-color: #FF6347; color: #fff;}
 
-    .button {background-color: #4BBBD3; color: #FFF;}
+        .button {background-color: #4BBBD3; color: #FFF;}
 
-    .button:hover {background-color: #F4CE8F;}
+        .button:hover {background-color: #F4CE8F;}
 
-    .button:active {transform: scale(.95);}
-</style>
+        .button:active {transform: scale(.95);}
+    </style>
 </head>
 
 <body id="container">
@@ -72,14 +72,12 @@
     </main>
 
     <script>
-        // Define the file extension variable here
         let fileExtension = '';
 
         function displayCartItems() {
             const cartData = JSON.parse(localStorage.getItem('cart')) || [];
             const cartContainer = document.querySelector('.cart-container');
 
-            // Clear the current cartContainer
             cartContainer.innerHTML = '';
 
             if (cartData.length === 0) {
@@ -95,7 +93,7 @@
                     cartItem.classList.add('cart-item');
 
                     fileExtension = item.name.split('.').pop().toLowerCase();
-                    const cleanedName = item.name.replace(/[0-9]/g, ''); // Remove any extra digits
+                    const cleanedName = item.name.replace(/[0-9]/g, ''); 
 
                     cartItem.innerHTML = `
                         <img src="images/${item.name}.jpg" alt="${item.name}">
@@ -118,13 +116,11 @@
             }
         }
 
-        // Wait for the DOM to load, then call displayCartItems to initialize the cart
         document.addEventListener('DOMContentLoaded', () => {
             displayCartItems();
             updateTotal();
         });
 
-        // Calculate and update the subtotal and total prices
         function updateTotal() {
             console.log('Updating total');
             const items = document.querySelectorAll('.cart-item');
@@ -146,19 +142,21 @@
             document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
         }
 
+        const clearCartButton = document.getElementById('clear-cart');
+        if (clearCartButton) {
+            clearCartButton.addEventListener('click', clearCart);
+        }
+    
         function clearCart() {
-            // Clear the cart items from local storage
+            
             localStorage.removeItem('cart');
 
-            // Clear the cart display on the page
             const cartContainer = document.querySelector('.cart-container');
-            cartContainer.innerHTML = ''; // Remove all cart items from the page
+            cartContainer.innerHTML = ''; 
 
-            // Update the total price (set it to $0.00)
             document.getElementById('total-price').textContent = '$0.00';
         }
 
-        // Remove an item from the cart
         function removeItem(item) {
             const itemName = item.querySelector('h3').textContent;
             item.remove();
@@ -168,13 +166,12 @@
             updateTotal();
         }
 
-        // Handle Checkout
         function checkout() {
             window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
 
             localStorage.removeItem('cart');
 
-            alert('Thank you for your order! Your cart has been cleared.');
+            alert('Thank you for your order! Your order has been submitted and will be completed after successful payment.');
         }
     </script>
 
@@ -186,4 +183,5 @@
     </footer>
 
 </body>
+</html>
 </html>
