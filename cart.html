@@ -79,7 +79,6 @@
     </main>
 
     <script>
-        // Calculate and update the subtotal and total prices
         function updateTotal() {
             const items = document.querySelectorAll('.cart-item');
             let totalPrice = 0;
@@ -100,26 +99,22 @@
         }
 
         function clearCart() {
-            // Clear the cart items from local storage
+            
             localStorage.removeItem('cart');
 
-            // Clear the cart display on the page
             const cartContainer = document.querySelector('.cart-container');
-            cartContainer.innerHTML = ''; // Remove all cart items from the page
+            cartContainer.innerHTML = ''; 
 
-            // Update the total price (set it to $0.00)
             document.getElementById('total-price').textContent = '$0.00';
         }
 
-        // Handle checkout
         function checkout() {
-            // Add checkout logic to redirect to a payment page
+            
             window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
 
             alert('Thank you for your order! Your order has been submitted and will be completed after successful payment.');
         }
 
-        // Remove an item from the cart
         function removeItem(item) {
             const itemName = item.querySelector('h3').textContent;
             item.remove();
@@ -129,22 +124,24 @@
             updateTotal();
         }
 
-        // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
             const clearCartButton = document.getElementById('clear-cart');
             const cartContainer = document.querySelector('.cart-container');
 
             clearCartButton.addEventListener('click', clearCart);
 
-            // Fetch cart items from local storage and create cart elements
             const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
             cartData.forEach(item => {
                 const cartItem = document.createElement('div');
                 cartItem.classList.add('cart-item');
 
+                const cleanedName = item.name.replace(/\s/g, '');
+
+                console.log(`Image source: images / ${item.name}.jpg`);
+
                 cartItem.innerHTML = `
-                        <img src="images/${item.name}.jpeg" alt="${item.name}">
+                        <img src="images/${cleanedName}.jpg" alt="${item.name}">
                         <div class="cart-item-info">
                             <h3>${item.name}</h3>
                             <p class="cart-item-price">$${item.price}</p>
@@ -159,16 +156,13 @@
                 cartContainer.appendChild(cartItem);
             });
 
-            // Add input event listeners for quantity inputs
             const quantityInputs = document.querySelectorAll('.quantity');
             quantityInputs.forEach(input => {
                 input.addEventListener('input', updateTotal);
             });
 
-            // Initialize total price
             updateTotal();
         });
-
         
     </script>
 
