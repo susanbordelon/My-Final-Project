@@ -118,9 +118,9 @@ table tr th, table tr td {border: 1px solid #000080; padding: 50px;}
 
 .cart-item-quantity {margin-right: 20px; margin-top: 20px;}
 
-.cart-item-quantity button {width: 30px; height: 30px; background-color: #f4ce8f; border-radius: 5px; font-weight: bold; cursor: pointer;}
+.cart-item-quantity button {width: 15px; height: 15px; background-color: #f4ce8f; border-radius: 5px; font-weight: bold; cursor: pointer;}
 
-.cart-item-quantity input {width: 50px; height: 30px;}
+.cart-item-quantity input {width: 30px; height: 15px;}
 
 .cart-item-remove {width: 30px; height: 30px; background-color: red; color: white; border: none; font-weight: bold; cursor: pointer; margin-top: auto;}
 
