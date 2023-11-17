@@ -105,6 +105,11 @@
             const cartContainer = document.querySelector('.cart-container');
             cartContainer.innerHTML = ''; 
 
+            const emptyCartMessage = document.createElement('p');
+            emptyCartMessage.textContent = 'Your carty is empty.';
+
+            cartContainer.appendChild(emptyCartMessage);
+
             document.getElementById('total-price').textContent = '$0.00';
         }
 
