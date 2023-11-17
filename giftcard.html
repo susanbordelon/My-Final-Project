@@ -10,17 +10,6 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-        footer {
-            clear: both;
-            background-color: #B1E3E4;
-            color: #208FD6;
-            text-align: center;
-            margin-left: 10%;
-            padding: 5px;
-            font-size: 14pt;
-            width: 80%;
-        }
-
         .gift-card-form {
             background-color: #4bbbd3;
             padding: 20px;
@@ -207,11 +196,15 @@
                     <option value="phone">Text Message</option>
                 </select>
 
-                <label for="recipient_email" class="email-label" style="text-align: center;"><i class="fa fa-envelope"></i> Recipient Email:</label>
-                <input class="email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" />
+                <label for="recipient_email" class="email-label centered-text;">
+                    <i class="fa fa-envelope"></i> Recipient Email:
+                </label>
+                <input class="recipient_email" title="Recipient Email" placeholder="Recipient Email" name="giftCard.email" value="" />
 
-                <label for="recipient_phone" class="phone-label" style="text-align: center;"><i class="fa fa-phone"></i> Recipient Phone:</label>
-                <input class="phone" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" />
+                <label for="recipient_phone" class="phone-label centered-text;">
+                    <i class="fa fa-phone"></i> Recipient Phone:
+                </label>
+                <input class="recipient_phone" title="Recipient Phone" placeholder="Recipient Phone" name="giftCard.phone" value="" />
 
 
                 <label for="delivery_method" style="text-align: center;"><i class="fa fa-calendar"></i> Delivery Date:</label>
@@ -309,18 +302,17 @@
             phoneLabel.style.display = 'none';
             phoneInput.style.display = 'none';
 
+            const emailInput = document.getElementById("recipient_email");
+            const phoneInput = document.getElementById("recipient_phone");
+
             function toggleFields() {
                 const deliveryMethod = document.getElementById('delivery_method').value;
 
                 if (deliveryMethod === 'email') {
-                    emailLabel.style.display = 'block';
                     emailInput.style.display = 'block';
-                    phoneLabel.style.display = 'none';
                     phoneInput.style.display = 'none';
                 } else if (deliveryMethod === 'phone') {
-                    emailLabel.style.display = 'none';
                     emailInput.style.display = 'none';
-                    phoneLabel.style.display = 'block';
                     phoneInput.style.display = 'block';
                 }
             }
