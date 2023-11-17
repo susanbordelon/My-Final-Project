@@ -100,14 +100,16 @@
 
         function clearCart() {
             
-            localStorage.removeItem('cart');
+            localStorage.removeItem('cartItems');
 
             const cartContainer = document.querySelector('.cart-container');
             cartContainer.innerHTML = ''; 
 
             const emptyCartMessage = document.createElement('p');
             emptyCartMessage.textContent = 'Your carty is empty.';
-            emptyCartMessage.style.color = '#4BBBD3';
+            emptyCartMessage.style.color = '#B1E3E4';
+            emptyCartMessage.style.fontWeight = 'bold';
+            emptyCartMessage.styly.fontSize = '20';
 
             cartContainer.appendChild(emptyCartMessage);
 
