@@ -117,11 +117,14 @@
         }
 
         function checkout() {
-            
-            window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
+        const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 
-            alert('Thank you for your order! Your order has been submitted and will be completed after successful payment.');
-        }
+        localStorage.removeItem('cart');
+    
+        window.location.href = 'https://susanbordelon.github.io/My-Final-Project/payment.html';
+
+        alert('Thank you for your order! Your order has been submitted and will be completed after successful payment.');
+    }
 
         function removeItem(item) {
             const itemName = item.querySelector('h3').textContent;
